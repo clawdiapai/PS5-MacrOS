@@ -1,0 +1,43 @@
+{
+  "id": "10_TWINE_WORLD_MAP",
+  "threshold": 0.85,
+  "legacy": true,
+  "has_full": false,
+  "full": null,
+  "crop": {
+    "x": 80,
+    "y": 180,
+    "w": 140,
+    "h": 130
+  },
+  "crops": [
+    {
+      "x": 80,
+      "y": 180,
+      "w": 140,
+      "h": 130
+    }
+  ],
+  "target_count": 1,
+  "match_mode": "all",
+  "match_count": 1,
+  "search_roi": [
+    80,
+    180,
+    140,
+    130
+  ],
+  "frame_size": {
+    "width": 1280,
+    "height": 720
+  },
+  "source": "pi2ps5",
+  "pi2ps5_state": "10_TWINE_WORLD_MAP",
+  "pi2ps5_name": "Twine Peaks on World Map",
+  "pi2ps5_priority": 12,
+  "pi2ps5_action_type": "BUTTON_CLICK",
+  "pi2ps5_templates": [
+    "anchor_world_twine.png"
+  ],
+  "note": "LEGACY \u2014 no reference screenshot (imported from pi2ps5)"
+}

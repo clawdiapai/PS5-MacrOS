@@ -1,0 +1,43 @@
+{
+  "id": "13_COMMUNITY_LOOKOUT",
+  "threshold": 0.85,
+  "legacy": true,
+  "has_full": false,
+  "full": null,
+  "crop": {
+    "x": 960,
+    "y": 640,
+    "w": 290,
+    "h": 75
+  },
+  "crops": [
+    {
+      "x": 960,
+      "y": 640,
+      "w": 290,
+      "h": 75
+    }
+  ],
+  "target_count": 1,
+  "match_mode": "all",
+  "match_count": 1,
+  "search_roi": [
+    960,
+    640,
+    290,
+    75
+  ],
+  "frame_size": {
+    "width": 1280,
+    "height": 720
+  },
+  "source": "pi2ps5",
+  "pi2ps5_state": "13_COMMUNITY_LOOKOUT",
+  "pi2ps5_name": "Community Lookout",
+  "pi2ps5_priority": 17,
+  "pi2ps5_action_type": "BUTTON_CLICK",
+  "pi2ps5_templates": [
+    "anchor_community_lookout.png"
+  ],
+  "note": "LEGACY \u2014 no reference screenshot (imported from pi2ps5)"
+}

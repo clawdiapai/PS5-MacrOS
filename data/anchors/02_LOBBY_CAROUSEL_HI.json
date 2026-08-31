@@ -1,0 +1,33 @@
+{
+  "id": "02_LOBBY_CAROUSEL_HI",
+  "threshold": 0.8,
+  "legacy": true,
+  "has_full": false,
+  "full": null,
+  "crop": {
+    "x": 0,
+    "y": 0,
+    "w": 1,
+    "h": 1
+  },
+  "crops": [
+    {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 1
+    }
+  ],
+  "target_count": 1,
+  "match_mode": "all",
+  "match_count": 1,
+  "frame_size": {
+    "width": 1280,
+    "height": 720
+  },
+  "source": "pi2ps5",
+  "pi2ps5_templates": [
+    "anchor_stw_carousel_card_hi.png"
+  ],
+  "note": "LEGACY helper \u2014 no reference screenshot (Discover/lobby)"
+}

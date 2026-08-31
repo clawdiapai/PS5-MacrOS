@@ -1,0 +1,802 @@
+{
+  "written": "2026-08-29T21:34:27",
+  "verdict": "partial \u2014 linear editable graphs OK; priority scanner + DISCOVER_NAV deferred",
+  "states": [
+    {
+      "priority": 1,
+      "id": "00_START_FORTNITE",
+      "name": "Fortnite Startup Screen",
+      "action_type": "BUTTON_CLICK",
+      "resolved": {
+        "type": "BUTTON_CLICK",
+        "button": "cross",
+        "delay_after": 1.5
+      },
+      "in_linear_graph": true,
+      "needs_design": false,
+      "node_chain": "vis/wait_anchor(00_START_FORTNITE) \u2192 ds/press(cross) \u2192 ds/delay"
+    },
+    {
+      "priority": 2,
+      "id": "01_STARTING",
+      "name": "PS5 Home Menu",
+      "action_type": "BUTTON_CLICK",
+      "resolved": {
+        "type": "BUTTON_CLICK",
+        "button": "circle",
+        "delay_after": 2.0
+      },
+      "in_linear_graph": true,
+      "needs_design": false,
+      "node_chain": "vis/wait_anchor(01_STARTING) \u2192 ds/press(circle) \u2192 ds/delay"
+    },
+    {
+      "priority": 3,
+      "id": "03_CLAIM",
+      "name": "Battle Royale Claim Screen",
+      "action_type": "BUTTON_CLICK",
+      "resolved": {
+        "type": "BUTTON_CLICK",
+        "button": "cross",
+        "delay_after": 1.0
+      },
+      "in_linear_graph": false,
+      "needs_design": false,
+      "node_chain": "vis/wait_anchor(03_CLAIM) \u2192 ds/press(cross) \u2192 ds/delay"
+    },
+    {
+      "priority": 4,
+      "id": "26_DISMISS_MODAL",
+      "name": "Dismiss Popup Modal",
+      "action_type": "BUTTON_CLICK",
+      "resolved": {
+        "type": "MACRO_SEQUENCE",
+        "steps": [
+          {
+            "btn": "DOWN",
+            "press_ms": 100,
+            "wait_ms": 150
+          },
+          {
+            "btn": "CROSS",
+            "press_ms": 120,
+            "wait_ms": 500
+          }
+        ]
+      },
+      "in_linear_graph": false,
+      "needs_design": false,
+      "node_chain": "vis/wait_anchor(26_DISMISS_MODAL) \u2192 ds/macro_block(seq_26_DISMISS_MODAL, events inline)"
+    },
+    {
+      "priority": 5,
+      "id": "25_SURVEY_SKIP",
+      "name": "Survey Skip Screen",
+      "action_type": "BUTTON_CLICK",
+      "resolved": {
+        "type": "BUTTON_CLICK",
+        "button": "triangle",
+        "delay_after": 1.0
+      },
+      "in_linear_graph": false,
+      "needs_design": false,
+      "node_chain": "vis/wait_anchor(25_SURVEY_SKIP) \u2192 ds/press(triangle) \u2192 ds/delay"
+    },
+    {
+      "priority": 6,
+      "id": "30_SEARCH_RESULTS",
+      "name": "Discover Search Results",
+      "action_type": "MACRO_SEQUENCE",
+      "resolved": {
+        "type": "MACRO_SEQUENCE",
+        "steps": [
+          {
+            "btn": "DOWN",
+            "press_ms": 100,
+            "wait_ms": 200
+          },
+          {
+            "btn": "DOWN",
+            "press_ms": 100,
+            "wait_ms": 250
+          },
+          {
+            "btn": "CROSS",
+            "press_ms": 120,
+            "wait_ms": 350
+          },
+          {
+            "btn": "CROSS",
+            "press_ms": 120,
+            "wait_ms": 500
+          }
+        ]
+      },
+      "in_linear_graph": true,
+      "needs_design": false,
+      "node_chain": "vis/wait_anchor(30_SEARCH_RESULTS) \u2192 ds/macro_block(seq_30_SEARCH_RESULTS, events inline)"
+    },
+    {
+      "priority": 7,
+      "id": "29_DISCOVER_KEYBOARD",
+      "name": "On-Screen Virtual Keyboard",
+      "action_type": "MACRO_FILE",
+      "resolved": {
+        "type": "MACRO_FILE",
+        "file": "keyboard_macro.json"
+      },
+      "in_linear_graph": true,
+      "needs_design": false,
+      "node_chain": "vis/wait_anchor(29_DISCOVER_KEYBOARD) \u2192 ds/macro_block(keyboard_save_the_world, events inline)"
+    },
+    {
+      "priority": 8,
+      "id": "28_DISCOVER_SEARCH_FOCUSED",
+      "name": "Discover Search Bar Focused",
+      "action_type": "BUTTON_CLICK",
+      "resolved": {
+        "type": "BUTTON_CLICK",
+        "button": "cross",
+        "delay_after": 1.2
+      },
+      "in_linear_graph": true,
+      "needs_design": false,
+      "node_chain": "vis/wait_anchor(28_DISCOVER_SEARCH_FOCUSED) \u2192 ds/press(cross) \u2192 ds/delay"
+    },
+    {
+      "priority": 9,
+      "id": "07_STW_COLLECT",
+      "name": "STW Collect All Rewards",
+      "action_type": "BUTTON_CLICK",
+      "resolved": {
+        "type": "BUTTON_CLICK",
+        "button": "triangle",
+        "delay_after": 1.0
+      },
+      "in_linear_graph": true,
+      "needs_design": false,
+      "node_chain": "vis/wait_anchor(07_STW_COLLECT) \u2192 ds/press(triangle) \u2192 ds/delay"
+    },
+    {
+      "priority": 10,
+      "id": "08_HESTIA",
+      "name": "Hestia Room (Blue Screen)",
+      "action_type": "BUTTON_CLICK",
+      "resolved": {
+        "type": "BUTTON_CLICK",
+        "button": "touchpad",
+        "delay_after": 1.5
+      },
+      "in_linear_graph": true,
+      "needs_design": false,
+      "node_chain": "vis/wait_anchor(08_HESTIA) \u2192 ds/press(touchpad) \u2192 ds/delay"
+    },
+    {
+      "priority": 11,
+      "id": "09_OLD_LOBBY_QUESTS",
+      "name": "Old Lobby Quests Tab",
+      "action_type": "BUTTON_CLICK",
+      "resolved": {
+        "type": "BUTTON_CLICK",
+        "button": "r1",
+        "delay_after": 1.0
+      },
+      "in_linear_graph": true,
+      "needs_design": false,
+      "node_chain": "vis/wait_anchor(09_OLD_LOBBY_QUESTS) \u2192 ds/press(r1) \u2192 ds/delay"
+    },
+    {
+      "priority": 12,
+      "id": "10_TWINE_WORLD_MAP",
+      "name": "Twine Peaks on World Map",
+      "action_type": "BUTTON_CLICK",
+      "resolved": {
+        "type": "BUTTON_CLICK",
+        "button": "cross",
+        "delay_after": 1.2
+      },
+      "in_linear_graph": true,
+      "needs_design": false,
+      "node_chain": "vis/wait_anchor(10_TWINE_WORLD_MAP) \u2192 ds/press(cross) \u2192 ds/delay"
+    },
+    {
+      "priority": 13,
+      "id": "10_OLD_LOBBY_MAP",
+      "name": "Stonewood on World Map",
+      "action_type": "MACRO_SEQUENCE",
+      "resolved": {
+        "type": "MACRO_SEQUENCE",
+        "steps": [
+          {
+            "btn": "RIGHT",
+            "press_ms": 100,
+            "wait_ms": 150
+          },
+          {
+            "btn": "RIGHT",
+            "press_ms": 100,
+            "wait_ms": 150
+          },
+          {
+            "btn": "RIGHT",
+            "press_ms": 100,
+            "wait_ms": 150
+          },
+          {
+            "btn": "CROSS",
+            "press_ms": 120,
+            "wait_ms": 500
+          }
+        ]
+      },
+      "in_linear_graph": true,
+      "needs_design": false,
+      "node_chain": "vis/wait_anchor(10_OLD_LOBBY_MAP) \u2192 ds/macro_block(seq_10_OLD_LOBBY_MAP, events inline)"
+    },
+    {
+      "priority": 14,
+      "id": "14_TRAVELLING_LOBBY",
+      "name": "Travelling to Lobby / Storm Shield",
+      "action_type": "WAIT",
+      "resolved": {
+        "type": "WAIT"
+      },
+      "in_linear_graph": true,
+      "needs_design": false,
+      "node_chain": "vis/wait_anchor(14_TRAVELLING_LOBBY) \u2192 ds/delay(hold)"
+    },
+    {
+      "priority": 15,
+      "id": "11_TWINE_MAP",
+      "name": "Twine Map (Play with Others)",
+      "action_type": "MACRO_SEQUENCE",
+      "resolved": {
+        "type": "MACRO_SEQUENCE",
+        "steps": [
+          {
+            "btn": "RIGHT",
+            "press_ms": 100,
+            "wait_ms": 200
+          },
+          {
+            "btn": "CROSS",
+            "press_ms": 120,
+            "wait_ms": 500
+          }
+        ]
+      },
+      "in_linear_graph": true,
+      "needs_design": false,
+      "node_chain": "vis/wait_anchor(11_TWINE_MAP) \u2192 ds/macro_block(seq_11_TWINE_MAP, events inline)"
+    },
+    {
+      "priority": 16,
+      "id": "12_TWINE_SELECTED",
+      "name": "Twine Storm Shield Selected",
+      "action_type": "BUTTON_CLICK",
+      "resolved": {
+        "type": "BUTTON_CLICK",
+        "button": "cross",
+        "delay_after": 1.0
+      },
+      "in_linear_graph": true,
+      "needs_design": false,
+      "node_chain": "vis/wait_anchor(12_TWINE_SELECTED) \u2192 ds/press(cross) \u2192 ds/delay"
+    },
+    {
+      "priority": 17,
+      "id": "13_COMMUNITY_LOOKOUT",
+      "name": "Community Lookout",
+      "action_type": "BUTTON_CLICK",
+      "resolved": {
+        "type": "BUTTON_CLICK",
+        "button": "square",
+        "delay_after": 1.0
+      },
+      "in_linear_graph": true,
+      "needs_design": false,
+      "node_chain": "vis/wait_anchor(13_COMMUNITY_LOOKOUT) \u2192 ds/press(square) \u2192 ds/delay"
+    },
+    {
+      "priority": 18,
+      "id": "15_STW_FINAL_LAUNCH",
+      "name": "STW Final Launch Screen",
+      "action_type": "BUTTON_CLICK",
+      "resolved": {
+        "type": "BUTTON_CLICK",
+        "button": "triangle",
+        "delay_after": 1.0
+      },
+      "in_linear_graph": true,
+      "needs_design": false,
+      "node_chain": "vis/wait_anchor(15_STW_FINAL_LAUNCH) \u2192 ds/press(triangle) \u2192 ds/delay"
+    },
+    {
+      "priority": 19,
+      "id": "17_SHIELD_INVENTORY",
+      "name": "Storm Shield Inventory Tab",
+      "action_type": "MACRO_SEQUENCE",
+      "resolved": {
+        "type": "MACRO_SEQUENCE",
+        "steps": [
+          {
+            "btn": "R1",
+            "press_ms": 100,
+            "wait_ms": 150
+          },
+          {
+            "btn": "R1",
+            "press_ms": 100,
+            "wait_ms": 150
+          },
+          {
+            "btn": "R1",
+            "press_ms": 100,
+            "wait_ms": 150
+          },
+          {
+            "btn": "R1",
+            "press_ms": 100,
+            "wait_ms": 150
+          }
+        ]
+      },
+      "in_linear_graph": true,
+      "needs_design": false,
+      "node_chain": "vis/wait_anchor(17_SHIELD_INVENTORY) \u2192 ds/macro_block(seq_17_SHIELD_INVENTORY, events inline)"
+    },
+    {
+      "priority": 20,
+      "id": "18_SHIELD_MENU",
+      "name": "Storm Shield Menu / Endurance Modal",
+      "action_type": "BUTTON_CLICK",
+      "resolved": {
+        "type": "BUTTON_CLICK",
+        "button": "cross",
+        "delay_after": 1.0
+      },
+      "in_linear_graph": true,
+      "needs_design": false,
+      "node_chain": "vis/wait_anchor(18_SHIELD_MENU) \u2192 ds/press(cross) \u2192 ds/delay"
+    },
+    {
+      "priority": 21,
+      "id": "19_SHIELD_CONFIRM",
+      "name": "Storm Shield Launch Confirm",
+      "action_type": "BUTTON_CLICK",
+      "resolved": {
+        "type": "BUTTON_CLICK",
+        "button": "cross",
+        "delay_after": 1.5
+      },
+      "in_linear_graph": true,
+      "needs_design": false,
+      "node_chain": "vis/wait_anchor(19_SHIELD_CONFIRM) \u2192 ds/press(cross) \u2192 ds/delay"
+    },
+    {
+      "priority": 22,
+      "id": "21_ENDURANCE_BETWEEN",
+      "name": "Endurance Defense (Between Waves)",
+      "action_type": "WAIT",
+      "resolved": {
+        "type": "WAIT"
+      },
+      "in_linear_graph": true,
+      "needs_design": false,
+      "node_chain": "vis/wait_anchor(21_ENDURANCE_BETWEEN) \u2192 ds/delay(hold)"
+    },
+    {
+      "priority": 23,
+      "id": "20_ENDURANCE_ACTIVE",
+      "name": "Endurance Wave Active",
+      "action_type": "WAIT",
+      "resolved": {
+        "type": "WAIT"
+      },
+      "in_linear_graph": true,
+      "needs_design": false,
+      "node_chain": "vis/wait_anchor(20_ENDURANCE_ACTIVE) \u2192 ds/delay(hold)"
+    },
+    {
+      "priority": 24,
+      "id": "16_SHIELD_NOT_STARTED",
+      "name": "Storm Shield Loaded (Not Started)",
+      "action_type": "BUTTON_CLICK",
+      "resolved": {
+        "type": "BUTTON_CLICK",
+        "button": "up",
+        "delay_after": 1.0
+      },
+      "in_linear_graph": true,
+      "needs_design": false,
+      "node_chain": "vis/wait_anchor(16_SHIELD_NOT_STARTED) \u2192 ds/press(up) \u2192 ds/delay"
+    },
+    {
+      "priority": 25,
+      "id": "22_ENDURANCE_ENDED",
+      "name": "Endurance Ended (Team Score)",
+      "action_type": "BUTTON_CLICK",
+      "resolved": {
+        "type": "BUTTON_CLICK",
+        "button": "circle",
+        "delay_after": 2.0
+      },
+      "in_linear_graph": true,
+      "needs_design": false,
+      "node_chain": "vis/wait_anchor(22_ENDURANCE_ENDED) \u2192 ds/press(circle) \u2192 ds/delay"
+    },
+    {
+      "priority": 26,
+      "id": "23_MATCHMAKE_HOMEBASE",
+      "name": "Matchmake Homebase",
+      "action_type": "BUTTON_CLICK",
+      "resolved": {
+        "type": "BUTTON_CLICK",
+        "button": "circle",
+        "delay_after": 1.0
+      },
+      "in_linear_graph": true,
+      "needs_design": false,
+      "node_chain": "vis/wait_anchor(23_MATCHMAKE_HOMEBASE) \u2192 ds/press(circle) \u2192 ds/delay"
+    },
+    {
+      "priority": 27,
+      "id": "24_REWARDS_CONTINUE",
+      "name": "Rewards Chest Screen",
+      "action_type": "BUTTON_CLICK",
+      "resolved": {
+        "type": "BUTTON_CLICK",
+        "button": "cross",
+        "delay_after": 1.0
+      },
+      "in_linear_graph": true,
+      "needs_design": false,
+      "node_chain": "vis/wait_anchor(24_REWARDS_CONTINUE) \u2192 ds/press(cross) \u2192 ds/delay"
+    },
+    {
+      "priority": 28,
+      "id": "06_CONNECTING",
+      "name": "Connecting Screen",
+      "action_type": "WAIT",
+      "resolved": {
+        "type": "WAIT"
+      },
+      "in_linear_graph": true,
+      "needs_design": false,
+      "node_chain": "vis/wait_anchor(06_CONNECTING) \u2192 ds/delay(hold)"
+    },
+    {
+      "priority": 29,
+      "id": "04_STW_READY",
+      "name": "STW Lobby Ready (Yellow Play)",
+      "action_type": "BUTTON_CLICK",
+      "resolved": {
+        "type": "BUTTON_CLICK",
+        "button": "triangle",
+        "delay_after": 2.0
+      },
+      "in_linear_graph": true,
+      "needs_design": false,
+      "node_chain": "vis/wait_anchor(04_STW_READY) \u2192 ds/press(triangle) \u2192 ds/delay"
+    },
+    {
+      "priority": 30,
+      "id": "05_STW_QUEUED",
+      "name": "STW Matchmaking Queued",
+      "action_type": "WAIT",
+      "resolved": {
+        "type": "WAIT"
+      },
+      "in_linear_graph": true,
+      "needs_design": false,
+      "node_chain": "vis/wait_anchor(05_STW_QUEUED) \u2192 ds/delay(hold)"
+    },
+    {
+      "priority": 31,
+      "id": "02_LOBBY",
+      "name": "Fortnite Play Tab / Discover Lobby",
+      "action_type": "DISCOVER_NAVIGATION",
+      "resolved": {
+        "type": "DISCOVER_NAVIGATION"
+      },
+      "in_linear_graph": false,
+      "needs_design": true,
+      "node_chain": "NEEDS DESIGN \u2014 not ported as black-box"
+    }
+  ],
+  "import_report": {
+    "anchors": [
+      {
+        "id": "00_START_FORTNITE",
+        "ok": true,
+        "templates": [
+          "anchor_press_start_x.png"
+        ],
+        "match_mode": "all"
+      },
+      {
+        "id": "01_STARTING",
+        "ok": true,
+        "templates": [
+          "anchor_01_starting.png",
+          "anchor_01_starting_v2.png"
+        ],
+        "match_mode": "any"
+      },
+      {
+        "id": "03_CLAIM",
+        "ok": true,
+        "templates": [
+          "anchor_claim_button.png"
+        ],
+        "match_mode": "all"
+      },
+      {
+        "id": "26_DISMISS_MODAL",
+        "ok": true,
+        "templates": [
+          "anchor_dismiss_modal.png"
+        ],
+        "match_mode": "all"
+      },
+      {
+        "id": "25_SURVEY_SKIP",
+        "ok": true,
+        "templates": [
+          "anchor_survey_skip.png"
+        ],
+        "match_mode": "all"
+      },
+      {
+        "id": "30_SEARCH_RESULTS",
+        "ok": true,
+        "templates": [
+          "anchor_search_islands_results.png",
+          "anchor_search_stw_card.png"
+        ],
+        "match_mode": "any"
+      },
+      {
+        "id": "29_DISCOVER_KEYBOARD",
+        "ok": true,
+        "templates": [
+          "anchor_keyboard_open.png"
+        ],
+        "match_mode": "all"
+      },
+      {
+        "id": "28_DISCOVER_SEARCH_FOCUSED",
+        "ok": true,
+        "templates": [
+          "anchor_search_bar_focused.png"
+        ],
+        "match_mode": "all"
+      },
+      {
+        "id": "07_STW_COLLECT",
+        "ok": true,
+        "templates": [
+          "anchor_collect_all.png"
+        ],
+        "match_mode": "all"
+      },
+      {
+        "id": "08_HESTIA",
+        "ok": true,
+        "templates": [
+          "anchor_08_hestia.png"
+        ],
+        "match_mode": "all"
+      },
+      {
+        "id": "09_OLD_LOBBY_QUESTS",
+        "ok": true,
+        "templates": [
+          "anchor_quests_tab.png"
+        ],
+        "match_mode": "all"
+      },
+      {
+        "id": "10_TWINE_WORLD_MAP",
+        "ok": true,
+        "templates": [
+          "anchor_world_twine.png"
+        ],
+        "match_mode": "all"
+      },
+      {
+        "id": "10_OLD_LOBBY_MAP",
+        "ok": true,
+        "templates": [
+          "anchor_stonewood_map.png"
+        ],
+        "match_mode": "all"
+      },
+      {
+        "id": "14_TRAVELLING_LOBBY",
+        "ok": true,
+        "templates": [
+          "anchor_starting_shield.png"
+        ],
+        "match_mode": "all"
+      },
+      {
+        "id": "11_TWINE_MAP",
+        "ok": true,
+        "templates": [
+          "anchor_play_with_others.png"
+        ],
+        "match_mode": "all"
+      },
+      {
+        "id": "12_TWINE_SELECTED",
+        "ok": true,
+        "templates": [
+          "anchor_twine_title.png"
+        ],
+        "match_mode": "all"
+      },
+      {
+        "id": "13_COMMUNITY_LOOKOUT",
+        "ok": true,
+        "templates": [
+          "anchor_community_lookout.png"
+        ],
+        "match_mode": "all"
+      },
+      {
+        "id": "15_STW_FINAL_LAUNCH",
+        "ok": true,
+        "templates": [
+          "anchor_yellow_launch.png"
+        ],
+        "match_mode": "all"
+      },
+      {
+        "id": "17_SHIELD_INVENTORY",
+        "ok": true,
+        "templates": [
+          "anchor_inventory_tab.png"
+        ],
+        "match_mode": "all"
+      },
+      {
+        "id": "18_SHIELD_MENU",
+        "ok": true,
+        "templates": [
+          "anchor_card_endurance.png",
+          "anchor_endurance_modal_title.png"
+        ],
+        "match_mode": "any"
+      },
+      {
+        "id": "19_SHIELD_CONFIRM",
+        "ok": true,
+        "templates": [
+          "anchor_start_endurance.png"
+        ],
+        "match_mode": "all"
+      },
+      {
+        "id": "21_ENDURANCE_BETWEEN",
+        "ok": true,
+        "templates": [
+          "anchor_endurance_defense.png"
+        ],
+        "match_mode": "all"
+      },
+      {
+        "id": "20_ENDURANCE_ACTIVE",
+        "ok": true,
+        "templates": [
+          "anchor_endurance_word.png",
+          "anchor_storm_shield_title.png"
+        ],
+        "match_mode": "any"
+      },
+      {
+        "id": "16_SHIELD_NOT_STARTED",
+        "ok": true,
+        "templates": [
+          "anchor_activate_shield.png"
+        ],
+        "match_mode": "all"
+      },
+      {
+        "id": "22_ENDURANCE_ENDED",
+        "ok": true,
+        "templates": [
+          "anchor_team_score.png"
+        ],
+        "match_mode": "all"
+      },
+      {
+        "id": "23_MATCHMAKE_HOMEBASE",
+        "ok": true,
+        "templates": [
+          "anchor_matchmake_homebase.png"
+        ],
+        "match_mode": "all"
+      },
+      {
+        "id": "24_REWARDS_CONTINUE",
+        "ok": true,
+        "templates": [
+          "anchor_rewards_continue.png",
+          "anchor_rewards_open.png"
+        ],
+        "match_mode": "any"
+      },
+      {
+        "id": "06_CONNECTING",
+        "ok": true,
+        "templates": [
+          "anchor_connecting.png",
+          "anchor_connecting_lobby.png"
+        ],
+        "match_mode": "any"
+      },
+      {
+        "id": "04_STW_READY",
+        "ok": true,
+        "templates": [
+          "anchor_stw_title.png",
+          "anchor_yellow_play.png"
+        ],
+        "match_mode": "all"
+      },
+      {
+        "id": "05_STW_QUEUED",
+        "ok": true,
+        "templates": [
+          "anchor_stw_title.png",
+          "anchor_cancel_button.png"
+        ],
+        "match_mode": "all"
+      },
+      {
+        "id": "02_LOBBY",
+        "ok": true,
+        "templates": [
+          "anchor_02_play.png"
+        ],
+        "match_mode": "all"
+      }
+    ],
+    "helpers": [
+      {
+        "id": "02_LOBBY_CAROUSEL",
+        "ok": true
+      },
+      {
+        "id": "02_LOBBY_CAROUSEL_HI",
+        "ok": true
+      },
+      {
+        "id": "02_LOBBY_MODE_TITLE",
+        "ok": true
+      },
+      {
+        "id": "02_LOBBY_FOCUS_CORNER",
+        "ok": true
+      },
+      {
+        "id": "02_DISCOVER_TAB",
+        "ok": true
+      }
+    ],
+    "macros": [
+      "keyboard_save_the_world",
+      "seq_26_DISMISS_MODAL",
+      "seq_30_SEARCH_RESULTS",
+      "seq_10_OLD_LOBBY_MAP",
+      "seq_11_TWINE_MAP",
+      "seq_17_SHIELD_INVENTORY"
+    ],
+    "graphs": [
+      "stw_endurance_path",
+      "stw_interrupts"
+    ],
+    "skipped": []
+  }
+}

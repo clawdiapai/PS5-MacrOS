@@ -1,0 +1,43 @@
+{
+  "id": "19_SHIELD_CONFIRM",
+  "threshold": 0.85,
+  "legacy": true,
+  "has_full": false,
+  "full": null,
+  "crop": {
+    "x": 980,
+    "y": 640,
+    "w": 260,
+    "h": 75
+  },
+  "crops": [
+    {
+      "x": 980,
+      "y": 640,
+      "w": 260,
+      "h": 75
+    }
+  ],
+  "target_count": 1,
+  "match_mode": "all",
+  "match_count": 1,
+  "search_roi": [
+    980,
+    640,
+    260,
+    75
+  ],
+  "frame_size": {
+    "width": 1280,
+    "height": 720
+  },
+  "source": "pi2ps5",
+  "pi2ps5_state": "19_SHIELD_CONFIRM",
+  "pi2ps5_name": "Storm Shield Launch Confirm",
+  "pi2ps5_priority": 21,
+  "pi2ps5_action_type": "BUTTON_CLICK",
+  "pi2ps5_templates": [
+    "anchor_start_endurance.png"
+  ],
+  "note": "LEGACY \u2014 no reference screenshot (imported from pi2ps5)"
+}

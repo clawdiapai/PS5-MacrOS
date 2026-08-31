@@ -1,0 +1,43 @@
+{
+  "id": "29_DISCOVER_KEYBOARD",
+  "threshold": 0.75,
+  "legacy": true,
+  "has_full": false,
+  "full": null,
+  "crop": {
+    "x": 330,
+    "y": 280,
+    "w": 620,
+    "h": 180
+  },
+  "crops": [
+    {
+      "x": 330,
+      "y": 280,
+      "w": 620,
+      "h": 180
+    }
+  ],
+  "target_count": 1,
+  "match_mode": "all",
+  "match_count": 1,
+  "search_roi": [
+    330,
+    280,
+    620,
+    180
+  ],
+  "frame_size": {
+    "width": 1280,
+    "height": 720
+  },
+  "source": "pi2ps5",
+  "pi2ps5_state": "29_DISCOVER_KEYBOARD",
+  "pi2ps5_name": "On-Screen Virtual Keyboard",
+  "pi2ps5_priority": 7,
+  "pi2ps5_action_type": "MACRO_FILE",
+  "pi2ps5_templates": [
+    "anchor_keyboard_open.png"
+  ],
+  "note": "LEGACY \u2014 no reference screenshot (imported from pi2ps5)"
+}

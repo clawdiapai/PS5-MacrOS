@@ -1,0 +1,43 @@
+{
+  "id": "25_SURVEY_SKIP",
+  "threshold": 0.85,
+  "legacy": true,
+  "has_full": false,
+  "full": null,
+  "crop": {
+    "x": 485,
+    "y": 555,
+    "w": 160,
+    "h": 55
+  },
+  "crops": [
+    {
+      "x": 485,
+      "y": 555,
+      "w": 160,
+      "h": 55
+    }
+  ],
+  "target_count": 1,
+  "match_mode": "all",
+  "match_count": 1,
+  "search_roi": [
+    485,
+    555,
+    160,
+    55
+  ],
+  "frame_size": {
+    "width": 1280,
+    "height": 720
+  },
+  "source": "pi2ps5",
+  "pi2ps5_state": "25_SURVEY_SKIP",
+  "pi2ps5_name": "Survey Skip Screen",
+  "pi2ps5_priority": 5,
+  "pi2ps5_action_type": "BUTTON_CLICK",
+  "pi2ps5_templates": [
+    "anchor_survey_skip.png"
+  ],
+  "note": "LEGACY \u2014 no reference screenshot (imported from pi2ps5)"
+}

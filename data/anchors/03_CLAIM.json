@@ -1,0 +1,43 @@
+{
+  "id": "03_CLAIM",
+  "threshold": 0.82,
+  "legacy": true,
+  "has_full": false,
+  "full": null,
+  "crop": {
+    "x": 500,
+    "y": 600,
+    "w": 280,
+    "h": 110
+  },
+  "crops": [
+    {
+      "x": 500,
+      "y": 600,
+      "w": 280,
+      "h": 110
+    }
+  ],
+  "target_count": 1,
+  "match_mode": "all",
+  "match_count": 1,
+  "search_roi": [
+    500,
+    600,
+    280,
+    110
+  ],
+  "frame_size": {
+    "width": 1280,
+    "height": 720
+  },
+  "source": "pi2ps5",
+  "pi2ps5_state": "03_CLAIM",
+  "pi2ps5_name": "Battle Royale Claim Screen",
+  "pi2ps5_priority": 3,
+  "pi2ps5_action_type": "BUTTON_CLICK",
+  "pi2ps5_templates": [
+    "anchor_claim_button.png"
+  ],
+  "note": "LEGACY \u2014 no reference screenshot (imported from pi2ps5)"
+}

@@ -1,0 +1,43 @@
+{
+  "id": "16_SHIELD_NOT_STARTED",
+  "threshold": 0.8,
+  "legacy": true,
+  "has_full": false,
+  "full": null,
+  "crop": {
+    "x": 460,
+    "y": 150,
+    "w": 360,
+    "h": 110
+  },
+  "crops": [
+    {
+      "x": 460,
+      "y": 150,
+      "w": 360,
+      "h": 110
+    }
+  ],
+  "target_count": 1,
+  "match_mode": "all",
+  "match_count": 1,
+  "search_roi": [
+    460,
+    150,
+    360,
+    110
+  ],
+  "frame_size": {
+    "width": 1280,
+    "height": 720
+  },
+  "source": "pi2ps5",
+  "pi2ps5_state": "16_SHIELD_NOT_STARTED",
+  "pi2ps5_name": "Storm Shield Loaded (Not Started)",
+  "pi2ps5_priority": 24,
+  "pi2ps5_action_type": "BUTTON_CLICK",
+  "pi2ps5_templates": [
+    "anchor_activate_shield.png"
+  ],
+  "note": "LEGACY \u2014 no reference screenshot (imported from pi2ps5)"
+}

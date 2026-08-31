@@ -1,0 +1,54 @@
+{
+  "name": "seq_17_SHIELD_INVENTORY",
+  "version": 2,
+  "created_at": 1788032067.1558604,
+  "meta": {
+    "source": "pi2ps5_import",
+    "normalized": false,
+    "pi2ps5_state": "17_SHIELD_INVENTORY",
+    "kind": "MACRO_SEQUENCE"
+  },
+  "keyframes": [],
+  "events": [
+    {
+      "t": 0.0,
+      "btn": "R1",
+      "action": "press"
+    },
+    {
+      "t": 0.1,
+      "btn": "R1",
+      "action": "release"
+    },
+    {
+      "t": 0.25,
+      "btn": "R1",
+      "action": "press"
+    },
+    {
+      "t": 0.35,
+      "btn": "R1",
+      "action": "release"
+    },
+    {
+      "t": 0.5,
+      "btn": "R1",
+      "action": "press"
+    },
+    {
+      "t": 0.6,
+      "btn": "R1",
+      "action": "release"
+    },
+    {
+      "t": 0.75,
+      "btn": "R1",
+      "action": "press"
+    },
+    {
+      "t": 0.85,
+      "btn": "R1",
+      "action": "release"
+    }
+  ]
+}

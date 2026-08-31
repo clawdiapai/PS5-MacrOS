@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+dist/
+build/
+.venv/
+venv/
+.env
+.python-version
+
+# IDE / OS
+.idea/
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db
+
+# Runtime / ephemeral captures
+data/screenshots/*
+!data/screenshots/.gitkeep
+data/logs/*
+!data/logs/.gitkeep
+
+# Keep graphs, anchors, macros, ocr assets in git (small product data)
+
+# Local auto-installed Tesseract (Windows bootstrap)
+tools/tesseract/
+tools/tesseract-*/
+tools/tesseract-ocr-*.exe
+
+# Frontend vendored caches (litegraph will be committed intentionally)
+node_modules/
+
+# Local session / agent noise
+.grok/
+*.log
+

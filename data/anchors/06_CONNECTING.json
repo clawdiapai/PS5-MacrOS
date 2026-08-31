@@ -1,0 +1,50 @@
+{
+  "id": "06_CONNECTING",
+  "threshold": 0.82,
+  "legacy": true,
+  "has_full": false,
+  "full": null,
+  "crop": {
+    "x": 20,
+    "y": 640,
+    "w": 180,
+    "h": 60
+  },
+  "crops": [
+    {
+      "x": 20,
+      "y": 640,
+      "w": 180,
+      "h": 60
+    },
+    {
+      "x": 20,
+      "y": 640,
+      "w": 180,
+      "h": 60
+    }
+  ],
+  "target_count": 2,
+  "match_mode": "any",
+  "match_count": 1,
+  "search_roi": [
+    20,
+    640,
+    180,
+    60
+  ],
+  "frame_size": {
+    "width": 1280,
+    "height": 720
+  },
+  "source": "pi2ps5",
+  "pi2ps5_state": "06_CONNECTING",
+  "pi2ps5_name": "Connecting Screen",
+  "pi2ps5_priority": 28,
+  "pi2ps5_action_type": "WAIT",
+  "pi2ps5_templates": [
+    "anchor_connecting.png",
+    "anchor_connecting_lobby.png"
+  ],
+  "note": "LEGACY \u2014 no reference screenshot (imported from pi2ps5)"
+}

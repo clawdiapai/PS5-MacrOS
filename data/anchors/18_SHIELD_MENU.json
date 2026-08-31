@@ -1,0 +1,50 @@
+{
+  "id": "18_SHIELD_MENU",
+  "threshold": 0.85,
+  "legacy": true,
+  "has_full": false,
+  "full": null,
+  "crop": {
+    "x": 260,
+    "y": 420,
+    "w": 240,
+    "h": 50
+  },
+  "crops": [
+    {
+      "x": 260,
+      "y": 420,
+      "w": 240,
+      "h": 50
+    },
+    {
+      "x": 260,
+      "y": 420,
+      "w": 240,
+      "h": 50
+    }
+  ],
+  "target_count": 2,
+  "match_mode": "any",
+  "match_count": 1,
+  "search_roi": [
+    260,
+    420,
+    240,
+    50
+  ],
+  "frame_size": {
+    "width": 1280,
+    "height": 720
+  },
+  "source": "pi2ps5",
+  "pi2ps5_state": "18_SHIELD_MENU",
+  "pi2ps5_name": "Storm Shield Menu / Endurance Modal",
+  "pi2ps5_priority": 20,
+  "pi2ps5_action_type": "BUTTON_CLICK",
+  "pi2ps5_templates": [
+    "anchor_card_endurance.png",
+    "anchor_endurance_modal_title.png"
+  ],
+  "note": "LEGACY \u2014 no reference screenshot (imported from pi2ps5)"
+}

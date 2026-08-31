@@ -1,0 +1,43 @@
+{
+  "id": "02_LOBBY",
+  "threshold": 0.85,
+  "legacy": true,
+  "has_full": false,
+  "full": null,
+  "crop": {
+    "x": 65,
+    "y": 40,
+    "w": 55,
+    "h": 50
+  },
+  "crops": [
+    {
+      "x": 65,
+      "y": 40,
+      "w": 55,
+      "h": 50
+    }
+  ],
+  "target_count": 1,
+  "match_mode": "all",
+  "match_count": 1,
+  "search_roi": [
+    65,
+    40,
+    55,
+    50
+  ],
+  "frame_size": {
+    "width": 1280,
+    "height": 720
+  },
+  "source": "pi2ps5",
+  "pi2ps5_state": "02_LOBBY",
+  "pi2ps5_name": "Fortnite Play Tab / Discover Lobby",
+  "pi2ps5_priority": 31,
+  "pi2ps5_action_type": "DISCOVER_NAVIGATION",
+  "pi2ps5_templates": [
+    "anchor_02_play.png"
+  ],
+  "note": "LEGACY \u2014 no reference screenshot (imported from pi2ps5)"
+}

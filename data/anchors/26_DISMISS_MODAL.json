@@ -1,0 +1,43 @@
+{
+  "id": "26_DISMISS_MODAL",
+  "threshold": 0.82,
+  "legacy": true,
+  "has_full": false,
+  "full": null,
+  "crop": {
+    "x": 450,
+    "y": 600,
+    "w": 380,
+    "h": 115
+  },
+  "crops": [
+    {
+      "x": 450,
+      "y": 600,
+      "w": 380,
+      "h": 115
+    }
+  ],
+  "target_count": 1,
+  "match_mode": "all",
+  "match_count": 1,
+  "search_roi": [
+    450,
+    600,
+    380,
+    115
+  ],
+  "frame_size": {
+    "width": 1280,
+    "height": 720
+  },
+  "source": "pi2ps5",
+  "pi2ps5_state": "26_DISMISS_MODAL",
+  "pi2ps5_name": "Dismiss Popup Modal",
+  "pi2ps5_priority": 4,
+  "pi2ps5_action_type": "BUTTON_CLICK",
+  "pi2ps5_templates": [
+    "anchor_dismiss_modal.png"
+  ],
+  "note": "LEGACY \u2014 no reference screenshot (imported from pi2ps5)"
+}

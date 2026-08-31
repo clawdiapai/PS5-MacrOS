@@ -1,0 +1,43 @@
+{
+  "id": "28_DISCOVER_SEARCH_FOCUSED",
+  "threshold": 0.78,
+  "legacy": true,
+  "has_full": false,
+  "full": null,
+  "crop": {
+    "x": 50,
+    "y": 120,
+    "w": 210,
+    "h": 80
+  },
+  "crops": [
+    {
+      "x": 50,
+      "y": 120,
+      "w": 210,
+      "h": 80
+    }
+  ],
+  "target_count": 1,
+  "match_mode": "all",
+  "match_count": 1,
+  "search_roi": [
+    50,
+    120,
+    210,
+    80
+  ],
+  "frame_size": {
+    "width": 1280,
+    "height": 720
+  },
+  "source": "pi2ps5",
+  "pi2ps5_state": "28_DISCOVER_SEARCH_FOCUSED",
+  "pi2ps5_name": "Discover Search Bar Focused",
+  "pi2ps5_priority": 8,
+  "pi2ps5_action_type": "BUTTON_CLICK",
+  "pi2ps5_templates": [
+    "anchor_search_bar_focused.png"
+  ],
+  "note": "LEGACY \u2014 no reference screenshot (imported from pi2ps5)"
+}

@@ -1,0 +1,16 @@
+# Web2PS5 backend — core (Phase 1+)
+fastapi>=0.115.0
+uvicorn[standard]>=0.32.0
+pydantic>=2.9.0
+pydantic-settings>=2.6.0
+numpy>=2.1.0
+opencv-python-headless>=4.10.0
+Pillow>=11.0.0
+websockets>=13.0
+httpx>=0.27.0
+pygame>=2.5.0
+pytesseract>=0.3.10
+
+# Tesseract binary: auto-downloaded on first OCR use into tools/tesseract/
+# (Windows). Or POST /api/vision/ocr/ensure. Phase 2 RP: requirements-remoteplay.txt.
+

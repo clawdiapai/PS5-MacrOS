@@ -1,0 +1,50 @@
+{
+  "id": "20_ENDURANCE_ACTIVE",
+  "threshold": 0.7,
+  "legacy": true,
+  "has_full": false,
+  "full": null,
+  "crop": {
+    "x": 450,
+    "y": 15,
+    "w": 380,
+    "h": 60
+  },
+  "crops": [
+    {
+      "x": 450,
+      "y": 15,
+      "w": 380,
+      "h": 60
+    },
+    {
+      "x": 450,
+      "y": 15,
+      "w": 380,
+      "h": 60
+    }
+  ],
+  "target_count": 2,
+  "match_mode": "any",
+  "match_count": 1,
+  "search_roi": [
+    450,
+    15,
+    380,
+    60
+  ],
+  "frame_size": {
+    "width": 1280,
+    "height": 720
+  },
+  "source": "pi2ps5",
+  "pi2ps5_state": "20_ENDURANCE_ACTIVE",
+  "pi2ps5_name": "Endurance Wave Active",
+  "pi2ps5_priority": 23,
+  "pi2ps5_action_type": "WAIT",
+  "pi2ps5_templates": [
+    "anchor_endurance_word.png",
+    "anchor_storm_shield_title.png"
+  ],
+  "note": "LEGACY \u2014 no reference screenshot (imported from pi2ps5)"
+}

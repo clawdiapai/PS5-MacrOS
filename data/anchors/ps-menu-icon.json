@@ -1,0 +1,41 @@
+{
+  "id": "ps-menu-icon",
+  "threshold": 0.9,
+  "crop": {
+    "x": 651,
+    "y": 648,
+    "w": 54,
+    "h": 52
+  },
+  "crops": [
+    {
+      "x": 651,
+      "y": 648,
+      "w": 54,
+      "h": 52
+    },
+    {
+      "x": 567,
+      "y": 646,
+      "w": 64,
+      "h": 51
+    },
+    {
+      "x": 206,
+      "y": 649,
+      "w": 51,
+      "h": 50
+    }
+  ],
+  "target_count": 3,
+  "match_mode": "any",
+  "match_count": 1,
+  "frame_size": {
+    "width": 1280,
+    "height": 720
+  },
+  "full": "ps-menu-icon_full.jpg",
+  "has_full": true,
+  "legacy": false,
+  "note": "from vis/check_state"
+}

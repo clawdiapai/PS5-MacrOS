@@ -1,0 +1,30 @@
+{
+  "id": "rest_ps_menu_open",
+  "threshold": 0.8,
+  "legacy": true,
+  "has_full": false,
+  "full": null,
+  "crop": {
+    "x": 0,
+    "y": 0,
+    "w": 1,
+    "h": 1
+  },
+  "crops": [
+    {
+      "x": 0,
+      "y": 0,
+      "w": 1,
+      "h": 1
+    }
+  ],
+  "target_count": 1,
+  "match_mode": "all",
+  "match_count": 1,
+  "frame_size": {
+    "width": 1280,
+    "height": 720
+  },
+  "source": "rest_ps5_scaffold",
+  "note": "PLACEHOLDER \u2014 Freeze Control Center / PS menu open chrome"
+}

@@ -1,0 +1,29 @@
+{
+  "id": "power-icon-selected",
+  "threshold": 0.8,
+  "crop": {
+    "x": 1015,
+    "y": 613,
+    "w": 69,
+    "h": 107
+  },
+  "crops": [
+    {
+      "x": 1015,
+      "y": 613,
+      "w": 69,
+      "h": 107
+    }
+  ],
+  "target_count": 1,
+  "match_mode": "all",
+  "match_count": 1,
+  "frame_size": {
+    "width": 1280,
+    "height": 720
+  },
+  "full": "power-icon-selected_full.jpg",
+  "has_full": true,
+  "legacy": false,
+  "note": "from vis/check_state"
+}

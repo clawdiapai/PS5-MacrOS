@@ -1,0 +1,43 @@
+{
+  "id": "09_OLD_LOBBY_QUESTS",
+  "threshold": 0.85,
+  "legacy": true,
+  "has_full": false,
+  "full": null,
+  "crop": {
+    "x": 360,
+    "y": 45,
+    "w": 110,
+    "h": 50
+  },
+  "crops": [
+    {
+      "x": 360,
+      "y": 45,
+      "w": 110,
+      "h": 50
+    }
+  ],
+  "target_count": 1,
+  "match_mode": "all",
+  "match_count": 1,
+  "search_roi": [
+    360,
+    45,
+    110,
+    50
+  ],
+  "frame_size": {
+    "width": 1280,
+    "height": 720
+  },
+  "source": "pi2ps5",
+  "pi2ps5_state": "09_OLD_LOBBY_QUESTS",
+  "pi2ps5_name": "Old Lobby Quests Tab",
+  "pi2ps5_priority": 11,
+  "pi2ps5_action_type": "BUTTON_CLICK",
+  "pi2ps5_templates": [
+    "anchor_quests_tab.png"
+  ],
+  "note": "LEGACY \u2014 no reference screenshot (imported from pi2ps5)"
+}

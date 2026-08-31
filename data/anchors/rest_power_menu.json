@@ -1,0 +1,30 @@
+{
+  "id": "rest_power_menu",
+  "threshold": 0.95,
+  "crop": {
+    "x": 800,
+    "y": 271,
+    "w": 389,
+    "h": 314
+  },
+  "crops": [
+    {
+      "x": 800,
+      "y": 271,
+      "w": 389,
+      "h": 314
+    }
+  ],
+  "target_count": 1,
+  "match_mode": "all",
+  "match_count": 1,
+  "frame_size": {
+    "width": 1280,
+    "height": 720
+  },
+  "full": "rest_power_menu_full.jpg",
+  "has_full": true,
+  "legacy": false,
+  "note": "edited in vis/wait_anchor",
+  "source": "rest_ps5_scaffold"
+}

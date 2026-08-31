@@ -1,0 +1,43 @@
+{
+  "id": "17_SHIELD_INVENTORY",
+  "threshold": 0.85,
+  "legacy": true,
+  "has_full": false,
+  "full": null,
+  "crop": {
+    "x": 50,
+    "y": 25,
+    "w": 100,
+    "h": 35
+  },
+  "crops": [
+    {
+      "x": 50,
+      "y": 25,
+      "w": 100,
+      "h": 35
+    }
+  ],
+  "target_count": 1,
+  "match_mode": "all",
+  "match_count": 1,
+  "search_roi": [
+    50,
+    25,
+    100,
+    35
+  ],
+  "frame_size": {
+    "width": 1280,
+    "height": 720
+  },
+  "source": "pi2ps5",
+  "pi2ps5_state": "17_SHIELD_INVENTORY",
+  "pi2ps5_name": "Storm Shield Inventory Tab",
+  "pi2ps5_priority": 19,
+  "pi2ps5_action_type": "MACRO_SEQUENCE",
+  "pi2ps5_templates": [
+    "anchor_inventory_tab.png"
+  ],
+  "note": "LEGACY \u2014 no reference screenshot (imported from pi2ps5)"
+}

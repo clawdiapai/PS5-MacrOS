@@ -1,0 +1,54 @@
+{
+  "name": "seq_10_OLD_LOBBY_MAP",
+  "version": 2,
+  "created_at": 1788032067.1533384,
+  "meta": {
+    "source": "pi2ps5_import",
+    "normalized": false,
+    "pi2ps5_state": "10_OLD_LOBBY_MAP",
+    "kind": "MACRO_SEQUENCE"
+  },
+  "keyframes": [],
+  "events": [
+    {
+      "t": 0.0,
+      "btn": "RIGHT",
+      "action": "press"
+    },
+    {
+      "t": 0.1,
+      "btn": "RIGHT",
+      "action": "release"
+    },
+    {
+      "t": 0.25,
+      "btn": "RIGHT",
+      "action": "press"
+    },
+    {
+      "t": 0.35,
+      "btn": "RIGHT",
+      "action": "release"
+    },
+    {
+      "t": 0.5,
+      "btn": "RIGHT",
+      "action": "press"
+    },
+    {
+      "t": 0.6,
+      "btn": "RIGHT",
+      "action": "release"
+    },
+    {
+      "t": 0.75,
+      "btn": "CROSS",
+      "action": "press"
+    },
+    {
+      "t": 0.87,
+      "btn": "CROSS",
+      "action": "release"
+    }
+  ]
+}

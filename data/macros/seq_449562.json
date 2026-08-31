@@ -1,0 +1,419 @@
+{
+  "name": "seq_449562",
+  "version": 2,
+  "created_at": 1787964114.2713978,
+  "meta": {
+    "source": "passthrough_events",
+    "saved_at": 1787964114.2713978,
+    "raw_count": 3199,
+    "count": 60,
+    "normalized": true,
+    "gap_ms": 700.0,
+    "press_ms": 100.0
+  },
+  "keyframes": [],
+  "events": [
+    {
+      "t": 0.0,
+      "btn": "CROSS",
+      "action": "press"
+    },
+    {
+      "t": 0.1,
+      "btn": "CROSS",
+      "action": "release"
+    },
+    {
+      "t": 0.8,
+      "stick": "left",
+      "point": [
+        0.208,
+        -1.0
+      ]
+    },
+    {
+      "t": 1.363,
+      "stick": "left",
+      "point": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "t": 2.063,
+      "stick": "left",
+      "point": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "t": 2.876,
+      "stick": "left",
+      "point": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "t": 3.576,
+      "btn": "CROSS",
+      "action": "press"
+    },
+    {
+      "t": 3.676,
+      "btn": "CROSS",
+      "action": "release"
+    },
+    {
+      "t": 4.376,
+      "stick": "left",
+      "point": [
+        0.898,
+        -0.812
+      ]
+    },
+    {
+      "t": 5.0938,
+      "btn": "L3",
+      "action": "press"
+    },
+    {
+      "t": 5.1938,
+      "btn": "L3",
+      "action": "release"
+    },
+    {
+      "t": 5.967,
+      "btn": "CROSS",
+      "action": "press"
+    },
+    {
+      "t": 6.067,
+      "btn": "CROSS",
+      "action": "release"
+    },
+    {
+      "t": 6.3215,
+      "btn": "R3",
+      "action": "press"
+    },
+    {
+      "t": 6.4215,
+      "btn": "R3",
+      "action": "release"
+    },
+    {
+      "t": 6.7424,
+      "btn": "R3",
+      "action": "press"
+    },
+    {
+      "t": 6.8424,
+      "btn": "R3",
+      "action": "release"
+    },
+    {
+      "t": 6.933,
+      "btn": "R3",
+      "action": "press"
+    },
+    {
+      "t": 7.033,
+      "btn": "R3",
+      "action": "release"
+    },
+    {
+      "t": 7.1057,
+      "btn": "CROSS",
+      "action": "press"
+    },
+    {
+      "t": 7.2057,
+      "btn": "CROSS",
+      "action": "release"
+    },
+    {
+      "t": 7.376,
+      "stick": "left",
+      "point": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "t": 8.076,
+      "stick": "right",
+      "point": [
+        -1.0,
+        -0.349
+      ]
+    },
+    {
+      "t": 8.733,
+      "stick": "right",
+      "point": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "t": 9.433,
+      "stick": "right",
+      "point": [
+        1.0,
+        -0.459
+      ]
+    },
+    {
+      "t": 9.652,
+      "stick": "right",
+      "point": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "t": 10.352,
+      "stick": "right",
+      "point": [
+        -1.0,
+        -0.239
+      ]
+    },
+    {
+      "t": 10.821,
+      "stick": "right",
+      "point": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "t": 11.521,
+      "stick": "right",
+      "point": [
+        -1.0,
+        -0.129
+      ]
+    },
+    {
+      "t": 11.833,
+      "stick": "right",
+      "point": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "t": 12.533,
+      "stick": "right",
+      "point": [
+        0.616,
+        0.0
+      ]
+    },
+    {
+      "t": 12.69,
+      "stick": "right",
+      "point": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "t": 13.39,
+      "stick": "right",
+      "point": [
+        0.522,
+        0.208
+      ]
+    },
+    {
+      "t": 13.531,
+      "stick": "right",
+      "point": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "t": 14.231,
+      "stick": "right",
+      "point": [
+        -0.796,
+        0.137
+      ]
+    },
+    {
+      "t": 14.388,
+      "stick": "right",
+      "point": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "t": 15.088,
+      "stick": "right",
+      "point": [
+        0.553,
+        0.224
+      ]
+    },
+    {
+      "t": 15.228,
+      "stick": "right",
+      "point": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "t": 15.928,
+      "stick": "right",
+      "point": [
+        -1.0,
+        0.302
+      ]
+    },
+    {
+      "t": 16.397,
+      "stick": "right",
+      "point": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "t": 17.097,
+      "stick": "left",
+      "point": [
+        -0.686,
+        -0.992
+      ]
+    },
+    {
+      "t": 17.1916,
+      "btn": "L3",
+      "action": "press"
+    },
+    {
+      "t": 17.2916,
+      "btn": "L3",
+      "action": "release"
+    },
+    {
+      "t": 18.1893,
+      "btn": "R3",
+      "action": "press"
+    },
+    {
+      "t": 18.2893,
+      "btn": "R3",
+      "action": "release"
+    },
+    {
+      "t": 18.7135,
+      "btn": "CROSS",
+      "action": "press"
+    },
+    {
+      "t": 18.8135,
+      "btn": "CROSS",
+      "action": "release"
+    },
+    {
+      "t": 19.0704,
+      "btn": "R3",
+      "action": "press"
+    },
+    {
+      "t": 19.1704,
+      "btn": "R3",
+      "action": "release"
+    },
+    {
+      "t": 19.6017,
+      "btn": "CROSS",
+      "action": "press"
+    },
+    {
+      "t": 19.7017,
+      "btn": "CROSS",
+      "action": "release"
+    },
+    {
+      "t": 20.097,
+      "stick": "left",
+      "point": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "t": 20.797,
+      "stick": "right",
+      "point": [
+        0.694,
+        -0.184
+      ]
+    },
+    {
+      "t": 20.968,
+      "stick": "right",
+      "point": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "t": 21.668,
+      "stick": "right",
+      "point": [
+        -0.153,
+        -0.129
+      ]
+    },
+    {
+      "t": 21.748,
+      "stick": "right",
+      "point": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "t": 22.448,
+      "stick": "right",
+      "point": [
+        -0.294,
+        -0.255
+      ]
+    },
+    {
+      "t": 22.667,
+      "stick": "right",
+      "point": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "t": 23.367,
+      "stick": "right",
+      "point": [
+        0.239,
+        0.192
+      ]
+    },
+    {
+      "t": 23.554,
+      "stick": "right",
+      "point": [
+        0.0,
+        0.0
+      ]
+    }
+  ]
+}

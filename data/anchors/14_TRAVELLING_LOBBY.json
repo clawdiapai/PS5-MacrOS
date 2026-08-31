@@ -1,0 +1,43 @@
+{
+  "id": "14_TRAVELLING_LOBBY",
+  "threshold": 0.8,
+  "legacy": true,
+  "has_full": false,
+  "full": null,
+  "crop": {
+    "x": 940,
+    "y": 600,
+    "w": 310,
+    "h": 115
+  },
+  "crops": [
+    {
+      "x": 940,
+      "y": 600,
+      "w": 310,
+      "h": 115
+    }
+  ],
+  "target_count": 1,
+  "match_mode": "all",
+  "match_count": 1,
+  "search_roi": [
+    940,
+    600,
+    310,
+    115
+  ],
+  "frame_size": {
+    "width": 1280,
+    "height": 720
+  },
+  "source": "pi2ps5",
+  "pi2ps5_state": "14_TRAVELLING_LOBBY",
+  "pi2ps5_name": "Travelling to Lobby / Storm Shield",
+  "pi2ps5_priority": 14,
+  "pi2ps5_action_type": "WAIT",
+  "pi2ps5_templates": [
+    "anchor_starting_shield.png"
+  ],
+  "note": "LEGACY \u2014 no reference screenshot (imported from pi2ps5)"
+}

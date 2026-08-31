@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Web2PS5 — Console</title>
+    <link rel="stylesheet" href="/css/control.css?v=2" />
+  </head>
+  <body>
+    <header class="console-top">
+      <div class="brand">
+        <h1>Web2PS5</h1>
+        <span class="sub">Console</span>
+      </div>
+      <div class="top-meta">
+        <span id="badge-bridge" class="pill">bridge…</span>
+        <span id="badge-run" class="pill">run: idle</span>
+        <a class="pill link" href="/studio">Studio</a>
+      </div>
+    </header>
+
+    <main class="console-layout">
+      <section class="preview-panel" aria-label="Live preview">
+        <div class="preview-frame">
+          <img id="preview" alt="Remote Play preview" />
+          <div id="preview-empty" class="preview-empty">
+            No live video — Wake the console or check Remote Play.
+          </div>
+        </div>
+      </section>
+
+      <aside class="actions-panel" aria-label="Actions">
+        <p class="actions-hint">Quick actions. More controls will land here later.</p>
+
+        <div class="action-grid" id="action-grid">
+          <button type="button" id="btn-wake" class="action wake">
+            <span class="action-icon">⚡</span>
+            <span class="action-label">Wake</span>
+            <span class="action-desc">Wake / reconnect Remote Play</span>
+          </button>
+
+          <button type="button" id="btn-open-fortnite" class="action fortnite">
+            <span class="action-icon">🎮</span>
+            <span class="action-label">Open Fortnite</span>
+            <span class="action-desc">Long-PS → seek → OCR Fortnite → CROSS</span>
+          </button>
+
+          <button type="button" id="btn-rest" class="action rest">
+            <span class="action-icon">⏻</span>
+            <span class="action-label">Rest / Power off</span>
+            <span class="action-desc">Run REST-PS5 → send console to Rest Mode</span>
+          </button>
+
+          <button type="button" id="btn-stop" class="action stop" hidden>
+            <span class="action-icon">■</span>
+            <span class="action-label">Stop run</span>
+            <span class="action-desc">Cancel the active graph</span>
+          </button>
+        </div>
+
+        <div id="status-line" class="status-line" role="status">Ready.</div>
+      </aside>
+    </main>
+
+    <script src="/js/control.js?v=2"></script>
+  </body>
+</html>

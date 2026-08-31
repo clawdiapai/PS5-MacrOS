@@ -1,0 +1,43 @@
+{
+  "id": "10_OLD_LOBBY_MAP",
+  "threshold": 0.85,
+  "legacy": true,
+  "has_full": false,
+  "full": null,
+  "crop": {
+    "x": 80,
+    "y": 450,
+    "w": 160,
+    "h": 140
+  },
+  "crops": [
+    {
+      "x": 80,
+      "y": 450,
+      "w": 160,
+      "h": 140
+    }
+  ],
+  "target_count": 1,
+  "match_mode": "all",
+  "match_count": 1,
+  "search_roi": [
+    80,
+    450,
+    160,
+    140
+  ],
+  "frame_size": {
+    "width": 1280,
+    "height": 720
+  },
+  "source": "pi2ps5",
+  "pi2ps5_state": "10_OLD_LOBBY_MAP",
+  "pi2ps5_name": "Stonewood on World Map",
+  "pi2ps5_priority": 13,
+  "pi2ps5_action_type": "MACRO_SEQUENCE",
+  "pi2ps5_templates": [
+    "anchor_stonewood_map.png"
+  ],
+  "note": "LEGACY \u2014 no reference screenshot (imported from pi2ps5)"
+}

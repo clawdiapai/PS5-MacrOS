@@ -1,0 +1,54 @@
+{
+  "name": "seq_30_SEARCH_RESULTS",
+  "version": 2,
+  "created_at": 1788032067.1533384,
+  "meta": {
+    "source": "pi2ps5_import",
+    "normalized": false,
+    "pi2ps5_state": "30_SEARCH_RESULTS",
+    "kind": "MACRO_SEQUENCE"
+  },
+  "keyframes": [],
+  "events": [
+    {
+      "t": 0.0,
+      "btn": "DOWN",
+      "action": "press"
+    },
+    {
+      "t": 0.1,
+      "btn": "DOWN",
+      "action": "release"
+    },
+    {
+      "t": 0.3,
+      "btn": "DOWN",
+      "action": "press"
+    },
+    {
+      "t": 0.4,
+      "btn": "DOWN",
+      "action": "release"
+    },
+    {
+      "t": 0.65,
+      "btn": "CROSS",
+      "action": "press"
+    },
+    {
+      "t": 0.77,
+      "btn": "CROSS",
+      "action": "release"
+    },
+    {
+      "t": 1.12,
+      "btn": "CROSS",
+      "action": "press"
+    },
+    {
+      "t": 1.24,
+      "btn": "CROSS",
+      "action": "release"
+    }
+  ]
+}

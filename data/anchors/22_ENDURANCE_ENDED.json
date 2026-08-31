@@ -1,0 +1,43 @@
+{
+  "id": "22_ENDURANCE_ENDED",
+  "threshold": 0.85,
+  "legacy": true,
+  "has_full": false,
+  "full": null,
+  "crop": {
+    "x": 480,
+    "y": 50,
+    "w": 320,
+    "h": 80
+  },
+  "crops": [
+    {
+      "x": 480,
+      "y": 50,
+      "w": 320,
+      "h": 80
+    }
+  ],
+  "target_count": 1,
+  "match_mode": "all",
+  "match_count": 1,
+  "search_roi": [
+    480,
+    50,
+    320,
+    80
+  ],
+  "frame_size": {
+    "width": 1280,
+    "height": 720
+  },
+  "source": "pi2ps5",
+  "pi2ps5_state": "22_ENDURANCE_ENDED",
+  "pi2ps5_name": "Endurance Ended (Team Score)",
+  "pi2ps5_priority": 25,
+  "pi2ps5_action_type": "BUTTON_CLICK",
+  "pi2ps5_templates": [
+    "anchor_team_score.png"
+  ],
+  "note": "LEGACY \u2014 no reference screenshot (imported from pi2ps5)"
+}

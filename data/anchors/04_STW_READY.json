@@ -1,0 +1,50 @@
+{
+  "id": "04_STW_READY",
+  "threshold": 0.85,
+  "legacy": true,
+  "has_full": false,
+  "full": null,
+  "crop": {
+    "x": 10,
+    "y": 15,
+    "w": 100,
+    "h": 45
+  },
+  "crops": [
+    {
+      "x": 10,
+      "y": 15,
+      "w": 100,
+      "h": 45
+    },
+    {
+      "x": 10,
+      "y": 15,
+      "w": 100,
+      "h": 45
+    }
+  ],
+  "target_count": 2,
+  "match_mode": "all",
+  "match_count": 1,
+  "search_roi": [
+    10,
+    15,
+    100,
+    45
+  ],
+  "frame_size": {
+    "width": 1280,
+    "height": 720
+  },
+  "source": "pi2ps5",
+  "pi2ps5_state": "04_STW_READY",
+  "pi2ps5_name": "STW Lobby Ready (Yellow Play)",
+  "pi2ps5_priority": 29,
+  "pi2ps5_action_type": "BUTTON_CLICK",
+  "pi2ps5_templates": [
+    "anchor_stw_title.png",
+    "anchor_yellow_play.png"
+  ],
+  "note": "LEGACY \u2014 no reference screenshot (imported from pi2ps5)"
+}

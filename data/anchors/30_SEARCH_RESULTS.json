@@ -1,0 +1,50 @@
+{
+  "id": "30_SEARCH_RESULTS",
+  "threshold": 0.82,
+  "legacy": true,
+  "has_full": false,
+  "full": null,
+  "crop": {
+    "x": 20,
+    "y": 300,
+    "w": 230,
+    "h": 80
+  },
+  "crops": [
+    {
+      "x": 20,
+      "y": 300,
+      "w": 230,
+      "h": 80
+    },
+    {
+      "x": 20,
+      "y": 300,
+      "w": 230,
+      "h": 80
+    }
+  ],
+  "target_count": 2,
+  "match_mode": "any",
+  "match_count": 1,
+  "search_roi": [
+    20,
+    300,
+    230,
+    80
+  ],
+  "frame_size": {
+    "width": 1280,
+    "height": 720
+  },
+  "source": "pi2ps5",
+  "pi2ps5_state": "30_SEARCH_RESULTS",
+  "pi2ps5_name": "Discover Search Results",
+  "pi2ps5_priority": 6,
+  "pi2ps5_action_type": "MACRO_SEQUENCE",
+  "pi2ps5_templates": [
+    "anchor_search_islands_results.png",
+    "anchor_search_stw_card.png"
+  ],
+  "note": "LEGACY \u2014 no reference screenshot (imported from pi2ps5)"
+}

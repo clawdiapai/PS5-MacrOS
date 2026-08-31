@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Web2PS5 — Studio</title>
+    <link rel="stylesheet" href="/vendor/litegraph/litegraph.css" />
+    <link rel="stylesheet" href="/css/studio.css?v=26" />
+  </head>
+  <body>
+    <header class="topbar">
+      <h1>Web2PS5 Studio</h1>
+      <a class="badge" href="/" style="text-decoration:none">Console</a>
+      <span id="health-badge" class="badge">checking…</span>
+      <span id="ws-badge" class="badge">ws…</span>
+      <span id="run-badge" class="badge">run: idle</span>
+      <div class="panel-toggles" title="Add / focus UI nodes on the canvas (zoom &amp; resize with the graph)">
+        <button type="button" class="panel-tog" data-panel="preview">Preview</button>
+        <button type="button" class="panel-tog" data-panel="anchors">Anchors</button>
+        <button type="button" class="panel-tog" data-panel="macros">Macros</button>
+        <button type="button" class="panel-tog" data-panel="telemetry">Telemetry</button>
+        <button type="button" class="panel-tog" data-panel="note">Note</button>
+      </div>
+      <div class="topbar-actions">
+        <label class="graph-picker" title="Switch graph">
+          <span class="graph-picker-label">Graph</span>
+          <select id="graph-select" aria-label="Select graph">
+            <option value="open_fortnite">open_fortnite</option>
+          </select>
+        </label>
+        <button id="btn-seed" type="button">Seed</button>
+        <button id="btn-load" type="button" title="Reload selected graph from disk">Reload</button>
+        <button id="btn-save" type="button">Save</button>
+        <button id="btn-save-as" type="button" title="Save canvas under a new name">Save as…</button>
+        <button id="btn-start" type="button">Start</button>
+        <button id="btn-stop" type="button">Stop</button>
+        <button id="btn-passthrough" type="button" title="F9 — DualSense PC → PS5">
+          Pass-through OFF
+        </button>
+        <button id="btn-rp-disconnect" type="button" title="Clean Remote Play disconnect">
+          RP Disconnect
+        </button>
+        <button id="btn-rp-reconnect" type="button" title="Force tear down hung session + reconnect">
+          RP Reconnect
+        </button>
+      </div>
+    </header>
+
+    <main class="layout studio">
+      <section class="panel canvas-panel canvas-host" id="canvas-host">
+        <canvas id="graph-canvas" width="800" height="520"></canvas>
+      </section>
+    </main>
+
+    <script src="/vendor/litegraph/litegraph.min.js?v=2"></script>
+    <script src="/js/nodes.js?v=26"></script>
+    <script src="/js/ui_nodes.js?v=26"></script>
+    <script src="/js/studio.js?v=26"></script>
+  </body>
+</html>

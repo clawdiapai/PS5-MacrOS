@@ -1,0 +1,784 @@
+{
+  "name": "keyboard_save_the_world",
+  "version": 2,
+  "created_at": 1788032067.151109,
+  "meta": {
+    "source": "pi2ps5_import",
+    "normalized": false,
+    "pi2ps5_file": "keyboard_macro.json",
+    "purpose": "type SAVE THE WORLD + R2"
+  },
+  "keyframes": [],
+  "events": [
+    {
+      "t": 0.0,
+      "btn": "LEFT",
+      "action": "press"
+    },
+    {
+      "t": 0.09,
+      "btn": "LEFT",
+      "action": "release"
+    },
+    {
+      "t": 0.2,
+      "btn": "LEFT",
+      "action": "press"
+    },
+    {
+      "t": 0.29,
+      "btn": "LEFT",
+      "action": "release"
+    },
+    {
+      "t": 0.4,
+      "btn": "LEFT",
+      "action": "press"
+    },
+    {
+      "t": 0.49,
+      "btn": "LEFT",
+      "action": "release"
+    },
+    {
+      "t": 0.6,
+      "btn": "CROSS",
+      "action": "press"
+    },
+    {
+      "t": 0.69,
+      "btn": "CROSS",
+      "action": "release"
+    },
+    {
+      "t": 0.8,
+      "btn": "LEFT",
+      "action": "press"
+    },
+    {
+      "t": 0.89,
+      "btn": "LEFT",
+      "action": "release"
+    },
+    {
+      "t": 1.0,
+      "btn": "CROSS",
+      "action": "press"
+    },
+    {
+      "t": 1.09,
+      "btn": "CROSS",
+      "action": "release"
+    },
+    {
+      "t": 1.2,
+      "btn": "RIGHT",
+      "action": "press"
+    },
+    {
+      "t": 1.29,
+      "btn": "RIGHT",
+      "action": "release"
+    },
+    {
+      "t": 1.4,
+      "btn": "RIGHT",
+      "action": "press"
+    },
+    {
+      "t": 1.49,
+      "btn": "RIGHT",
+      "action": "release"
+    },
+    {
+      "t": 1.6,
+      "btn": "RIGHT",
+      "action": "press"
+    },
+    {
+      "t": 1.69,
+      "btn": "RIGHT",
+      "action": "release"
+    },
+    {
+      "t": 1.8,
+      "btn": "DOWN",
+      "action": "press"
+    },
+    {
+      "t": 1.89,
+      "btn": "DOWN",
+      "action": "release"
+    },
+    {
+      "t": 2.0,
+      "btn": "CROSS",
+      "action": "press"
+    },
+    {
+      "t": 2.09,
+      "btn": "CROSS",
+      "action": "release"
+    },
+    {
+      "t": 2.2,
+      "btn": "UP",
+      "action": "press"
+    },
+    {
+      "t": 2.29,
+      "btn": "UP",
+      "action": "release"
+    },
+    {
+      "t": 2.4,
+      "btn": "UP",
+      "action": "press"
+    },
+    {
+      "t": 2.49,
+      "btn": "UP",
+      "action": "release"
+    },
+    {
+      "t": 2.6,
+      "btn": "LEFT",
+      "action": "press"
+    },
+    {
+      "t": 2.69,
+      "btn": "LEFT",
+      "action": "release"
+    },
+    {
+      "t": 2.8,
+      "btn": "CROSS",
+      "action": "press"
+    },
+    {
+      "t": 2.89,
+      "btn": "CROSS",
+      "action": "release"
+    },
+    {
+      "t": 3.0,
+      "btn": "DOWN",
+      "action": "press"
+    },
+    {
+      "t": 3.09,
+      "btn": "DOWN",
+      "action": "release"
+    },
+    {
+      "t": 3.2,
+      "btn": "DOWN",
+      "action": "press"
+    },
+    {
+      "t": 3.29,
+      "btn": "DOWN",
+      "action": "release"
+    },
+    {
+      "t": 3.4,
+      "btn": "DOWN",
+      "action": "press"
+    },
+    {
+      "t": 3.49,
+      "btn": "DOWN",
+      "action": "release"
+    },
+    {
+      "t": 3.6,
+      "btn": "RIGHT",
+      "action": "press"
+    },
+    {
+      "t": 3.69,
+      "btn": "RIGHT",
+      "action": "release"
+    },
+    {
+      "t": 3.8,
+      "btn": "RIGHT",
+      "action": "press"
+    },
+    {
+      "t": 3.89,
+      "btn": "RIGHT",
+      "action": "release"
+    },
+    {
+      "t": 4.0,
+      "btn": "CROSS",
+      "action": "press"
+    },
+    {
+      "t": 4.09,
+      "btn": "CROSS",
+      "action": "release"
+    },
+    {
+      "t": 4.2,
+      "btn": "UP",
+      "action": "press"
+    },
+    {
+      "t": 4.29,
+      "btn": "UP",
+      "action": "release"
+    },
+    {
+      "t": 4.4,
+      "btn": "UP",
+      "action": "press"
+    },
+    {
+      "t": 4.49,
+      "btn": "UP",
+      "action": "release"
+    },
+    {
+      "t": 4.6,
+      "btn": "UP",
+      "action": "press"
+    },
+    {
+      "t": 4.69,
+      "btn": "UP",
+      "action": "release"
+    },
+    {
+      "t": 4.8,
+      "btn": "LEFT",
+      "action": "press"
+    },
+    {
+      "t": 4.89,
+      "btn": "LEFT",
+      "action": "release"
+    },
+    {
+      "t": 5.0,
+      "btn": "CROSS",
+      "action": "press"
+    },
+    {
+      "t": 5.09,
+      "btn": "CROSS",
+      "action": "release"
+    },
+    {
+      "t": 5.2,
+      "btn": "DOWN",
+      "action": "press"
+    },
+    {
+      "t": 5.29,
+      "btn": "DOWN",
+      "action": "release"
+    },
+    {
+      "t": 5.4,
+      "btn": "RIGHT",
+      "action": "press"
+    },
+    {
+      "t": 5.49,
+      "btn": "RIGHT",
+      "action": "release"
+    },
+    {
+      "t": 5.6,
+      "btn": "CROSS",
+      "action": "press"
+    },
+    {
+      "t": 5.69,
+      "btn": "CROSS",
+      "action": "release"
+    },
+    {
+      "t": 5.8,
+      "btn": "UP",
+      "action": "press"
+    },
+    {
+      "t": 5.89,
+      "btn": "UP",
+      "action": "release"
+    },
+    {
+      "t": 6.0,
+      "btn": "LEFT",
+      "action": "press"
+    },
+    {
+      "t": 6.09,
+      "btn": "LEFT",
+      "action": "release"
+    },
+    {
+      "t": 6.2,
+      "btn": "LEFT",
+      "action": "press"
+    },
+    {
+      "t": 6.29,
+      "btn": "LEFT",
+      "action": "release"
+    },
+    {
+      "t": 6.4,
+      "btn": "LEFT",
+      "action": "press"
+    },
+    {
+      "t": 6.49,
+      "btn": "LEFT",
+      "action": "release"
+    },
+    {
+      "t": 6.6,
+      "btn": "CROSS",
+      "action": "press"
+    },
+    {
+      "t": 6.69,
+      "btn": "CROSS",
+      "action": "release"
+    },
+    {
+      "t": 6.8,
+      "btn": "DOWN",
+      "action": "press"
+    },
+    {
+      "t": 6.89,
+      "btn": "DOWN",
+      "action": "release"
+    },
+    {
+      "t": 7.0,
+      "btn": "DOWN",
+      "action": "press"
+    },
+    {
+      "t": 7.09,
+      "btn": "DOWN",
+      "action": "release"
+    },
+    {
+      "t": 7.2,
+      "btn": "DOWN",
+      "action": "press"
+    },
+    {
+      "t": 7.29,
+      "btn": "DOWN",
+      "action": "release"
+    },
+    {
+      "t": 7.4,
+      "btn": "RIGHT",
+      "action": "press"
+    },
+    {
+      "t": 7.49,
+      "btn": "RIGHT",
+      "action": "release"
+    },
+    {
+      "t": 7.6,
+      "btn": "RIGHT",
+      "action": "press"
+    },
+    {
+      "t": 7.69,
+      "btn": "RIGHT",
+      "action": "release"
+    },
+    {
+      "t": 7.8,
+      "btn": "CROSS",
+      "action": "press"
+    },
+    {
+      "t": 7.89,
+      "btn": "CROSS",
+      "action": "release"
+    },
+    {
+      "t": 8.0,
+      "btn": "UP",
+      "action": "press"
+    },
+    {
+      "t": 8.09,
+      "btn": "UP",
+      "action": "release"
+    },
+    {
+      "t": 8.2,
+      "btn": "UP",
+      "action": "press"
+    },
+    {
+      "t": 8.29,
+      "btn": "UP",
+      "action": "release"
+    },
+    {
+      "t": 8.4,
+      "btn": "UP",
+      "action": "press"
+    },
+    {
+      "t": 8.49,
+      "btn": "UP",
+      "action": "release"
+    },
+    {
+      "t": 8.6,
+      "btn": "LEFT",
+      "action": "press"
+    },
+    {
+      "t": 8.69,
+      "btn": "LEFT",
+      "action": "release"
+    },
+    {
+      "t": 8.8,
+      "btn": "LEFT",
+      "action": "press"
+    },
+    {
+      "t": 8.89,
+      "btn": "LEFT",
+      "action": "release"
+    },
+    {
+      "t": 9.0,
+      "btn": "LEFT",
+      "action": "press"
+    },
+    {
+      "t": 9.09,
+      "btn": "LEFT",
+      "action": "release"
+    },
+    {
+      "t": 9.2,
+      "btn": "LEFT",
+      "action": "press"
+    },
+    {
+      "t": 9.29,
+      "btn": "LEFT",
+      "action": "release"
+    },
+    {
+      "t": 9.4,
+      "btn": "CROSS",
+      "action": "press"
+    },
+    {
+      "t": 9.49,
+      "btn": "CROSS",
+      "action": "release"
+    },
+    {
+      "t": 9.6,
+      "btn": "RIGHT",
+      "action": "press"
+    },
+    {
+      "t": 9.69,
+      "btn": "RIGHT",
+      "action": "release"
+    },
+    {
+      "t": 9.8,
+      "btn": "RIGHT",
+      "action": "press"
+    },
+    {
+      "t": 9.89,
+      "btn": "RIGHT",
+      "action": "release"
+    },
+    {
+      "t": 10.0,
+      "btn": "RIGHT",
+      "action": "press"
+    },
+    {
+      "t": 10.09,
+      "btn": "RIGHT",
+      "action": "release"
+    },
+    {
+      "t": 10.2,
+      "btn": "RIGHT",
+      "action": "press"
+    },
+    {
+      "t": 10.29,
+      "btn": "RIGHT",
+      "action": "release"
+    },
+    {
+      "t": 10.4,
+      "btn": "RIGHT",
+      "action": "press"
+    },
+    {
+      "t": 10.49,
+      "btn": "RIGHT",
+      "action": "release"
+    },
+    {
+      "t": 10.6,
+      "btn": "RIGHT",
+      "action": "press"
+    },
+    {
+      "t": 10.69,
+      "btn": "RIGHT",
+      "action": "release"
+    },
+    {
+      "t": 10.8,
+      "btn": "RIGHT",
+      "action": "press"
+    },
+    {
+      "t": 10.89,
+      "btn": "RIGHT",
+      "action": "release"
+    },
+    {
+      "t": 11.0,
+      "btn": "CROSS",
+      "action": "press"
+    },
+    {
+      "t": 11.09,
+      "btn": "CROSS",
+      "action": "release"
+    },
+    {
+      "t": 11.2,
+      "btn": "LEFT",
+      "action": "press"
+    },
+    {
+      "t": 11.29,
+      "btn": "LEFT",
+      "action": "release"
+    },
+    {
+      "t": 11.4,
+      "btn": "LEFT",
+      "action": "press"
+    },
+    {
+      "t": 11.49,
+      "btn": "LEFT",
+      "action": "release"
+    },
+    {
+      "t": 11.6,
+      "btn": "LEFT",
+      "action": "press"
+    },
+    {
+      "t": 11.69,
+      "btn": "LEFT",
+      "action": "release"
+    },
+    {
+      "t": 11.8,
+      "btn": "LEFT",
+      "action": "press"
+    },
+    {
+      "t": 11.89,
+      "btn": "LEFT",
+      "action": "release"
+    },
+    {
+      "t": 12.0,
+      "btn": "LEFT",
+      "action": "press"
+    },
+    {
+      "t": 12.09,
+      "btn": "LEFT",
+      "action": "release"
+    },
+    {
+      "t": 12.2,
+      "btn": "CROSS",
+      "action": "press"
+    },
+    {
+      "t": 12.29,
+      "btn": "CROSS",
+      "action": "release"
+    },
+    {
+      "t": 12.4,
+      "btn": "DOWN",
+      "action": "press"
+    },
+    {
+      "t": 12.49,
+      "btn": "DOWN",
+      "action": "release"
+    },
+    {
+      "t": 12.6,
+      "btn": "RIGHT",
+      "action": "press"
+    },
+    {
+      "t": 12.69,
+      "btn": "RIGHT",
+      "action": "release"
+    },
+    {
+      "t": 12.8,
+      "btn": "RIGHT",
+      "action": "press"
+    },
+    {
+      "t": 12.89,
+      "btn": "RIGHT",
+      "action": "release"
+    },
+    {
+      "t": 13.0,
+      "btn": "RIGHT",
+      "action": "press"
+    },
+    {
+      "t": 13.09,
+      "btn": "RIGHT",
+      "action": "release"
+    },
+    {
+      "t": 13.2,
+      "btn": "RIGHT",
+      "action": "press"
+    },
+    {
+      "t": 13.29,
+      "btn": "RIGHT",
+      "action": "release"
+    },
+    {
+      "t": 13.4,
+      "btn": "RIGHT",
+      "action": "press"
+    },
+    {
+      "t": 13.49,
+      "btn": "RIGHT",
+      "action": "release"
+    },
+    {
+      "t": 13.6,
+      "btn": "CROSS",
+      "action": "press"
+    },
+    {
+      "t": 13.69,
+      "btn": "CROSS",
+      "action": "release"
+    },
+    {
+      "t": 13.8,
+      "btn": "LEFT",
+      "action": "press"
+    },
+    {
+      "t": 13.89,
+      "btn": "LEFT",
+      "action": "release"
+    },
+    {
+      "t": 14.0,
+      "btn": "LEFT",
+      "action": "press"
+    },
+    {
+      "t": 14.09,
+      "btn": "LEFT",
+      "action": "release"
+    },
+    {
+      "t": 14.2,
+      "btn": "LEFT",
+      "action": "press"
+    },
+    {
+      "t": 14.29,
+      "btn": "LEFT",
+      "action": "release"
+    },
+    {
+      "t": 14.4,
+      "btn": "LEFT",
+      "action": "press"
+    },
+    {
+      "t": 14.49,
+      "btn": "LEFT",
+      "action": "release"
+    },
+    {
+      "t": 14.6,
+      "btn": "LEFT",
+      "action": "press"
+    },
+    {
+      "t": 14.69,
+      "btn": "LEFT",
+      "action": "release"
+    },
+    {
+      "t": 14.8,
+      "btn": "LEFT",
+      "action": "press"
+    },
+    {
+      "t": 14.89,
+      "btn": "LEFT",
+      "action": "release"
+    },
+    {
+      "t": 15.0,
+      "btn": "CROSS",
+      "action": "press"
+    },
+    {
+      "t": 15.09,
+      "btn": "CROSS",
+      "action": "release"
+    },
+    {
+      "t": 15.2,
+      "btn": "R2",
+      "action": "press"
+    },
+    {
+      "t": 15.29,
+      "btn": "R2",
+      "action": "release"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "id": "07_STW_COLLECT",
+  "threshold": 0.85,
+  "legacy": true,
+  "has_full": false,
+  "full": null,
+  "crop": {
+    "x": 1020,
+    "y": 630,
+    "w": 220,
+    "h": 85
+  },
+  "crops": [
+    {
+      "x": 1020,
+      "y": 630,
+      "w": 220,
+      "h": 85
+    }
+  ],
+  "target_count": 1,
+  "match_mode": "all",
+  "match_count": 1,
+  "search_roi": [
+    1020,
+    630,
+    220,
+    85
+  ],
+  "frame_size": {
+    "width": 1280,
+    "height": 720
+  },
+  "source": "pi2ps5",
+  "pi2ps5_state": "07_STW_COLLECT",
+  "pi2ps5_name": "STW Collect All Rewards",
+  "pi2ps5_priority": 9,
+  "pi2ps5_action_type": "BUTTON_CLICK",
+  "pi2ps5_templates": [
+    "anchor_collect_all.png"
+  ],
+  "note": "LEGACY \u2014 no reference screenshot (imported from pi2ps5)"
+}

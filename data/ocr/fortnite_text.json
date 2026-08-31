@@ -1,0 +1,36 @@
+{
+  "id": "fortnite_text",
+  "expect": "Fortnite",
+  "mode": "contains",
+  "lang": "eng",
+  "invert": false,
+  "case_sensitive": false,
+  "psm": 6,
+  "roi": {
+    "x": 280,
+    "y": 157,
+    "w": 99,
+    "h": 39
+  },
+  "crop": {
+    "x": 280,
+    "y": 157,
+    "w": 99,
+    "h": 39
+  },
+  "crops": [
+    {
+      "x": 280,
+      "y": 157,
+      "w": 99,
+      "h": 39
+    }
+  ],
+  "frame_size": {
+    "width": 1280,
+    "height": 720
+  },
+  "full": "fortnite_text_full.jpg",
+  "has_full": true,
+  "note": "from vis/wait_ocr"
+}

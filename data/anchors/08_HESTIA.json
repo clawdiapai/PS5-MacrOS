@@ -1,0 +1,43 @@
+{
+  "id": "08_HESTIA",
+  "threshold": 0.8,
+  "legacy": true,
+  "has_full": false,
+  "full": null,
+  "crop": {
+    "x": 1060,
+    "y": 600,
+    "w": 180,
+    "h": 110
+  },
+  "crops": [
+    {
+      "x": 1060,
+      "y": 600,
+      "w": 180,
+      "h": 110
+    }
+  ],
+  "target_count": 1,
+  "match_mode": "all",
+  "match_count": 1,
+  "search_roi": [
+    1060,
+    600,
+    180,
+    110
+  ],
+  "frame_size": {
+    "width": 1280,
+    "height": 720
+  },
+  "source": "pi2ps5",
+  "pi2ps5_state": "08_HESTIA",
+  "pi2ps5_name": "Hestia Room (Blue Screen)",
+  "pi2ps5_priority": 10,
+  "pi2ps5_action_type": "BUTTON_CLICK",
+  "pi2ps5_templates": [
+    "anchor_08_hestia.png"
+  ],
+  "note": "LEGACY \u2014 no reference screenshot (imported from pi2ps5)"
+}

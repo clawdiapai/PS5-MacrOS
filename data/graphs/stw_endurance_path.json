@@ -1,0 +1,5795 @@
+{
+  "name": "stw_endurance_path",
+  "version": 1,
+  "note": "Editable linear port of pi2ps5 STW path. Flow: Start \u2192 for each scene wait_anchor(found) \u2192 press/macro/delay \u2192 next. Skips 02_LOBBY DISCOVER_NAVIGATION. Interrupts (claim/dismiss/survey) are in stw_interrupts.",
+  "graph": {
+    "last_node_id": 102,
+    "last_link_id": 72,
+    "nodes": [
+      {
+        "id": 1,
+        "type": "ui/note",
+        "pos": [
+          80.0,
+          60.0
+        ],
+        "size": [
+          340,
+          130
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "note.overview",
+        "properties": {
+          "heading": "STW endurance path (linear)",
+          "text": "EXEC flows top\u2192bottom. Each row: wait for scene \u2192 press/macro \u2192 delay.\nNot a priority scanner \u2014 interrupts live in stw_interrupts.\n02_LOBBY Discover carousel is deferred.\nLEGACY anchors: open wait node to preview crop; Freeze to retake full frame."
+        },
+        "inputs": [],
+        "outputs": []
+      },
+      {
+        "id": 2,
+        "type": "logic/start",
+        "pos": [
+          440.0,
+          80.0
+        ],
+        "size": [
+          180,
+          80
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "logic.start",
+        "properties": {},
+        "inputs": [],
+        "outputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "links": [
+              1
+            ]
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "type": "ui/note",
+        "pos": [
+          80.0,
+          250.0
+        ],
+        "size": [
+          340,
+          150
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "note.00_START_FORTNITE",
+        "properties": {
+          "heading": "00 \u2014 Fortnite title",
+          "text": "MATCH: 'Press X to Start' / title splash (bottom-center).\nTHEN: press CROSS, wait 1.5s.\nRETAKE: full title screen with the press-start prompt visible."
+        },
+        "inputs": [],
+        "outputs": []
+      },
+      {
+        "id": 4,
+        "type": "vis/wait_anchor",
+        "pos": [
+          440.0,
+          250.0
+        ],
+        "size": [
+          260,
+          120
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "wait.00_START_FORTNITE",
+        "properties": {
+          "anchor_id": "00_START_FORTNITE",
+          "threshold": 0.85,
+          "timeout_ms": 120000,
+          "poll_ms": 100,
+          "roi": [
+            480,
+            530,
+            320,
+            150
+          ],
+          "match_mode": "all",
+          "match_count": 1,
+          "targets": [],
+          "edit_mode": "create",
+          "capture_hint": "LEGACY wait: 00_START_FORTNITE"
+        },
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 1
+          },
+          {
+            "name": "anchor",
+            "type": "STRING",
+            "link": null
+          },
+          {
+            "name": "roi",
+            "type": "VEC4",
+            "link": null
+          }
+        ],
+        "outputs": [
+          {
+            "name": "found",
+            "type": "EXEC",
+            "links": [
+              2
+            ]
+          },
+          {
+            "name": "timeout",
+            "type": "EXEC",
+            "links": null
+          },
+          {
+            "name": "matched",
+            "type": "BOOL",
+            "links": null
+          },
+          {
+            "name": "score",
+            "type": "FLOAT",
+            "links": null
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "type": "ds/press",
+        "pos": [
+          760.0,
+          250.0
+        ],
+        "size": [
+          180,
+          80
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "press.00_START_FORTNITE",
+        "properties": {
+          "button": "cross",
+          "duration_ms": 120
+        },
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 2
+          }
+        ],
+        "outputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "links": [
+              3
+            ]
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "type": "ds/delay",
+        "pos": [
+          1000.0,
+          250.0
+        ],
+        "size": [
+          180,
+          80
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "delay.00_START_FORTNITE",
+        "properties": {
+          "ms": 1500
+        },
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 3
+          }
+        ],
+        "outputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "links": [
+              4
+            ]
+          }
+        ]
+      },
+      {
+        "id": 7,
+        "type": "ui/note",
+        "pos": [
+          80.0,
+          420.0
+        ],
+        "size": [
+          340,
+          150
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "note.01_STARTING",
+        "properties": {
+          "heading": "01 \u2014 PS5 home / Fortnite icon",
+          "text": "MATCH: Fortnite icon on PS5 home (top-left tile area); fallback = unselected icon.\nTHEN: press CIRCLE (runtime; config said CROSS).\nRETAKE: home row with Fortnite focused or unfocused."
+        },
+        "inputs": [],
+        "outputs": []
+      },
+      {
+        "id": 8,
+        "type": "vis/wait_anchor",
+        "pos": [
+          440.0,
+          420.0
+        ],
+        "size": [
+          260,
+          120
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "wait.01_STARTING",
+        "properties": {
+          "anchor_id": "01_STARTING",
+          "threshold": 0.78,
+          "timeout_ms": 120000,
+          "poll_ms": 100,
+          "roi": [
+            55,
+            35,
+            40,
+            40
+          ],
+          "match_mode": "any",
+          "match_count": 1,
+          "targets": [],
+          "edit_mode": "create",
+          "capture_hint": "LEGACY wait: 01_STARTING"
+        },
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 4
+          },
+          {
+            "name": "anchor",
+            "type": "STRING",
+            "link": null
+          },
+          {
+            "name": "roi",
+            "type": "VEC4",
+            "link": null
+          }
+        ],
+        "outputs": [
+          {
+            "name": "found",
+            "type": "EXEC",
+            "links": [
+              5
+            ]
+          },
+          {
+            "name": "timeout",
+            "type": "EXEC",
+            "links": null
+          },
+          {
+            "name": "matched",
+            "type": "BOOL",
+            "links": null
+          },
+          {
+            "name": "score",
+            "type": "FLOAT",
+            "links": null
+          }
+        ]
+      },
+      {
+        "id": 9,
+        "type": "ds/press",
+        "pos": [
+          760.0,
+          420.0
+        ],
+        "size": [
+          180,
+          80
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "press.01_STARTING",
+        "properties": {
+          "button": "circle",
+          "duration_ms": 120
+        },
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 5
+          }
+        ],
+        "outputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "links": [
+              6
+            ]
+          }
+        ]
+      },
+      {
+        "id": 10,
+        "type": "ds/delay",
+        "pos": [
+          1000.0,
+          420.0
+        ],
+        "size": [
+          180,
+          80
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "delay.01_STARTING",
+        "properties": {
+          "ms": 2000
+        },
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 6
+          }
+        ],
+        "outputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "links": [
+              7
+            ]
+          }
+        ]
+      },
+      {
+        "id": 11,
+        "type": "ui/note",
+        "pos": [
+          80.0,
+          590.0
+        ],
+        "size": [
+          340,
+          150
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "note.28_DISCOVER_SEARCH_FOCUSED",
+        "properties": {
+          "heading": "28 \u2014 Discover search focused",
+          "text": "MATCH: Discover search bar focused (top-left search field glow).\nTHEN: CROSS opens on-screen keyboard.\nRETAKE: Discover with search field active/highlighted."
+        },
+        "inputs": [],
+        "outputs": []
+      },
+      {
+        "id": 12,
+        "type": "vis/wait_anchor",
+        "pos": [
+          440.0,
+          590.0
+        ],
+        "size": [
+          260,
+          120
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "wait.28_DISCOVER_SEARCH_FOCUSED",
+        "properties": {
+          "anchor_id": "28_DISCOVER_SEARCH_FOCUSED",
+          "threshold": 0.78,
+          "timeout_ms": 120000,
+          "poll_ms": 100,
+          "roi": [
+            50,
+            120,
+            210,
+            80
+          ],
+          "match_mode": "all",
+          "match_count": 1,
+          "targets": [],
+          "edit_mode": "create",
+          "capture_hint": "LEGACY wait: 28_DISCOVER_SEARCH_FOCUSED"
+        },
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 7
+          },
+          {
+            "name": "anchor",
+            "type": "STRING",
+            "link": null
+          },
+          {
+            "name": "roi",
+            "type": "VEC4",
+            "link": null
+          }
+        ],
+        "outputs": [
+          {
+            "name": "found",
+            "type": "EXEC",
+            "links": [
+              8
+            ]
+          },
+          {
+            "name": "timeout",
+            "type": "EXEC",
+            "links": null
+          },
+          {
+            "name": "matched",
+            "type": "BOOL",
+            "links": null
+          },
+          {
+            "name": "score",
+            "type": "FLOAT",
+            "links": null
+          }
+        ]
+      },
+      {
+        "id": 13,
+        "type": "ds/press",
+        "pos": [
+          760.0,
+          590.0
+        ],
+        "size": [
+          180,
+          80
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "press.28_DISCOVER_SEARCH_FOCUSED",
+        "properties": {
+          "button": "cross",
+          "duration_ms": 120
+        },
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 8
+          }
+        ],
+        "outputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "links": [
+              9
+            ]
+          }
+        ]
+      },
+      {
+        "id": 14,
+        "type": "ds/delay",
+        "pos": [
+          1000.0,
+          590.0
+        ],
+        "size": [
+          180,
+          80
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "delay.28_DISCOVER_SEARCH_FOCUSED",
+        "properties": {
+          "ms": 1200
+        },
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 9
+          }
+        ],
+        "outputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "links": [
+              10
+            ]
+          }
+        ]
+      },
+      {
+        "id": 15,
+        "type": "ui/note",
+        "pos": [
+          80.0,
+          760.0
+        ],
+        "size": [
+          340,
+          150
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "note.29_DISCOVER_KEYBOARD",
+        "properties": {
+          "heading": "29 \u2014 Virtual keyboard macro",
+          "text": "MATCH: PS5 OSK / keyboard panel open (mid screen).\nTHEN: macro_block types SAVE THE WORLD then R2 submit (~15s timeline).\nRETAKE: full keyboard visible; keep crop of keyboard chrome."
+        },
+        "inputs": [],
+        "outputs": []
+      },
+      {
+        "id": 16,
+        "type": "vis/wait_anchor",
+        "pos": [
+          440.0,
+          760.0
+        ],
+        "size": [
+          260,
+          120
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "wait.29_DISCOVER_KEYBOARD",
+        "properties": {
+          "anchor_id": "29_DISCOVER_KEYBOARD",
+          "threshold": 0.75,
+          "timeout_ms": 120000,
+          "poll_ms": 100,
+          "roi": [
+            330,
+            280,
+            620,
+            180
+          ],
+          "match_mode": "all",
+          "match_count": 1,
+          "targets": [],
+          "edit_mode": "create",
+          "capture_hint": "LEGACY wait: 29_DISCOVER_KEYBOARD"
+        },
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 10
+          },
+          {
+            "name": "anchor",
+            "type": "STRING",
+            "link": null
+          },
+          {
+            "name": "roi",
+            "type": "VEC4",
+            "link": null
+          }
+        ],
+        "outputs": [
+          {
+            "name": "found",
+            "type": "EXEC",
+            "links": [
+              11
+            ]
+          },
+          {
+            "name": "timeout",
+            "type": "EXEC",
+            "links": null
+          },
+          {
+            "name": "matched",
+            "type": "BOOL",
+            "links": null
+          },
+          {
+            "name": "score",
+            "type": "FLOAT",
+            "links": null
+          }
+        ]
+      },
+      {
+        "id": 17,
+        "type": "ds/macro_block",
+        "pos": [
+          760.0,
+          760.0
+        ],
+        "size": [
+          220,
+          100
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "macro.29_DISCOVER_KEYBOARD",
+        "properties": {
+          "name": "keyboard_save_the_world",
+          "events": [
+            {
+              "t": 0.0,
+              "btn": "LEFT",
+              "action": "press"
+            },
+            {
+              "t": 0.09,
+              "btn": "LEFT",
+              "action": "release"
+            },
+            {
+              "t": 0.2,
+              "btn": "LEFT",
+              "action": "press"
+            },
+            {
+              "t": 0.29,
+              "btn": "LEFT",
+              "action": "release"
+            },
+            {
+              "t": 0.4,
+              "btn": "LEFT",
+              "action": "press"
+            },
+            {
+              "t": 0.49,
+              "btn": "LEFT",
+              "action": "release"
+            },
+            {
+              "t": 0.6,
+              "btn": "CROSS",
+              "action": "press"
+            },
+            {
+              "t": 0.69,
+              "btn": "CROSS",
+              "action": "release"
+            },
+            {
+              "t": 0.8,
+              "btn": "LEFT",
+              "action": "press"
+            },
+            {
+              "t": 0.89,
+              "btn": "LEFT",
+              "action": "release"
+            },
+            {
+              "t": 1.0,
+              "btn": "CROSS",
+              "action": "press"
+            },
+            {
+              "t": 1.09,
+              "btn": "CROSS",
+              "action": "release"
+            },
+            {
+              "t": 1.2,
+              "btn": "RIGHT",
+              "action": "press"
+            },
+            {
+              "t": 1.29,
+              "btn": "RIGHT",
+              "action": "release"
+            },
+            {
+              "t": 1.4,
+              "btn": "RIGHT",
+              "action": "press"
+            },
+            {
+              "t": 1.49,
+              "btn": "RIGHT",
+              "action": "release"
+            },
+            {
+              "t": 1.6,
+              "btn": "RIGHT",
+              "action": "press"
+            },
+            {
+              "t": 1.69,
+              "btn": "RIGHT",
+              "action": "release"
+            },
+            {
+              "t": 1.8,
+              "btn": "DOWN",
+              "action": "press"
+            },
+            {
+              "t": 1.89,
+              "btn": "DOWN",
+              "action": "release"
+            },
+            {
+              "t": 2.0,
+              "btn": "CROSS",
+              "action": "press"
+            },
+            {
+              "t": 2.09,
+              "btn": "CROSS",
+              "action": "release"
+            },
+            {
+              "t": 2.2,
+              "btn": "UP",
+              "action": "press"
+            },
+            {
+              "t": 2.29,
+              "btn": "UP",
+              "action": "release"
+            },
+            {
+              "t": 2.4,
+              "btn": "UP",
+              "action": "press"
+            },
+            {
+              "t": 2.49,
+              "btn": "UP",
+              "action": "release"
+            },
+            {
+              "t": 2.6,
+              "btn": "LEFT",
+              "action": "press"
+            },
+            {
+              "t": 2.69,
+              "btn": "LEFT",
+              "action": "release"
+            },
+            {
+              "t": 2.8,
+              "btn": "CROSS",
+              "action": "press"
+            },
+            {
+              "t": 2.89,
+              "btn": "CROSS",
+              "action": "release"
+            },
+            {
+              "t": 3.0,
+              "btn": "DOWN",
+              "action": "press"
+            },
+            {
+              "t": 3.09,
+              "btn": "DOWN",
+              "action": "release"
+            },
+            {
+              "t": 3.2,
+              "btn": "DOWN",
+              "action": "press"
+            },
+            {
+              "t": 3.29,
+              "btn": "DOWN",
+              "action": "release"
+            },
+            {
+              "t": 3.4,
+              "btn": "DOWN",
+              "action": "press"
+            },
+            {
+              "t": 3.49,
+              "btn": "DOWN",
+              "action": "release"
+            },
+            {
+              "t": 3.6,
+              "btn": "RIGHT",
+              "action": "press"
+            },
+            {
+              "t": 3.69,
+              "btn": "RIGHT",
+              "action": "release"
+            },
+            {
+              "t": 3.8,
+              "btn": "RIGHT",
+              "action": "press"
+            },
+            {
+              "t": 3.89,
+              "btn": "RIGHT",
+              "action": "release"
+            },
+            {
+              "t": 4.0,
+              "btn": "CROSS",
+              "action": "press"
+            },
+            {
+              "t": 4.09,
+              "btn": "CROSS",
+              "action": "release"
+            },
+            {
+              "t": 4.2,
+              "btn": "UP",
+              "action": "press"
+            },
+            {
+              "t": 4.29,
+              "btn": "UP",
+              "action": "release"
+            },
+            {
+              "t": 4.4,
+              "btn": "UP",
+              "action": "press"
+            },
+            {
+              "t": 4.49,
+              "btn": "UP",
+              "action": "release"
+            },
+            {
+              "t": 4.6,
+              "btn": "UP",
+              "action": "press"
+            },
+            {
+              "t": 4.69,
+              "btn": "UP",
+              "action": "release"
+            },
+            {
+              "t": 4.8,
+              "btn": "LEFT",
+              "action": "press"
+            },
+            {
+              "t": 4.89,
+              "btn": "LEFT",
+              "action": "release"
+            },
+            {
+              "t": 5.0,
+              "btn": "CROSS",
+              "action": "press"
+            },
+            {
+              "t": 5.09,
+              "btn": "CROSS",
+              "action": "release"
+            },
+            {
+              "t": 5.2,
+              "btn": "DOWN",
+              "action": "press"
+            },
+            {
+              "t": 5.29,
+              "btn": "DOWN",
+              "action": "release"
+            },
+            {
+              "t": 5.4,
+              "btn": "RIGHT",
+              "action": "press"
+            },
+            {
+              "t": 5.49,
+              "btn": "RIGHT",
+              "action": "release"
+            },
+            {
+              "t": 5.6,
+              "btn": "CROSS",
+              "action": "press"
+            },
+            {
+              "t": 5.69,
+              "btn": "CROSS",
+              "action": "release"
+            },
+            {
+              "t": 5.8,
+              "btn": "UP",
+              "action": "press"
+            },
+            {
+              "t": 5.89,
+              "btn": "UP",
+              "action": "release"
+            },
+            {
+              "t": 6.0,
+              "btn": "LEFT",
+              "action": "press"
+            },
+            {
+              "t": 6.09,
+              "btn": "LEFT",
+              "action": "release"
+            },
+            {
+              "t": 6.2,
+              "btn": "LEFT",
+              "action": "press"
+            },
+            {
+              "t": 6.29,
+              "btn": "LEFT",
+              "action": "release"
+            },
+            {
+              "t": 6.4,
+              "btn": "LEFT",
+              "action": "press"
+            },
+            {
+              "t": 6.49,
+              "btn": "LEFT",
+              "action": "release"
+            },
+            {
+              "t": 6.6,
+              "btn": "CROSS",
+              "action": "press"
+            },
+            {
+              "t": 6.69,
+              "btn": "CROSS",
+              "action": "release"
+            },
+            {
+              "t": 6.8,
+              "btn": "DOWN",
+              "action": "press"
+            },
+            {
+              "t": 6.89,
+              "btn": "DOWN",
+              "action": "release"
+            },
+            {
+              "t": 7.0,
+              "btn": "DOWN",
+              "action": "press"
+            },
+            {
+              "t": 7.09,
+              "btn": "DOWN",
+              "action": "release"
+            },
+            {
+              "t": 7.2,
+              "btn": "DOWN",
+              "action": "press"
+            },
+            {
+              "t": 7.29,
+              "btn": "DOWN",
+              "action": "release"
+            },
+            {
+              "t": 7.4,
+              "btn": "RIGHT",
+              "action": "press"
+            },
+            {
+              "t": 7.49,
+              "btn": "RIGHT",
+              "action": "release"
+            },
+            {
+              "t": 7.6,
+              "btn": "RIGHT",
+              "action": "press"
+            },
+            {
+              "t": 7.69,
+              "btn": "RIGHT",
+              "action": "release"
+            },
+            {
+              "t": 7.8,
+              "btn": "CROSS",
+              "action": "press"
+            },
+            {
+              "t": 7.89,
+              "btn": "CROSS",
+              "action": "release"
+            },
+            {
+              "t": 8.0,
+              "btn": "UP",
+              "action": "press"
+            },
+            {
+              "t": 8.09,
+              "btn": "UP",
+              "action": "release"
+            },
+            {
+              "t": 8.2,
+              "btn": "UP",
+              "action": "press"
+            },
+            {
+              "t": 8.29,
+              "btn": "UP",
+              "action": "release"
+            },
+            {
+              "t": 8.4,
+              "btn": "UP",
+              "action": "press"
+            },
+            {
+              "t": 8.49,
+              "btn": "UP",
+              "action": "release"
+            },
+            {
+              "t": 8.6,
+              "btn": "LEFT",
+              "action": "press"
+            },
+            {
+              "t": 8.69,
+              "btn": "LEFT",
+              "action": "release"
+            },
+            {
+              "t": 8.8,
+              "btn": "LEFT",
+              "action": "press"
+            },
+            {
+              "t": 8.89,
+              "btn": "LEFT",
+              "action": "release"
+            },
+            {
+              "t": 9.0,
+              "btn": "LEFT",
+              "action": "press"
+            },
+            {
+              "t": 9.09,
+              "btn": "LEFT",
+              "action": "release"
+            },
+            {
+              "t": 9.2,
+              "btn": "LEFT",
+              "action": "press"
+            },
+            {
+              "t": 9.29,
+              "btn": "LEFT",
+              "action": "release"
+            },
+            {
+              "t": 9.4,
+              "btn": "CROSS",
+              "action": "press"
+            },
+            {
+              "t": 9.49,
+              "btn": "CROSS",
+              "action": "release"
+            },
+            {
+              "t": 9.6,
+              "btn": "RIGHT",
+              "action": "press"
+            },
+            {
+              "t": 9.69,
+              "btn": "RIGHT",
+              "action": "release"
+            },
+            {
+              "t": 9.8,
+              "btn": "RIGHT",
+              "action": "press"
+            },
+            {
+              "t": 9.89,
+              "btn": "RIGHT",
+              "action": "release"
+            },
+            {
+              "t": 10.0,
+              "btn": "RIGHT",
+              "action": "press"
+            },
+            {
+              "t": 10.09,
+              "btn": "RIGHT",
+              "action": "release"
+            },
+            {
+              "t": 10.2,
+              "btn": "RIGHT",
+              "action": "press"
+            },
+            {
+              "t": 10.29,
+              "btn": "RIGHT",
+              "action": "release"
+            },
+            {
+              "t": 10.4,
+              "btn": "RIGHT",
+              "action": "press"
+            },
+            {
+              "t": 10.49,
+              "btn": "RIGHT",
+              "action": "release"
+            },
+            {
+              "t": 10.6,
+              "btn": "RIGHT",
+              "action": "press"
+            },
+            {
+              "t": 10.69,
+              "btn": "RIGHT",
+              "action": "release"
+            },
+            {
+              "t": 10.8,
+              "btn": "RIGHT",
+              "action": "press"
+            },
+            {
+              "t": 10.89,
+              "btn": "RIGHT",
+              "action": "release"
+            },
+            {
+              "t": 11.0,
+              "btn": "CROSS",
+              "action": "press"
+            },
+            {
+              "t": 11.09,
+              "btn": "CROSS",
+              "action": "release"
+            },
+            {
+              "t": 11.2,
+              "btn": "LEFT",
+              "action": "press"
+            },
+            {
+              "t": 11.29,
+              "btn": "LEFT",
+              "action": "release"
+            },
+            {
+              "t": 11.4,
+              "btn": "LEFT",
+              "action": "press"
+            },
+            {
+              "t": 11.49,
+              "btn": "LEFT",
+              "action": "release"
+            },
+            {
+              "t": 11.6,
+              "btn": "LEFT",
+              "action": "press"
+            },
+            {
+              "t": 11.69,
+              "btn": "LEFT",
+              "action": "release"
+            },
+            {
+              "t": 11.8,
+              "btn": "LEFT",
+              "action": "press"
+            },
+            {
+              "t": 11.89,
+              "btn": "LEFT",
+              "action": "release"
+            },
+            {
+              "t": 12.0,
+              "btn": "LEFT",
+              "action": "press"
+            },
+            {
+              "t": 12.09,
+              "btn": "LEFT",
+              "action": "release"
+            },
+            {
+              "t": 12.2,
+              "btn": "CROSS",
+              "action": "press"
+            },
+            {
+              "t": 12.29,
+              "btn": "CROSS",
+              "action": "release"
+            },
+            {
+              "t": 12.4,
+              "btn": "DOWN",
+              "action": "press"
+            },
+            {
+              "t": 12.49,
+              "btn": "DOWN",
+              "action": "release"
+            },
+            {
+              "t": 12.6,
+              "btn": "RIGHT",
+              "action": "press"
+            },
+            {
+              "t": 12.69,
+              "btn": "RIGHT",
+              "action": "release"
+            },
+            {
+              "t": 12.8,
+              "btn": "RIGHT",
+              "action": "press"
+            },
+            {
+              "t": 12.89,
+              "btn": "RIGHT",
+              "action": "release"
+            },
+            {
+              "t": 13.0,
+              "btn": "RIGHT",
+              "action": "press"
+            },
+            {
+              "t": 13.09,
+              "btn": "RIGHT",
+              "action": "release"
+            },
+            {
+              "t": 13.2,
+              "btn": "RIGHT",
+              "action": "press"
+            },
+            {
+              "t": 13.29,
+              "btn": "RIGHT",
+              "action": "release"
+            },
+            {
+              "t": 13.4,
+              "btn": "RIGHT",
+              "action": "press"
+            },
+            {
+              "t": 13.49,
+              "btn": "RIGHT",
+              "action": "release"
+            },
+            {
+              "t": 13.6,
+              "btn": "CROSS",
+              "action": "press"
+            },
+            {
+              "t": 13.69,
+              "btn": "CROSS",
+              "action": "release"
+            },
+            {
+              "t": 13.8,
+              "btn": "LEFT",
+              "action": "press"
+            },
+            {
+              "t": 13.89,
+              "btn": "LEFT",
+              "action": "release"
+            },
+            {
+              "t": 14.0,
+              "btn": "LEFT",
+              "action": "press"
+            },
+            {
+              "t": 14.09,
+              "btn": "LEFT",
+              "action": "release"
+            },
+            {
+              "t": 14.2,
+              "btn": "LEFT",
+              "action": "press"
+            },
+            {
+              "t": 14.29,
+              "btn": "LEFT",
+              "action": "release"
+            },
+            {
+              "t": 14.4,
+              "btn": "LEFT",
+              "action": "press"
+            },
+            {
+              "t": 14.49,
+              "btn": "LEFT",
+              "action": "release"
+            },
+            {
+              "t": 14.6,
+              "btn": "LEFT",
+              "action": "press"
+            },
+            {
+              "t": 14.69,
+              "btn": "LEFT",
+              "action": "release"
+            },
+            {
+              "t": 14.8,
+              "btn": "LEFT",
+              "action": "press"
+            },
+            {
+              "t": 14.89,
+              "btn": "LEFT",
+              "action": "release"
+            },
+            {
+              "t": 15.0,
+              "btn": "CROSS",
+              "action": "press"
+            },
+            {
+              "t": 15.09,
+              "btn": "CROSS",
+              "action": "release"
+            },
+            {
+              "t": 15.2,
+              "btn": "R2",
+              "action": "press"
+            },
+            {
+              "t": 15.29,
+              "btn": "R2",
+              "action": "release"
+            }
+          ],
+          "event_count": 154,
+          "recording": false,
+          "normalize": false,
+          "gap_ms": 700,
+          "press_ms": 100
+        },
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 11
+          }
+        ],
+        "outputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "links": [
+              12
+            ]
+          }
+        ]
+      },
+      {
+        "id": 18,
+        "type": "ui/note",
+        "pos": [
+          80.0,
+          930.0
+        ],
+        "size": [
+          340,
+          150
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "note.30_SEARCH_RESULTS",
+        "properties": {
+          "heading": "30 \u2014 Search results \u2192 STW",
+          "text": "MATCH: Islands search results header OR STW result card (any).\nTHEN: DOWN, DOWN, CROSS, CROSS to open first card.\nRETAKE: results list after searching Save The World."
+        },
+        "inputs": [],
+        "outputs": []
+      },
+      {
+        "id": 19,
+        "type": "vis/wait_anchor",
+        "pos": [
+          440.0,
+          930.0
+        ],
+        "size": [
+          260,
+          120
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "wait.30_SEARCH_RESULTS",
+        "properties": {
+          "anchor_id": "30_SEARCH_RESULTS",
+          "threshold": 0.82,
+          "timeout_ms": 120000,
+          "poll_ms": 100,
+          "roi": [
+            20,
+            300,
+            230,
+            80
+          ],
+          "match_mode": "any",
+          "match_count": 1,
+          "targets": [],
+          "edit_mode": "create",
+          "capture_hint": "LEGACY wait: 30_SEARCH_RESULTS"
+        },
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 12
+          },
+          {
+            "name": "anchor",
+            "type": "STRING",
+            "link": null
+          },
+          {
+            "name": "roi",
+            "type": "VEC4",
+            "link": null
+          }
+        ],
+        "outputs": [
+          {
+            "name": "found",
+            "type": "EXEC",
+            "links": [
+              13
+            ]
+          },
+          {
+            "name": "timeout",
+            "type": "EXEC",
+            "links": null
+          },
+          {
+            "name": "matched",
+            "type": "BOOL",
+            "links": null
+          },
+          {
+            "name": "score",
+            "type": "FLOAT",
+            "links": null
+          }
+        ]
+      },
+      {
+        "id": 20,
+        "type": "ds/macro_block",
+        "pos": [
+          760.0,
+          930.0
+        ],
+        "size": [
+          220,
+          100
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "macro.30_SEARCH_RESULTS",
+        "properties": {
+          "name": "seq_30_SEARCH_RESULTS",
+          "events": [
+            {
+              "t": 0.0,
+              "btn": "DOWN",
+              "action": "press"
+            },
+            {
+              "t": 0.1,
+              "btn": "DOWN",
+              "action": "release"
+            },
+            {
+              "t": 0.3,
+              "btn": "DOWN",
+              "action": "press"
+            },
+            {
+              "t": 0.4,
+              "btn": "DOWN",
+              "action": "release"
+            },
+            {
+              "t": 0.65,
+              "btn": "CROSS",
+              "action": "press"
+            },
+            {
+              "t": 0.77,
+              "btn": "CROSS",
+              "action": "release"
+            },
+            {
+              "t": 1.12,
+              "btn": "CROSS",
+              "action": "press"
+            },
+            {
+              "t": 1.24,
+              "btn": "CROSS",
+              "action": "release"
+            }
+          ],
+          "event_count": 8,
+          "recording": false,
+          "normalize": false,
+          "gap_ms": 700,
+          "press_ms": 100
+        },
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 13
+          }
+        ],
+        "outputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "links": [
+              14
+            ]
+          }
+        ]
+      },
+      {
+        "id": 21,
+        "type": "ui/note",
+        "pos": [
+          80.0,
+          1100.0
+        ],
+        "size": [
+          340,
+          150
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "note.04_STW_READY",
+        "properties": {
+          "heading": "04 \u2014 STW lobby ready",
+          "text": "MATCH: STW title AND yellow Play (all / both templates).\nTHEN: TRIANGLE to launch/queue.\nRETAKE: STW main lobby with yellow Play ready."
+        },
+        "inputs": [],
+        "outputs": []
+      },
+      {
+        "id": 22,
+        "type": "vis/wait_anchor",
+        "pos": [
+          440.0,
+          1100.0
+        ],
+        "size": [
+          260,
+          120
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "wait.04_STW_READY",
+        "properties": {
+          "anchor_id": "04_STW_READY",
+          "threshold": 0.85,
+          "timeout_ms": 120000,
+          "poll_ms": 100,
+          "roi": [
+            10,
+            15,
+            100,
+            45
+          ],
+          "match_mode": "all",
+          "match_count": 1,
+          "targets": [],
+          "edit_mode": "create",
+          "capture_hint": "LEGACY wait: 04_STW_READY"
+        },
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 14
+          },
+          {
+            "name": "anchor",
+            "type": "STRING",
+            "link": null
+          },
+          {
+            "name": "roi",
+            "type": "VEC4",
+            "link": null
+          }
+        ],
+        "outputs": [
+          {
+            "name": "found",
+            "type": "EXEC",
+            "links": [
+              15
+            ]
+          },
+          {
+            "name": "timeout",
+            "type": "EXEC",
+            "links": null
+          },
+          {
+            "name": "matched",
+            "type": "BOOL",
+            "links": null
+          },
+          {
+            "name": "score",
+            "type": "FLOAT",
+            "links": null
+          }
+        ]
+      },
+      {
+        "id": 23,
+        "type": "ds/press",
+        "pos": [
+          760.0,
+          1100.0
+        ],
+        "size": [
+          180,
+          80
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "press.04_STW_READY",
+        "properties": {
+          "button": "triangle",
+          "duration_ms": 120
+        },
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 15
+          }
+        ],
+        "outputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "links": [
+              16
+            ]
+          }
+        ]
+      },
+      {
+        "id": 24,
+        "type": "ds/delay",
+        "pos": [
+          1000.0,
+          1100.0
+        ],
+        "size": [
+          180,
+          80
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "delay.04_STW_READY",
+        "properties": {
+          "ms": 2000
+        },
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 16
+          }
+        ],
+        "outputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "links": [
+              17
+            ]
+          }
+        ]
+      },
+      {
+        "id": 25,
+        "type": "ui/note",
+        "pos": [
+          80.0,
+          1270.0
+        ],
+        "size": [
+          340,
+          150
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "note.05_STW_QUEUED",
+        "properties": {
+          "heading": "05 \u2014 STW queued (wait)",
+          "text": "MATCH: STW title AND cancel-matchmaking control (both).\nTHEN: hold/wait only \u2014 no press.\nRETAKE: matchmaking / queued lobby with Cancel visible."
+        },
+        "inputs": [],
+        "outputs": []
+      },
+      {
+        "id": 26,
+        "type": "vis/wait_anchor",
+        "pos": [
+          440.0,
+          1270.0
+        ],
+        "size": [
+          260,
+          120
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "wait.05_STW_QUEUED",
+        "properties": {
+          "anchor_id": "05_STW_QUEUED",
+          "threshold": 0.85,
+          "timeout_ms": 120000,
+          "poll_ms": 100,
+          "roi": [
+            10,
+            15,
+            100,
+            45
+          ],
+          "match_mode": "all",
+          "match_count": 1,
+          "targets": [],
+          "edit_mode": "create",
+          "capture_hint": "LEGACY wait: 05_STW_QUEUED"
+        },
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 17
+          },
+          {
+            "name": "anchor",
+            "type": "STRING",
+            "link": null
+          },
+          {
+            "name": "roi",
+            "type": "VEC4",
+            "link": null
+          }
+        ],
+        "outputs": [
+          {
+            "name": "found",
+            "type": "EXEC",
+            "links": [
+              18
+            ]
+          },
+          {
+            "name": "timeout",
+            "type": "EXEC",
+            "links": null
+          },
+          {
+            "name": "matched",
+            "type": "BOOL",
+            "links": null
+          },
+          {
+            "name": "score",
+            "type": "FLOAT",
+            "links": null
+          }
+        ]
+      },
+      {
+        "id": 27,
+        "type": "ds/delay",
+        "pos": [
+          760.0,
+          1270.0
+        ],
+        "size": [
+          180,
+          80
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "hold.05_STW_QUEUED",
+        "properties": {
+          "ms": 800
+        },
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 18
+          }
+        ],
+        "outputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "links": [
+              19
+            ]
+          }
+        ]
+      },
+      {
+        "id": 28,
+        "type": "ui/note",
+        "pos": [
+          80.0,
+          1440.0
+        ],
+        "size": [
+          340,
+          150
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "note.06_CONNECTING",
+        "properties": {
+          "heading": "06 \u2014 Connecting (wait)",
+          "text": "MATCH: 'Connecting' text (bottom-left) OR lobby connecting art (any).\nTHEN: wait/hold through load.\nRETAKE: connecting / loading into Fortnite."
+        },
+        "inputs": [],
+        "outputs": []
+      },
+      {
+        "id": 29,
+        "type": "vis/wait_anchor",
+        "pos": [
+          440.0,
+          1440.0
+        ],
+        "size": [
+          260,
+          120
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "wait.06_CONNECTING",
+        "properties": {
+          "anchor_id": "06_CONNECTING",
+          "threshold": 0.82,
+          "timeout_ms": 120000,
+          "poll_ms": 100,
+          "roi": [
+            20,
+            640,
+            180,
+            60
+          ],
+          "match_mode": "any",
+          "match_count": 1,
+          "targets": [],
+          "edit_mode": "create",
+          "capture_hint": "LEGACY wait: 06_CONNECTING"
+        },
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 19
+          },
+          {
+            "name": "anchor",
+            "type": "STRING",
+            "link": null
+          },
+          {
+            "name": "roi",
+            "type": "VEC4",
+            "link": null
+          }
+        ],
+        "outputs": [
+          {
+            "name": "found",
+            "type": "EXEC",
+            "links": [
+              20
+            ]
+          },
+          {
+            "name": "timeout",
+            "type": "EXEC",
+            "links": null
+          },
+          {
+            "name": "matched",
+            "type": "BOOL",
+            "links": null
+          },
+          {
+            "name": "score",
+            "type": "FLOAT",
+            "links": null
+          }
+        ]
+      },
+      {
+        "id": 30,
+        "type": "ds/delay",
+        "pos": [
+          760.0,
+          1440.0
+        ],
+        "size": [
+          180,
+          80
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "hold.06_CONNECTING",
+        "properties": {
+          "ms": 800
+        },
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 20
+          }
+        ],
+        "outputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "links": [
+              21
+            ]
+          }
+        ]
+      },
+      {
+        "id": 31,
+        "type": "ui/note",
+        "pos": [
+          80.0,
+          1610.0
+        ],
+        "size": [
+          340,
+          150
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "note.07_STW_COLLECT",
+        "properties": {
+          "heading": "07 \u2014 Collect rewards",
+          "text": "MATCH: Collect-all / rewards prompt (bottom-right).\nTHEN: TRIANGLE (runtime; config said SQUARE).\nRETAKE: post-mission chest / collect-all HUD."
+        },
+        "inputs": [],
+        "outputs": []
+      },
+      {
+        "id": 32,
+        "type": "vis/wait_anchor",
+        "pos": [
+          440.0,
+          1610.0
+        ],
+        "size": [
+          260,
+          120
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "wait.07_STW_COLLECT",
+        "properties": {
+          "anchor_id": "07_STW_COLLECT",
+          "threshold": 0.85,
+          "timeout_ms": 120000,
+          "poll_ms": 100,
+          "roi": [
+            1020,
+            630,
+            220,
+            85
+          ],
+          "match_mode": "all",
+          "match_count": 1,
+          "targets": [],
+          "edit_mode": "create",
+          "capture_hint": "LEGACY wait: 07_STW_COLLECT"
+        },
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 21
+          },
+          {
+            "name": "anchor",
+            "type": "STRING",
+            "link": null
+          },
+          {
+            "name": "roi",
+            "type": "VEC4",
+            "link": null
+          }
+        ],
+        "outputs": [
+          {
+            "name": "found",
+            "type": "EXEC",
+            "links": [
+              22
+            ]
+          },
+          {
+            "name": "timeout",
+            "type": "EXEC",
+            "links": null
+          },
+          {
+            "name": "matched",
+            "type": "BOOL",
+            "links": null
+          },
+          {
+            "name": "score",
+            "type": "FLOAT",
+            "links": null
+          }
+        ]
+      },
+      {
+        "id": 33,
+        "type": "ds/press",
+        "pos": [
+          760.0,
+          1610.0
+        ],
+        "size": [
+          180,
+          80
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "press.07_STW_COLLECT",
+        "properties": {
+          "button": "triangle",
+          "duration_ms": 120
+        },
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 22
+          }
+        ],
+        "outputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "links": [
+              23
+            ]
+          }
+        ]
+      },
+      {
+        "id": 34,
+        "type": "ds/delay",
+        "pos": [
+          1000.0,
+          1610.0
+        ],
+        "size": [
+          180,
+          80
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "delay.07_STW_COLLECT",
+        "properties": {
+          "ms": 1000
+        },
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 23
+          }
+        ],
+        "outputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "links": [
+              24
+            ]
+          }
+        ]
+      },
+      {
+        "id": 35,
+        "type": "ui/note",
+        "pos": [
+          80.0,
+          1780.0
+        ],
+        "size": [
+          340,
+          150
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "note.08_HESTIA",
+        "properties": {
+          "heading": "08 \u2014 Hestia room",
+          "text": "MATCH: Hestia logo / blue load room (bottom-right).\nTHEN: TOUCHPAD (runtime; config said CROSS).\nRETAKE: Hestia spawn / blue interstitial."
+        },
+        "inputs": [],
+        "outputs": []
+      },
+      {
+        "id": 36,
+        "type": "vis/wait_anchor",
+        "pos": [
+          440.0,
+          1780.0
+        ],
+        "size": [
+          260,
+          120
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "wait.08_HESTIA",
+        "properties": {
+          "anchor_id": "08_HESTIA",
+          "threshold": 0.8,
+          "timeout_ms": 120000,
+          "poll_ms": 100,
+          "roi": [
+            1060,
+            600,
+            180,
+            110
+          ],
+          "match_mode": "all",
+          "match_count": 1,
+          "targets": [],
+          "edit_mode": "create",
+          "capture_hint": "LEGACY wait: 08_HESTIA"
+        },
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 24
+          },
+          {
+            "name": "anchor",
+            "type": "STRING",
+            "link": null
+          },
+          {
+            "name": "roi",
+            "type": "VEC4",
+            "link": null
+          }
+        ],
+        "outputs": [
+          {
+            "name": "found",
+            "type": "EXEC",
+            "links": [
+              25
+            ]
+          },
+          {
+            "name": "timeout",
+            "type": "EXEC",
+            "links": null
+          },
+          {
+            "name": "matched",
+            "type": "BOOL",
+            "links": null
+          },
+          {
+            "name": "score",
+            "type": "FLOAT",
+            "links": null
+          }
+        ]
+      },
+      {
+        "id": 37,
+        "type": "ds/press",
+        "pos": [
+          760.0,
+          1780.0
+        ],
+        "size": [
+          180,
+          80
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "press.08_HESTIA",
+        "properties": {
+          "button": "touchpad",
+          "duration_ms": 120
+        },
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 25
+          }
+        ],
+        "outputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "links": [
+              26
+            ]
+          }
+        ]
+      },
+      {
+        "id": 38,
+        "type": "ds/delay",
+        "pos": [
+          1000.0,
+          1780.0
+        ],
+        "size": [
+          180,
+          80
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "delay.08_HESTIA",
+        "properties": {
+          "ms": 1500
+        },
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 26
+          }
+        ],
+        "outputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "links": [
+              27
+            ]
+          }
+        ]
+      },
+      {
+        "id": 39,
+        "type": "ui/note",
+        "pos": [
+          80.0,
+          1950.0
+        ],
+        "size": [
+          340,
+          150
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "note.09_OLD_LOBBY_QUESTS",
+        "properties": {
+          "heading": "09 \u2014 Quests tab \u2192 Map",
+          "text": "MATCH: Quests tab selected in old STW lobby (top tabs).\nTHEN: R1 to move to Map tab.\nRETAKE: lobby with Quests tab active."
+        },
+        "inputs": [],
+        "outputs": []
+      },
+      {
+        "id": 40,
+        "type": "vis/wait_anchor",
+        "pos": [
+          440.0,
+          1950.0
+        ],
+        "size": [
+          260,
+          120
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "wait.09_OLD_LOBBY_QUESTS",
+        "properties": {
+          "anchor_id": "09_OLD_LOBBY_QUESTS",
+          "threshold": 0.85,
+          "timeout_ms": 120000,
+          "poll_ms": 100,
+          "roi": [
+            360,
+            45,
+            110,
+            50
+          ],
+          "match_mode": "all",
+          "match_count": 1,
+          "targets": [],
+          "edit_mode": "create",
+          "capture_hint": "LEGACY wait: 09_OLD_LOBBY_QUESTS"
+        },
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 27
+          },
+          {
+            "name": "anchor",
+            "type": "STRING",
+            "link": null
+          },
+          {
+            "name": "roi",
+            "type": "VEC4",
+            "link": null
+          }
+        ],
+        "outputs": [
+          {
+            "name": "found",
+            "type": "EXEC",
+            "links": [
+              28
+            ]
+          },
+          {
+            "name": "timeout",
+            "type": "EXEC",
+            "links": null
+          },
+          {
+            "name": "matched",
+            "type": "BOOL",
+            "links": null
+          },
+          {
+            "name": "score",
+            "type": "FLOAT",
+            "links": null
+          }
+        ]
+      },
+      {
+        "id": 41,
+        "type": "ds/press",
+        "pos": [
+          760.0,
+          1950.0
+        ],
+        "size": [
+          180,
+          80
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "press.09_OLD_LOBBY_QUESTS",
+        "properties": {
+          "button": "r1",
+          "duration_ms": 120
+        },
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 28
+          }
+        ],
+        "outputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "links": [
+              29
+            ]
+          }
+        ]
+      },
+      {
+        "id": 42,
+        "type": "ds/delay",
+        "pos": [
+          1000.0,
+          1950.0
+        ],
+        "size": [
+          180,
+          80
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "delay.09_OLD_LOBBY_QUESTS",
+        "properties": {
+          "ms": 1000
+        },
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 29
+          }
+        ],
+        "outputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "links": [
+              30
+            ]
+          }
+        ]
+      },
+      {
+        "id": 43,
+        "type": "ui/note",
+        "pos": [
+          80.0,
+          2120.0
+        ],
+        "size": [
+          340,
+          150
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "note.10_OLD_LOBBY_MAP",
+        "properties": {
+          "heading": "10a \u2014 Stonewood on world map",
+          "text": "MATCH: Stonewood logo on world map (left/mid).\nTHEN: RIGHT\u00d73 + CROSS toward Twine.\nRETAKE: world map focused on Stonewood."
+        },
+        "inputs": [],
+        "outputs": []
+      },
+      {
+        "id": 44,
+        "type": "vis/wait_anchor",
+        "pos": [
+          440.0,
+          2120.0
+        ],
+        "size": [
+          260,
+          120
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "wait.10_OLD_LOBBY_MAP",
+        "properties": {
+          "anchor_id": "10_OLD_LOBBY_MAP",
+          "threshold": 0.85,
+          "timeout_ms": 120000,
+          "poll_ms": 100,
+          "roi": [
+            80,
+            450,
+            160,
+            140
+          ],
+          "match_mode": "all",
+          "match_count": 1,
+          "targets": [],
+          "edit_mode": "create",
+          "capture_hint": "LEGACY wait: 10_OLD_LOBBY_MAP"
+        },
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 30
+          },
+          {
+            "name": "anchor",
+            "type": "STRING",
+            "link": null
+          },
+          {
+            "name": "roi",
+            "type": "VEC4",
+            "link": null
+          }
+        ],
+        "outputs": [
+          {
+            "name": "found",
+            "type": "EXEC",
+            "links": [
+              31
+            ]
+          },
+          {
+            "name": "timeout",
+            "type": "EXEC",
+            "links": null
+          },
+          {
+            "name": "matched",
+            "type": "BOOL",
+            "links": null
+          },
+          {
+            "name": "score",
+            "type": "FLOAT",
+            "links": null
+          }
+        ]
+      },
+      {
+        "id": 45,
+        "type": "ds/macro_block",
+        "pos": [
+          760.0,
+          2120.0
+        ],
+        "size": [
+          220,
+          100
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "macro.10_OLD_LOBBY_MAP",
+        "properties": {
+          "name": "seq_10_OLD_LOBBY_MAP",
+          "events": [
+            {
+              "t": 0.0,
+              "btn": "RIGHT",
+              "action": "press"
+            },
+            {
+              "t": 0.1,
+              "btn": "RIGHT",
+              "action": "release"
+            },
+            {
+              "t": 0.25,
+              "btn": "RIGHT",
+              "action": "press"
+            },
+            {
+              "t": 0.35,
+              "btn": "RIGHT",
+              "action": "release"
+            },
+            {
+              "t": 0.5,
+              "btn": "RIGHT",
+              "action": "press"
+            },
+            {
+              "t": 0.6,
+              "btn": "RIGHT",
+              "action": "release"
+            },
+            {
+              "t": 0.75,
+              "btn": "CROSS",
+              "action": "press"
+            },
+            {
+              "t": 0.87,
+              "btn": "CROSS",
+              "action": "release"
+            }
+          ],
+          "event_count": 8,
+          "recording": false,
+          "normalize": false,
+          "gap_ms": 700,
+          "press_ms": 100
+        },
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 31
+          }
+        ],
+        "outputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "links": [
+              32
+            ]
+          }
+        ]
+      },
+      {
+        "id": 46,
+        "type": "ui/note",
+        "pos": [
+          80.0,
+          2290.0
+        ],
+        "size": [
+          340,
+          150
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "note.10_TWINE_WORLD_MAP",
+        "properties": {
+          "heading": "10b \u2014 Twine on world map",
+          "text": "MATCH: Twine Peaks logo highlighted on world map.\nTHEN: CROSS to enter Twine.\nRETAKE: world map with Twine selected."
+        },
+        "inputs": [],
+        "outputs": []
+      },
+      {
+        "id": 47,
+        "type": "vis/wait_anchor",
+        "pos": [
+          440.0,
+          2290.0
+        ],
+        "size": [
+          260,
+          120
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "wait.10_TWINE_WORLD_MAP",
+        "properties": {
+          "anchor_id": "10_TWINE_WORLD_MAP",
+          "threshold": 0.85,
+          "timeout_ms": 120000,
+          "poll_ms": 100,
+          "roi": [
+            80,
+            180,
+            140,
+            130
+          ],
+          "match_mode": "all",
+          "match_count": 1,
+          "targets": [],
+          "edit_mode": "create",
+          "capture_hint": "LEGACY wait: 10_TWINE_WORLD_MAP"
+        },
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 32
+          },
+          {
+            "name": "anchor",
+            "type": "STRING",
+            "link": null
+          },
+          {
+            "name": "roi",
+            "type": "VEC4",
+            "link": null
+          }
+        ],
+        "outputs": [
+          {
+            "name": "found",
+            "type": "EXEC",
+            "links": [
+              33
+            ]
+          },
+          {
+            "name": "timeout",
+            "type": "EXEC",
+            "links": null
+          },
+          {
+            "name": "matched",
+            "type": "BOOL",
+            "links": null
+          },
+          {
+            "name": "score",
+            "type": "FLOAT",
+            "links": null
+          }
+        ]
+      },
+      {
+        "id": 48,
+        "type": "ds/press",
+        "pos": [
+          760.0,
+          2290.0
+        ],
+        "size": [
+          180,
+          80
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "press.10_TWINE_WORLD_MAP",
+        "properties": {
+          "button": "cross",
+          "duration_ms": 120
+        },
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 33
+          }
+        ],
+        "outputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "links": [
+              34
+            ]
+          }
+        ]
+      },
+      {
+        "id": 49,
+        "type": "ds/delay",
+        "pos": [
+          1000.0,
+          2290.0
+        ],
+        "size": [
+          180,
+          80
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "delay.10_TWINE_WORLD_MAP",
+        "properties": {
+          "ms": 1200
+        },
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 34
+          }
+        ],
+        "outputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "links": [
+              35
+            ]
+          }
+        ]
+      },
+      {
+        "id": 50,
+        "type": "ui/note",
+        "pos": [
+          80.0,
+          2460.0
+        ],
+        "size": [
+          340,
+          150
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "note.11_TWINE_MAP",
+        "properties": {
+          "heading": "11 \u2014 Twine zone map",
+          "text": "MATCH: 'Play with Others' / Twine zone chrome (bottom-left).\nTHEN: RIGHT + CROSS (runtime; config said UP+CROSS) to Storm Shield.\nRETAKE: Twine zone map with PWO / SS node visible."
+        },
+        "inputs": [],
+        "outputs": []
+      },
+      {
+        "id": 51,
+        "type": "vis/wait_anchor",
+        "pos": [
+          440.0,
+          2460.0
+        ],
+        "size": [
+          260,
+          120
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "wait.11_TWINE_MAP",
+        "properties": {
+          "anchor_id": "11_TWINE_MAP",
+          "threshold": 0.85,
+          "timeout_ms": 120000,
+          "poll_ms": 100,
+          "roi": [
+            30,
+            650,
+            230,
+            65
+          ],
+          "match_mode": "all",
+          "match_count": 1,
+          "targets": [],
+          "edit_mode": "create",
+          "capture_hint": "LEGACY wait: 11_TWINE_MAP"
+        },
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 35
+          },
+          {
+            "name": "anchor",
+            "type": "STRING",
+            "link": null
+          },
+          {
+            "name": "roi",
+            "type": "VEC4",
+            "link": null
+          }
+        ],
+        "outputs": [
+          {
+            "name": "found",
+            "type": "EXEC",
+            "links": [
+              36
+            ]
+          },
+          {
+            "name": "timeout",
+            "type": "EXEC",
+            "links": null
+          },
+          {
+            "name": "matched",
+            "type": "BOOL",
+            "links": null
+          },
+          {
+            "name": "score",
+            "type": "FLOAT",
+            "links": null
+          }
+        ]
+      },
+      {
+        "id": 52,
+        "type": "ds/macro_block",
+        "pos": [
+          760.0,
+          2460.0
+        ],
+        "size": [
+          220,
+          100
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "macro.11_TWINE_MAP",
+        "properties": {
+          "name": "seq_11_TWINE_MAP",
+          "events": [
+            {
+              "t": 0.0,
+              "btn": "RIGHT",
+              "action": "press"
+            },
+            {
+              "t": 0.1,
+              "btn": "RIGHT",
+              "action": "release"
+            },
+            {
+              "t": 0.3,
+              "btn": "CROSS",
+              "action": "press"
+            },
+            {
+              "t": 0.42,
+              "btn": "CROSS",
+              "action": "release"
+            }
+          ],
+          "event_count": 4,
+          "recording": false,
+          "normalize": false,
+          "gap_ms": 700,
+          "press_ms": 100
+        },
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 36
+          }
+        ],
+        "outputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "links": [
+              37
+            ]
+          }
+        ]
+      },
+      {
+        "id": 53,
+        "type": "ui/note",
+        "pos": [
+          80.0,
+          2630.0
+        ],
+        "size": [
+          340,
+          150
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "note.12_TWINE_SELECTED",
+        "properties": {
+          "heading": "12 \u2014 Twine Storm Shield selected",
+          "text": "MATCH: Twine Storm Shield node selected (bottom-right panel).\nTHEN: CROSS.\nRETAKE: SS node highlighted on Twine map."
+        },
+        "inputs": [],
+        "outputs": []
+      },
+      {
+        "id": 54,
+        "type": "vis/wait_anchor",
+        "pos": [
+          440.0,
+          2630.0
+        ],
+        "size": [
+          260,
+          120
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "wait.12_TWINE_SELECTED",
+        "properties": {
+          "anchor_id": "12_TWINE_SELECTED",
+          "threshold": 0.85,
+          "timeout_ms": 120000,
+          "poll_ms": 100,
+          "roi": [
+            980,
+            600,
+            260,
+            115
+          ],
+          "match_mode": "all",
+          "match_count": 1,
+          "targets": [],
+          "edit_mode": "create",
+          "capture_hint": "LEGACY wait: 12_TWINE_SELECTED"
+        },
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 37
+          },
+          {
+            "name": "anchor",
+            "type": "STRING",
+            "link": null
+          },
+          {
+            "name": "roi",
+            "type": "VEC4",
+            "link": null
+          }
+        ],
+        "outputs": [
+          {
+            "name": "found",
+            "type": "EXEC",
+            "links": [
+              38
+            ]
+          },
+          {
+            "name": "timeout",
+            "type": "EXEC",
+            "links": null
+          },
+          {
+            "name": "matched",
+            "type": "BOOL",
+            "links": null
+          },
+          {
+            "name": "score",
+            "type": "FLOAT",
+            "links": null
+          }
+        ]
+      },
+      {
+        "id": 55,
+        "type": "ds/press",
+        "pos": [
+          760.0,
+          2630.0
+        ],
+        "size": [
+          180,
+          80
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "press.12_TWINE_SELECTED",
+        "properties": {
+          "button": "cross",
+          "duration_ms": 120
+        },
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 38
+          }
+        ],
+        "outputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "links": [
+              39
+            ]
+          }
+        ]
+      },
+      {
+        "id": 56,
+        "type": "ds/delay",
+        "pos": [
+          1000.0,
+          2630.0
+        ],
+        "size": [
+          180,
+          80
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "delay.12_TWINE_SELECTED",
+        "properties": {
+          "ms": 1000
+        },
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 39
+          }
+        ],
+        "outputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "links": [
+              40
+            ]
+          }
+        ]
+      },
+      {
+        "id": 57,
+        "type": "ui/note",
+        "pos": [
+          80.0,
+          2800.0
+        ],
+        "size": [
+          340,
+          150
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "note.13_COMMUNITY_LOOKOUT",
+        "properties": {
+          "heading": "13 \u2014 Community Lookout modal",
+          "text": "MATCH: blue Community Lookout / launch modal (bottom-right).\nTHEN: SQUARE.\nRETAKE: that blue launch modal fully visible."
+        },
+        "inputs": [],
+        "outputs": []
+      },
+      {
+        "id": 58,
+        "type": "vis/wait_anchor",
+        "pos": [
+          440.0,
+          2800.0
+        ],
+        "size": [
+          260,
+          120
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "wait.13_COMMUNITY_LOOKOUT",
+        "properties": {
+          "anchor_id": "13_COMMUNITY_LOOKOUT",
+          "threshold": 0.85,
+          "timeout_ms": 120000,
+          "poll_ms": 100,
+          "roi": [
+            960,
+            640,
+            290,
+            75
+          ],
+          "match_mode": "all",
+          "match_count": 1,
+          "targets": [],
+          "edit_mode": "create",
+          "capture_hint": "LEGACY wait: 13_COMMUNITY_LOOKOUT"
+        },
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 40
+          },
+          {
+            "name": "anchor",
+            "type": "STRING",
+            "link": null
+          },
+          {
+            "name": "roi",
+            "type": "VEC4",
+            "link": null
+          }
+        ],
+        "outputs": [
+          {
+            "name": "found",
+            "type": "EXEC",
+            "links": [
+              41
+            ]
+          },
+          {
+            "name": "timeout",
+            "type": "EXEC",
+            "links": null
+          },
+          {
+            "name": "matched",
+            "type": "BOOL",
+            "links": null
+          },
+          {
+            "name": "score",
+            "type": "FLOAT",
+            "links": null
+          }
+        ]
+      },
+      {
+        "id": 59,
+        "type": "ds/press",
+        "pos": [
+          760.0,
+          2800.0
+        ],
+        "size": [
+          180,
+          80
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "press.13_COMMUNITY_LOOKOUT",
+        "properties": {
+          "button": "square",
+          "duration_ms": 120
+        },
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 41
+          }
+        ],
+        "outputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "links": [
+              42
+            ]
+          }
+        ]
+      },
+      {
+        "id": 60,
+        "type": "ds/delay",
+        "pos": [
+          1000.0,
+          2800.0
+        ],
+        "size": [
+          180,
+          80
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "delay.13_COMMUNITY_LOOKOUT",
+        "properties": {
+          "ms": 1000
+        },
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 42
+          }
+        ],
+        "outputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "links": [
+              43
+            ]
+          }
+        ]
+      },
+      {
+        "id": 61,
+        "type": "ui/note",
+        "pos": [
+          80.0,
+          2970.0
+        ],
+        "size": [
+          340,
+          150
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "note.15_STW_FINAL_LAUNCH",
+        "properties": {
+          "heading": "15 \u2014 Yellow Launch",
+          "text": "MATCH: yellow Launch prompt (bottom-right; triangle hint).\nTHEN: TRIANGLE.\nRETAKE: STW lobby yellow Launch ready."
+        },
+        "inputs": [],
+        "outputs": []
+      },
+      {
+        "id": 62,
+        "type": "vis/wait_anchor",
+        "pos": [
+          440.0,
+          2970.0
+        ],
+        "size": [
+          260,
+          120
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "wait.15_STW_FINAL_LAUNCH",
+        "properties": {
+          "anchor_id": "15_STW_FINAL_LAUNCH",
+          "threshold": 0.85,
+          "timeout_ms": 120000,
+          "poll_ms": 100,
+          "roi": [
+            950,
+            620,
+            300,
+            95
+          ],
+          "match_mode": "all",
+          "match_count": 1,
+          "targets": [],
+          "edit_mode": "create",
+          "capture_hint": "LEGACY wait: 15_STW_FINAL_LAUNCH"
+        },
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 43
+          },
+          {
+            "name": "anchor",
+            "type": "STRING",
+            "link": null
+          },
+          {
+            "name": "roi",
+            "type": "VEC4",
+            "link": null
+          }
+        ],
+        "outputs": [
+          {
+            "name": "found",
+            "type": "EXEC",
+            "links": [
+              44
+            ]
+          },
+          {
+            "name": "timeout",
+            "type": "EXEC",
+            "links": null
+          },
+          {
+            "name": "matched",
+            "type": "BOOL",
+            "links": null
+          },
+          {
+            "name": "score",
+            "type": "FLOAT",
+            "links": null
+          }
+        ]
+      },
+      {
+        "id": 63,
+        "type": "ds/press",
+        "pos": [
+          760.0,
+          2970.0
+        ],
+        "size": [
+          180,
+          80
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "press.15_STW_FINAL_LAUNCH",
+        "properties": {
+          "button": "triangle",
+          "duration_ms": 120
+        },
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 44
+          }
+        ],
+        "outputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "links": [
+              45
+            ]
+          }
+        ]
+      },
+      {
+        "id": 64,
+        "type": "ds/delay",
+        "pos": [
+          1000.0,
+          2970.0
+        ],
+        "size": [
+          180,
+          80
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "delay.15_STW_FINAL_LAUNCH",
+        "properties": {
+          "ms": 1000
+        },
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 45
+          }
+        ],
+        "outputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "links": [
+              46
+            ]
+          }
+        ]
+      },
+      {
+        "id": 65,
+        "type": "ui/note",
+        "pos": [
+          80.0,
+          3140.0
+        ],
+        "size": [
+          340,
+          150
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "note.14_TRAVELLING_LOBBY",
+        "properties": {
+          "heading": "14 \u2014 Travelling (wait)",
+          "text": "MATCH: 'Starting Storm Shield' / travelling yellow banner.\nTHEN: wait only.\nRETAKE: travelling / loading-into-SS screen."
+        },
+        "inputs": [],
+        "outputs": []
+      },
+      {
+        "id": 66,
+        "type": "vis/wait_anchor",
+        "pos": [
+          440.0,
+          3140.0
+        ],
+        "size": [
+          260,
+          120
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "wait.14_TRAVELLING_LOBBY",
+        "properties": {
+          "anchor_id": "14_TRAVELLING_LOBBY",
+          "threshold": 0.8,
+          "timeout_ms": 120000,
+          "poll_ms": 100,
+          "roi": [
+            940,
+            600,
+            310,
+            115
+          ],
+          "match_mode": "all",
+          "match_count": 1,
+          "targets": [],
+          "edit_mode": "create",
+          "capture_hint": "LEGACY wait: 14_TRAVELLING_LOBBY"
+        },
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 46
+          },
+          {
+            "name": "anchor",
+            "type": "STRING",
+            "link": null
+          },
+          {
+            "name": "roi",
+            "type": "VEC4",
+            "link": null
+          }
+        ],
+        "outputs": [
+          {
+            "name": "found",
+            "type": "EXEC",
+            "links": [
+              47
+            ]
+          },
+          {
+            "name": "timeout",
+            "type": "EXEC",
+            "links": null
+          },
+          {
+            "name": "matched",
+            "type": "BOOL",
+            "links": null
+          },
+          {
+            "name": "score",
+            "type": "FLOAT",
+            "links": null
+          }
+        ]
+      },
+      {
+        "id": 67,
+        "type": "ds/delay",
+        "pos": [
+          760.0,
+          3140.0
+        ],
+        "size": [
+          180,
+          80
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "hold.14_TRAVELLING_LOBBY",
+        "properties": {
+          "ms": 800
+        },
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 47
+          }
+        ],
+        "outputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "links": [
+              48
+            ]
+          }
+        ]
+      },
+      {
+        "id": 68,
+        "type": "ui/note",
+        "pos": [
+          80.0,
+          3310.0
+        ],
+        "size": [
+          340,
+          150
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "note.16_SHIELD_NOT_STARTED",
+        "properties": {
+          "heading": "16 \u2014 SS loaded, not started",
+          "text": "MATCH: Activate Storm Shield / SS loaded prompt (center band).\nTHEN: UP (runtime; config said TOUCHPAD) to open menu path.\nRETAKE: inside SS before Endurance start."
+        },
+        "inputs": [],
+        "outputs": []
+      },
+      {
+        "id": 69,
+        "type": "vis/wait_anchor",
+        "pos": [
+          440.0,
+          3310.0
+        ],
+        "size": [
+          260,
+          120
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "wait.16_SHIELD_NOT_STARTED",
+        "properties": {
+          "anchor_id": "16_SHIELD_NOT_STARTED",
+          "threshold": 0.8,
+          "timeout_ms": 120000,
+          "poll_ms": 100,
+          "roi": [
+            460,
+            150,
+            360,
+            110
+          ],
+          "match_mode": "all",
+          "match_count": 1,
+          "targets": [],
+          "edit_mode": "create",
+          "capture_hint": "LEGACY wait: 16_SHIELD_NOT_STARTED"
+        },
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 48
+          },
+          {
+            "name": "anchor",
+            "type": "STRING",
+            "link": null
+          },
+          {
+            "name": "roi",
+            "type": "VEC4",
+            "link": null
+          }
+        ],
+        "outputs": [
+          {
+            "name": "found",
+            "type": "EXEC",
+            "links": [
+              49
+            ]
+          },
+          {
+            "name": "timeout",
+            "type": "EXEC",
+            "links": null
+          },
+          {
+            "name": "matched",
+            "type": "BOOL",
+            "links": null
+          },
+          {
+            "name": "score",
+            "type": "FLOAT",
+            "links": null
+          }
+        ]
+      },
+      {
+        "id": 70,
+        "type": "ds/press",
+        "pos": [
+          760.0,
+          3310.0
+        ],
+        "size": [
+          180,
+          80
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "press.16_SHIELD_NOT_STARTED",
+        "properties": {
+          "button": "up",
+          "duration_ms": 120
+        },
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 49
+          }
+        ],
+        "outputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "links": [
+              50
+            ]
+          }
+        ]
+      },
+      {
+        "id": 71,
+        "type": "ds/delay",
+        "pos": [
+          1000.0,
+          3310.0
+        ],
+        "size": [
+          180,
+          80
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "delay.16_SHIELD_NOT_STARTED",
+        "properties": {
+          "ms": 1000
+        },
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 50
+          }
+        ],
+        "outputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "links": [
+              51
+            ]
+          }
+        ]
+      },
+      {
+        "id": 72,
+        "type": "ui/note",
+        "pos": [
+          80.0,
+          3480.0
+        ],
+        "size": [
+          340,
+          150
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "note.17_SHIELD_INVENTORY",
+        "properties": {
+          "heading": "17 \u2014 Inventory \u2192 Shield tab",
+          "text": "MATCH: Inventory top text / tab chrome.\nTHEN: R1\u00d74 to Storm Shield tab.\nRETAKE: in-game menu on Inventory tab."
+        },
+        "inputs": [],
+        "outputs": []
+      },
+      {
+        "id": 73,
+        "type": "vis/wait_anchor",
+        "pos": [
+          440.0,
+          3480.0
+        ],
+        "size": [
+          260,
+          120
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "wait.17_SHIELD_INVENTORY",
+        "properties": {
+          "anchor_id": "17_SHIELD_INVENTORY",
+          "threshold": 0.85,
+          "timeout_ms": 120000,
+          "poll_ms": 100,
+          "roi": [
+            50,
+            25,
+            100,
+            35
+          ],
+          "match_mode": "all",
+          "match_count": 1,
+          "targets": [],
+          "edit_mode": "create",
+          "capture_hint": "LEGACY wait: 17_SHIELD_INVENTORY"
+        },
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 51
+          },
+          {
+            "name": "anchor",
+            "type": "STRING",
+            "link": null
+          },
+          {
+            "name": "roi",
+            "type": "VEC4",
+            "link": null
+          }
+        ],
+        "outputs": [
+          {
+            "name": "found",
+            "type": "EXEC",
+            "links": [
+              52
+            ]
+          },
+          {
+            "name": "timeout",
+            "type": "EXEC",
+            "links": null
+          },
+          {
+            "name": "matched",
+            "type": "BOOL",
+            "links": null
+          },
+          {
+            "name": "score",
+            "type": "FLOAT",
+            "links": null
+          }
+        ]
+      },
+      {
+        "id": 74,
+        "type": "ds/macro_block",
+        "pos": [
+          760.0,
+          3480.0
+        ],
+        "size": [
+          220,
+          100
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "macro.17_SHIELD_INVENTORY",
+        "properties": {
+          "name": "seq_17_SHIELD_INVENTORY",
+          "events": [
+            {
+              "t": 0.0,
+              "btn": "R1",
+              "action": "press"
+            },
+            {
+              "t": 0.1,
+              "btn": "R1",
+              "action": "release"
+            },
+            {
+              "t": 0.25,
+              "btn": "R1",
+              "action": "press"
+            },
+            {
+              "t": 0.35,
+              "btn": "R1",
+              "action": "release"
+            },
+            {
+              "t": 0.5,
+              "btn": "R1",
+              "action": "press"
+            },
+            {
+              "t": 0.6,
+              "btn": "R1",
+              "action": "release"
+            },
+            {
+              "t": 0.75,
+              "btn": "R1",
+              "action": "press"
+            },
+            {
+              "t": 0.85,
+              "btn": "R1",
+              "action": "release"
+            }
+          ],
+          "event_count": 8,
+          "recording": false,
+          "normalize": false,
+          "gap_ms": 700,
+          "press_ms": 100
+        },
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 52
+          }
+        ],
+        "outputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "links": [
+              53
+            ]
+          }
+        ]
+      },
+      {
+        "id": 75,
+        "type": "ui/note",
+        "pos": [
+          80.0,
+          3650.0
+        ],
+        "size": [
+          340,
+          150
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "note.18_SHIELD_MENU",
+        "properties": {
+          "heading": "18 \u2014 Endurance menu/modal",
+          "text": "MATCH: Storm Shield menu card OR Endurance modal title (any).\nTHEN: CROSS to proceed.\nRETAKE: Endurance overview / start card."
+        },
+        "inputs": [],
+        "outputs": []
+      },
+      {
+        "id": 76,
+        "type": "vis/wait_anchor",
+        "pos": [
+          440.0,
+          3650.0
+        ],
+        "size": [
+          260,
+          120
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "wait.18_SHIELD_MENU",
+        "properties": {
+          "anchor_id": "18_SHIELD_MENU",
+          "threshold": 0.85,
+          "timeout_ms": 120000,
+          "poll_ms": 100,
+          "roi": [
+            260,
+            420,
+            240,
+            50
+          ],
+          "match_mode": "any",
+          "match_count": 1,
+          "targets": [],
+          "edit_mode": "create",
+          "capture_hint": "LEGACY wait: 18_SHIELD_MENU"
+        },
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 53
+          },
+          {
+            "name": "anchor",
+            "type": "STRING",
+            "link": null
+          },
+          {
+            "name": "roi",
+            "type": "VEC4",
+            "link": null
+          }
+        ],
+        "outputs": [
+          {
+            "name": "found",
+            "type": "EXEC",
+            "links": [
+              54
+            ]
+          },
+          {
+            "name": "timeout",
+            "type": "EXEC",
+            "links": null
+          },
+          {
+            "name": "matched",
+            "type": "BOOL",
+            "links": null
+          },
+          {
+            "name": "score",
+            "type": "FLOAT",
+            "links": null
+          }
+        ]
+      },
+      {
+        "id": 77,
+        "type": "ds/press",
+        "pos": [
+          760.0,
+          3650.0
+        ],
+        "size": [
+          180,
+          80
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "press.18_SHIELD_MENU",
+        "properties": {
+          "button": "cross",
+          "duration_ms": 120
+        },
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 54
+          }
+        ],
+        "outputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "links": [
+              55
+            ]
+          }
+        ]
+      },
+      {
+        "id": 78,
+        "type": "ds/delay",
+        "pos": [
+          1000.0,
+          3650.0
+        ],
+        "size": [
+          180,
+          80
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "delay.18_SHIELD_MENU",
+        "properties": {
+          "ms": 1000
+        },
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 55
+          }
+        ],
+        "outputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "links": [
+              56
+            ]
+          }
+        ]
+      },
+      {
+        "id": 79,
+        "type": "ui/note",
+        "pos": [
+          80.0,
+          3820.0
+        ],
+        "size": [
+          340,
+          150
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "note.19_SHIELD_CONFIRM",
+        "properties": {
+          "heading": "19 \u2014 Confirm Endurance",
+          "text": "MATCH: final Start Endurance / confirm (bottom-right).\nTHEN: CROSS.\nRETAKE: confirm dialog before waves."
+        },
+        "inputs": [],
+        "outputs": []
+      },
+      {
+        "id": 80,
+        "type": "vis/wait_anchor",
+        "pos": [
+          440.0,
+          3820.0
+        ],
+        "size": [
+          260,
+          120
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "wait.19_SHIELD_CONFIRM",
+        "properties": {
+          "anchor_id": "19_SHIELD_CONFIRM",
+          "threshold": 0.85,
+          "timeout_ms": 120000,
+          "poll_ms": 100,
+          "roi": [
+            980,
+            640,
+            260,
+            75
+          ],
+          "match_mode": "all",
+          "match_count": 1,
+          "targets": [],
+          "edit_mode": "create",
+          "capture_hint": "LEGACY wait: 19_SHIELD_CONFIRM"
+        },
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 56
+          },
+          {
+            "name": "anchor",
+            "type": "STRING",
+            "link": null
+          },
+          {
+            "name": "roi",
+            "type": "VEC4",
+            "link": null
+          }
+        ],
+        "outputs": [
+          {
+            "name": "found",
+            "type": "EXEC",
+            "links": [
+              57
+            ]
+          },
+          {
+            "name": "timeout",
+            "type": "EXEC",
+            "links": null
+          },
+          {
+            "name": "matched",
+            "type": "BOOL",
+            "links": null
+          },
+          {
+            "name": "score",
+            "type": "FLOAT",
+            "links": null
+          }
+        ]
+      },
+      {
+        "id": 81,
+        "type": "ds/press",
+        "pos": [
+          760.0,
+          3820.0
+        ],
+        "size": [
+          180,
+          80
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "press.19_SHIELD_CONFIRM",
+        "properties": {
+          "button": "cross",
+          "duration_ms": 120
+        },
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 57
+          }
+        ],
+        "outputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "links": [
+              58
+            ]
+          }
+        ]
+      },
+      {
+        "id": 82,
+        "type": "ds/delay",
+        "pos": [
+          1000.0,
+          3820.0
+        ],
+        "size": [
+          180,
+          80
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "delay.19_SHIELD_CONFIRM",
+        "properties": {
+          "ms": 1500
+        },
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 58
+          }
+        ],
+        "outputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "links": [
+              59
+            ]
+          }
+        ]
+      },
+      {
+        "id": 83,
+        "type": "ui/note",
+        "pos": [
+          80.0,
+          3990.0
+        ],
+        "size": [
+          340,
+          150
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "note.20_ENDURANCE_ACTIVE",
+        "properties": {
+          "heading": "20 \u2014 Wave active (wait)",
+          "text": "MATCH: Endurance/wave HUD text OR storm-shield active title (any).\nTHEN: wait through combat.\nRETAKE: in-wave HUD (top banner)."
+        },
+        "inputs": [],
+        "outputs": []
+      },
+      {
+        "id": 84,
+        "type": "vis/wait_anchor",
+        "pos": [
+          440.0,
+          3990.0
+        ],
+        "size": [
+          260,
+          120
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "wait.20_ENDURANCE_ACTIVE",
+        "properties": {
+          "anchor_id": "20_ENDURANCE_ACTIVE",
+          "threshold": 0.7,
+          "timeout_ms": 120000,
+          "poll_ms": 100,
+          "roi": [
+            450,
+            15,
+            380,
+            60
+          ],
+          "match_mode": "any",
+          "match_count": 1,
+          "targets": [],
+          "edit_mode": "create",
+          "capture_hint": "LEGACY wait: 20_ENDURANCE_ACTIVE"
+        },
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 59
+          },
+          {
+            "name": "anchor",
+            "type": "STRING",
+            "link": null
+          },
+          {
+            "name": "roi",
+            "type": "VEC4",
+            "link": null
+          }
+        ],
+        "outputs": [
+          {
+            "name": "found",
+            "type": "EXEC",
+            "links": [
+              60
+            ]
+          },
+          {
+            "name": "timeout",
+            "type": "EXEC",
+            "links": null
+          },
+          {
+            "name": "matched",
+            "type": "BOOL",
+            "links": null
+          },
+          {
+            "name": "score",
+            "type": "FLOAT",
+            "links": null
+          }
+        ]
+      },
+      {
+        "id": 85,
+        "type": "ds/delay",
+        "pos": [
+          760.0,
+          3990.0
+        ],
+        "size": [
+          180,
+          80
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "hold.20_ENDURANCE_ACTIVE",
+        "properties": {
+          "ms": 800
+        },
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 60
+          }
+        ],
+        "outputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "links": [
+              61
+            ]
+          }
+        ]
+      },
+      {
+        "id": 86,
+        "type": "ui/note",
+        "pos": [
+          80.0,
+          4160.0
+        ],
+        "size": [
+          340,
+          150
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "note.21_ENDURANCE_BETWEEN",
+        "properties": {
+          "heading": "21 \u2014 Between waves (wait)",
+          "text": "MATCH: defense prep / between-waves banner (top center).\nTHEN: wait only.\nRETAKE: intermission countdown HUD."
+        },
+        "inputs": [],
+        "outputs": []
+      },
+      {
+        "id": 87,
+        "type": "vis/wait_anchor",
+        "pos": [
+          440.0,
+          4160.0
+        ],
+        "size": [
+          260,
+          120
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "wait.21_ENDURANCE_BETWEEN",
+        "properties": {
+          "anchor_id": "21_ENDURANCE_BETWEEN",
+          "threshold": 0.85,
+          "timeout_ms": 120000,
+          "poll_ms": 100,
+          "roi": [
+            450,
+            15,
+            380,
+            60
+          ],
+          "match_mode": "all",
+          "match_count": 1,
+          "targets": [],
+          "edit_mode": "create",
+          "capture_hint": "LEGACY wait: 21_ENDURANCE_BETWEEN"
+        },
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 61
+          },
+          {
+            "name": "anchor",
+            "type": "STRING",
+            "link": null
+          },
+          {
+            "name": "roi",
+            "type": "VEC4",
+            "link": null
+          }
+        ],
+        "outputs": [
+          {
+            "name": "found",
+            "type": "EXEC",
+            "links": [
+              62
+            ]
+          },
+          {
+            "name": "timeout",
+            "type": "EXEC",
+            "links": null
+          },
+          {
+            "name": "matched",
+            "type": "BOOL",
+            "links": null
+          },
+          {
+            "name": "score",
+            "type": "FLOAT",
+            "links": null
+          }
+        ]
+      },
+      {
+        "id": 88,
+        "type": "ds/delay",
+        "pos": [
+          760.0,
+          4160.0
+        ],
+        "size": [
+          180,
+          80
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "hold.21_ENDURANCE_BETWEEN",
+        "properties": {
+          "ms": 800
+        },
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 62
+          }
+        ],
+        "outputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "links": [
+              63
+            ]
+          }
+        ]
+      },
+      {
+        "id": 89,
+        "type": "ui/note",
+        "pos": [
+          80.0,
+          4330.0
+        ],
+        "size": [
+          340,
+          150
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "note.22_ENDURANCE_ENDED",
+        "properties": {
+          "heading": "22 \u2014 Team score",
+          "text": "MATCH: Team Score / endurance finished screen (top center).\nTHEN: CIRCLE to leave.\nRETAKE: end-of-run scoreboard."
+        },
+        "inputs": [],
+        "outputs": []
+      },
+      {
+        "id": 90,
+        "type": "vis/wait_anchor",
+        "pos": [
+          440.0,
+          4330.0
+        ],
+        "size": [
+          260,
+          120
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "wait.22_ENDURANCE_ENDED",
+        "properties": {
+          "anchor_id": "22_ENDURANCE_ENDED",
+          "threshold": 0.85,
+          "timeout_ms": 120000,
+          "poll_ms": 100,
+          "roi": [
+            480,
+            50,
+            320,
+            80
+          ],
+          "match_mode": "all",
+          "match_count": 1,
+          "targets": [],
+          "edit_mode": "create",
+          "capture_hint": "LEGACY wait: 22_ENDURANCE_ENDED"
+        },
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 63
+          },
+          {
+            "name": "anchor",
+            "type": "STRING",
+            "link": null
+          },
+          {
+            "name": "roi",
+            "type": "VEC4",
+            "link": null
+          }
+        ],
+        "outputs": [
+          {
+            "name": "found",
+            "type": "EXEC",
+            "links": [
+              64
+            ]
+          },
+          {
+            "name": "timeout",
+            "type": "EXEC",
+            "links": null
+          },
+          {
+            "name": "matched",
+            "type": "BOOL",
+            "links": null
+          },
+          {
+            "name": "score",
+            "type": "FLOAT",
+            "links": null
+          }
+        ]
+      },
+      {
+        "id": 91,
+        "type": "ds/press",
+        "pos": [
+          760.0,
+          4330.0
+        ],
+        "size": [
+          180,
+          80
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "press.22_ENDURANCE_ENDED",
+        "properties": {
+          "button": "circle",
+          "duration_ms": 120
+        },
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 64
+          }
+        ],
+        "outputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "links": [
+              65
+            ]
+          }
+        ]
+      },
+      {
+        "id": 92,
+        "type": "ds/delay",
+        "pos": [
+          1000.0,
+          4330.0
+        ],
+        "size": [
+          180,
+          80
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "delay.22_ENDURANCE_ENDED",
+        "properties": {
+          "ms": 2000
+        },
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 65
+          }
+        ],
+        "outputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "links": [
+              66
+            ]
+          }
+        ]
+      },
+      {
+        "id": 93,
+        "type": "ui/note",
+        "pos": [
+          80.0,
+          4500.0
+        ],
+        "size": [
+          340,
+          150
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "note.23_MATCHMAKE_HOMEBASE",
+        "properties": {
+          "heading": "23 \u2014 Matchmake homebase",
+          "text": "MATCH: return-to-homebase / matchmake prompt (bottom-right).\nTHEN: CIRCLE to cancel/dismiss.\nRETAKE: that homebase queue modal."
+        },
+        "inputs": [],
+        "outputs": []
+      },
+      {
+        "id": 94,
+        "type": "vis/wait_anchor",
+        "pos": [
+          440.0,
+          4500.0
+        ],
+        "size": [
+          260,
+          120
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "wait.23_MATCHMAKE_HOMEBASE",
+        "properties": {
+          "anchor_id": "23_MATCHMAKE_HOMEBASE",
+          "threshold": 0.85,
+          "timeout_ms": 120000,
+          "poll_ms": 100,
+          "roi": [
+            960,
+            640,
+            290,
+            75
+          ],
+          "match_mode": "all",
+          "match_count": 1,
+          "targets": [],
+          "edit_mode": "create",
+          "capture_hint": "LEGACY wait: 23_MATCHMAKE_HOMEBASE"
+        },
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 66
+          },
+          {
+            "name": "anchor",
+            "type": "STRING",
+            "link": null
+          },
+          {
+            "name": "roi",
+            "type": "VEC4",
+            "link": null
+          }
+        ],
+        "outputs": [
+          {
+            "name": "found",
+            "type": "EXEC",
+            "links": [
+              67
+            ]
+          },
+          {
+            "name": "timeout",
+            "type": "EXEC",
+            "links": null
+          },
+          {
+            "name": "matched",
+            "type": "BOOL",
+            "links": null
+          },
+          {
+            "name": "score",
+            "type": "FLOAT",
+            "links": null
+          }
+        ]
+      },
+      {
+        "id": 95,
+        "type": "ds/press",
+        "pos": [
+          760.0,
+          4500.0
+        ],
+        "size": [
+          180,
+          80
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "press.23_MATCHMAKE_HOMEBASE",
+        "properties": {
+          "button": "circle",
+          "duration_ms": 120
+        },
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 67
+          }
+        ],
+        "outputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "links": [
+              68
+            ]
+          }
+        ]
+      },
+      {
+        "id": 96,
+        "type": "ds/delay",
+        "pos": [
+          1000.0,
+          4500.0
+        ],
+        "size": [
+          180,
+          80
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "delay.23_MATCHMAKE_HOMEBASE",
+        "properties": {
+          "ms": 1000
+        },
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 68
+          }
+        ],
+        "outputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "links": [
+              69
+            ]
+          }
+        ]
+      },
+      {
+        "id": 97,
+        "type": "ui/note",
+        "pos": [
+          80.0,
+          4670.0
+        ],
+        "size": [
+          340,
+          150
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "note.24_REWARDS_CONTINUE",
+        "properties": {
+          "heading": "24 \u2014 Rewards continue",
+          "text": "MATCH: rewards continue CROSS hint OR open-chest art (any).\nTHEN: CROSS.\nRETAKE: post-match rewards chest screen."
+        },
+        "inputs": [],
+        "outputs": []
+      },
+      {
+        "id": 98,
+        "type": "vis/wait_anchor",
+        "pos": [
+          440.0,
+          4670.0
+        ],
+        "size": [
+          260,
+          120
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "wait.24_REWARDS_CONTINUE",
+        "properties": {
+          "anchor_id": "24_REWARDS_CONTINUE",
+          "threshold": 0.85,
+          "timeout_ms": 120000,
+          "poll_ms": 100,
+          "roi": [
+            540,
+            660,
+            170,
+            55
+          ],
+          "match_mode": "any",
+          "match_count": 1,
+          "targets": [],
+          "edit_mode": "create",
+          "capture_hint": "LEGACY wait: 24_REWARDS_CONTINUE"
+        },
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 69
+          },
+          {
+            "name": "anchor",
+            "type": "STRING",
+            "link": null
+          },
+          {
+            "name": "roi",
+            "type": "VEC4",
+            "link": null
+          }
+        ],
+        "outputs": [
+          {
+            "name": "found",
+            "type": "EXEC",
+            "links": [
+              70
+            ]
+          },
+          {
+            "name": "timeout",
+            "type": "EXEC",
+            "links": null
+          },
+          {
+            "name": "matched",
+            "type": "BOOL",
+            "links": null
+          },
+          {
+            "name": "score",
+            "type": "FLOAT",
+            "links": null
+          }
+        ]
+      },
+      {
+        "id": 99,
+        "type": "ds/press",
+        "pos": [
+          760.0,
+          4670.0
+        ],
+        "size": [
+          180,
+          80
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "press.24_REWARDS_CONTINUE",
+        "properties": {
+          "button": "cross",
+          "duration_ms": 120
+        },
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 70
+          }
+        ],
+        "outputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "links": [
+              71
+            ]
+          }
+        ]
+      },
+      {
+        "id": 100,
+        "type": "ds/delay",
+        "pos": [
+          1000.0,
+          4670.0
+        ],
+        "size": [
+          180,
+          80
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "delay.24_REWARDS_CONTINUE",
+        "properties": {
+          "ms": 1000
+        },
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 71
+          }
+        ],
+        "outputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "links": [
+              72
+            ]
+          }
+        ]
+      },
+      {
+        "id": 101,
+        "type": "sys/log",
+        "pos": [
+          440.0,
+          4840.0
+        ],
+        "size": [
+          180,
+          80
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "path.done",
+        "properties": {
+          "message": "stw_endurance_path finished (linear; no priority scanner)"
+        },
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 72
+          }
+        ],
+        "outputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "links": null
+          }
+        ]
+      },
+      {
+        "id": 102,
+        "type": "ui/preview",
+        "pos": [
+          1280.0,
+          80.0
+        ],
+        "size": [
+          640,
+          400
+        ],
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "title": "ui.preview",
+        "properties": {
+          "live": true,
+          "detections": true,
+          "watch": ""
+        },
+        "inputs": [],
+        "outputs": []
+      }
+    ],
+    "links": [
+      [
+        1,
+        2,
+        0,
+        4,
+        0,
+        "EXEC"
+      ],
+      [
+        2,
+        4,
+        0,
+        5,
+        0,
+        "EXEC"
+      ],
+      [
+        3,
+        5,
+        0,
+        6,
+        0,
+        "EXEC"
+      ],
+      [
+        4,
+        6,
+        0,
+        8,
+        0,
+        "EXEC"
+      ],
+      [
+        5,
+        8,
+        0,
+        9,
+        0,
+        "EXEC"
+      ],
+      [
+        6,
+        9,
+        0,
+        10,
+        0,
+        "EXEC"
+      ],
+      [
+        7,
+        10,
+        0,
+        12,
+        0,
+        "EXEC"
+      ],
+      [
+        8,
+        12,
+        0,
+        13,
+        0,
+        "EXEC"
+      ],
+      [
+        9,
+        13,
+        0,
+        14,
+        0,
+        "EXEC"
+      ],
+      [
+        10,
+        14,
+        0,
+        16,
+        0,
+        "EXEC"
+      ],
+      [
+        11,
+        16,
+        0,
+        17,
+        0,
+        "EXEC"
+      ],
+      [
+        12,
+        17,
+        0,
+        19,
+        0,
+        "EXEC"
+      ],
+      [
+        13,
+        19,
+        0,
+        20,
+        0,
+        "EXEC"
+      ],
+      [
+        14,
+        20,
+        0,
+        22,
+        0,
+        "EXEC"
+      ],
+      [
+        15,
+        22,
+        0,
+        23,
+        0,
+        "EXEC"
+      ],
+      [
+        16,
+        23,
+        0,
+        24,
+        0,
+        "EXEC"
+      ],
+      [
+        17,
+        24,
+        0,
+        26,
+        0,
+        "EXEC"
+      ],
+      [
+        18,
+        26,
+        0,
+        27,
+        0,
+        "EXEC"
+      ],
+      [
+        19,
+        27,
+        0,
+        29,
+        0,
+        "EXEC"
+      ],
+      [
+        20,
+        29,
+        0,
+        30,
+        0,
+        "EXEC"
+      ],
+      [
+        21,
+        30,
+        0,
+        32,
+        0,
+        "EXEC"
+      ],
+      [
+        22,
+        32,
+        0,
+        33,
+        0,
+        "EXEC"
+      ],
+      [
+        23,
+        33,
+        0,
+        34,
+        0,
+        "EXEC"
+      ],
+      [
+        24,
+        34,
+        0,
+        36,
+        0,
+        "EXEC"
+      ],
+      [
+        25,
+        36,
+        0,
+        37,
+        0,
+        "EXEC"
+      ],
+      [
+        26,
+        37,
+        0,
+        38,
+        0,
+        "EXEC"
+      ],
+      [
+        27,
+        38,
+        0,
+        40,
+        0,
+        "EXEC"
+      ],
+      [
+        28,
+        40,
+        0,
+        41,
+        0,
+        "EXEC"
+      ],
+      [
+        29,
+        41,
+        0,
+        42,
+        0,
+        "EXEC"
+      ],
+      [
+        30,
+        42,
+        0,
+        44,
+        0,
+        "EXEC"
+      ],
+      [
+        31,
+        44,
+        0,
+        45,
+        0,
+        "EXEC"
+      ],
+      [
+        32,
+        45,
+        0,
+        47,
+        0,
+        "EXEC"
+      ],
+      [
+        33,
+        47,
+        0,
+        48,
+        0,
+        "EXEC"
+      ],
+      [
+        34,
+        48,
+        0,
+        49,
+        0,
+        "EXEC"
+      ],
+      [
+        35,
+        49,
+        0,
+        51,
+        0,
+        "EXEC"
+      ],
+      [
+        36,
+        51,
+        0,
+        52,
+        0,
+        "EXEC"
+      ],
+      [
+        37,
+        52,
+        0,
+        54,
+        0,
+        "EXEC"
+      ],
+      [
+        38,
+        54,
+        0,
+        55,
+        0,
+        "EXEC"
+      ],
+      [
+        39,
+        55,
+        0,
+        56,
+        0,
+        "EXEC"
+      ],
+      [
+        40,
+        56,
+        0,
+        58,
+        0,
+        "EXEC"
+      ],
+      [
+        41,
+        58,
+        0,
+        59,
+        0,
+        "EXEC"
+      ],
+      [
+        42,
+        59,
+        0,
+        60,
+        0,
+        "EXEC"
+      ],
+      [
+        43,
+        60,
+        0,
+        62,
+        0,
+        "EXEC"
+      ],
+      [
+        44,
+        62,
+        0,
+        63,
+        0,
+        "EXEC"
+      ],
+      [
+        45,
+        63,
+        0,
+        64,
+        0,
+        "EXEC"
+      ],
+      [
+        46,
+        64,
+        0,
+        66,
+        0,
+        "EXEC"
+      ],
+      [
+        47,
+        66,
+        0,
+        67,
+        0,
+        "EXEC"
+      ],
+      [
+        48,
+        67,
+        0,
+        69,
+        0,
+        "EXEC"
+      ],
+      [
+        49,
+        69,
+        0,
+        70,
+        0,
+        "EXEC"
+      ],
+      [
+        50,
+        70,
+        0,
+        71,
+        0,
+        "EXEC"
+      ],
+      [
+        51,
+        71,
+        0,
+        73,
+        0,
+        "EXEC"
+      ],
+      [
+        52,
+        73,
+        0,
+        74,
+        0,
+        "EXEC"
+      ],
+      [
+        53,
+        74,
+        0,
+        76,
+        0,
+        "EXEC"
+      ],
+      [
+        54,
+        76,
+        0,
+        77,
+        0,
+        "EXEC"
+      ],
+      [
+        55,
+        77,
+        0,
+        78,
+        0,
+        "EXEC"
+      ],
+      [
+        56,
+        78,
+        0,
+        80,
+        0,
+        "EXEC"
+      ],
+      [
+        57,
+        80,
+        0,
+        81,
+        0,
+        "EXEC"
+      ],
+      [
+        58,
+        81,
+        0,
+        82,
+        0,
+        "EXEC"
+      ],
+      [
+        59,
+        82,
+        0,
+        84,
+        0,
+        "EXEC"
+      ],
+      [
+        60,
+        84,
+        0,
+        85,
+        0,
+        "EXEC"
+      ],
+      [
+        61,
+        85,
+        0,
+        87,
+        0,
+        "EXEC"
+      ],
+      [
+        62,
+        87,
+        0,
+        88,
+        0,
+        "EXEC"
+      ],
+      [
+        63,
+        88,
+        0,
+        90,
+        0,
+        "EXEC"
+      ],
+      [
+        64,
+        90,
+        0,
+        91,
+        0,
+        "EXEC"
+      ],
+      [
+        65,
+        91,
+        0,
+        92,
+        0,
+        "EXEC"
+      ],
+      [
+        66,
+        92,
+        0,
+        94,
+        0,
+        "EXEC"
+      ],
+      [
+        67,
+        94,
+        0,
+        95,
+        0,
+        "EXEC"
+      ],
+      [
+        68,
+        95,
+        0,
+        96,
+        0,
+        "EXEC"
+      ],
+      [
+        69,
+        96,
+        0,
+        98,
+        0,
+        "EXEC"
+      ],
+      [
+        70,
+        98,
+        0,
+        99,
+        0,
+        "EXEC"
+      ],
+      [
+        71,
+        99,
+        0,
+        100,
+        0,
+        "EXEC"
+      ],
+      [
+        72,
+        100,
+        0,
+        101,
+        0,
+        "EXEC"
+      ]
+    ],
+    "groups": [],
+    "config": {},
+    "extra": {
+      "source": "pi2ps5_import",
+      "editable": true
+    },
+    "version": 0.4
+  }
+}

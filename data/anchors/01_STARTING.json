@@ -1,0 +1,50 @@
+{
+  "id": "01_STARTING",
+  "threshold": 0.78,
+  "legacy": true,
+  "has_full": false,
+  "full": null,
+  "crop": {
+    "x": 55,
+    "y": 35,
+    "w": 40,
+    "h": 40
+  },
+  "crops": [
+    {
+      "x": 55,
+      "y": 35,
+      "w": 40,
+      "h": 40
+    },
+    {
+      "x": 55,
+      "y": 35,
+      "w": 40,
+      "h": 40
+    }
+  ],
+  "target_count": 2,
+  "match_mode": "any",
+  "match_count": 1,
+  "search_roi": [
+    55,
+    35,
+    40,
+    40
+  ],
+  "frame_size": {
+    "width": 1280,
+    "height": 720
+  },
+  "source": "pi2ps5",
+  "pi2ps5_state": "01_STARTING",
+  "pi2ps5_name": "PS5 Home Menu",
+  "pi2ps5_priority": 2,
+  "pi2ps5_action_type": "BUTTON_CLICK",
+  "pi2ps5_templates": [
+    "anchor_01_starting.png",
+    "anchor_01_starting_v2.png"
+  ],
+  "note": "LEGACY \u2014 no reference screenshot (imported from pi2ps5)"
+}

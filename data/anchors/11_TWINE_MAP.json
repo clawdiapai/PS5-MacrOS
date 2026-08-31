@@ -1,0 +1,43 @@
+{
+  "id": "11_TWINE_MAP",
+  "threshold": 0.85,
+  "legacy": true,
+  "has_full": false,
+  "full": null,
+  "crop": {
+    "x": 30,
+    "y": 650,
+    "w": 230,
+    "h": 65
+  },
+  "crops": [
+    {
+      "x": 30,
+      "y": 650,
+      "w": 230,
+      "h": 65
+    }
+  ],
+  "target_count": 1,
+  "match_mode": "all",
+  "match_count": 1,
+  "search_roi": [
+    30,
+    650,
+    230,
+    65
+  ],
+  "frame_size": {
+    "width": 1280,
+    "height": 720
+  },
+  "source": "pi2ps5",
+  "pi2ps5_state": "11_TWINE_MAP",
+  "pi2ps5_name": "Twine Map (Play with Others)",
+  "pi2ps5_priority": 15,
+  "pi2ps5_action_type": "MACRO_SEQUENCE",
+  "pi2ps5_templates": [
+    "anchor_play_with_others.png"
+  ],
+  "note": "LEGACY \u2014 no reference screenshot (imported from pi2ps5)"
+}

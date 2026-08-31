@@ -1,0 +1,1414 @@
+{
+  "name": "open_fortnite",
+  "version": 1,
+  "graph": {
+    "last_node_id": 28,
+    "last_link_id": 30,
+    "nodes": [
+      {
+        "id": 1,
+        "type": "ui/note",
+        "pos": [
+          40,
+          40
+        ],
+        "size": {
+          "0": 400,
+          "1": 180
+        },
+        "flags": {},
+        "order": 0,
+        "mode": 0,
+        "inputs": [],
+        "outputs": [],
+        "title": "note",
+        "properties": {
+          "heading": "OPEN FORTNITE",
+          "text": "1) Long-press PS (700ms)\n2) RIGHT until OCR Fortnite \u2014 if screen stops changing, flip LEFT\n3) CROSS when OCR matches\n\nOCR target: fortnite_text (your boxed ROI)."
+        },
+        "color": "#3a3420",
+        "bgcolor": "#141a24",
+        "boxcolor": "#ffc450"
+      },
+      {
+        "id": 2,
+        "type": "ui/preview",
+        "pos": [
+          40,
+          260
+        ],
+        "size": {
+          "0": 400,
+          "1": 240
+        },
+        "flags": {},
+        "order": 1,
+        "mode": 0,
+        "inputs": [],
+        "outputs": [],
+        "title": "ui.preview",
+        "properties": {
+          "live": true,
+          "detections": true,
+          "watch": ""
+        },
+        "color": "#1a3048",
+        "bgcolor": "#141a24",
+        "boxcolor": "#7c9cff"
+      },
+      {
+        "id": 3,
+        "type": "logic/start",
+        "pos": [
+          500,
+          80
+        ],
+        "size": {
+          "0": 170,
+          "1": 80
+        },
+        "flags": {},
+        "order": 2,
+        "mode": 0,
+        "inputs": [],
+        "outputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "links": [
+              1
+            ]
+          }
+        ],
+        "title": "start",
+        "properties": {},
+        "color": "#2a4a2a",
+        "bgcolor": "#1b2030",
+        "boxcolor": "#7c9cff"
+      },
+      {
+        "id": 4,
+        "type": "ds/press",
+        "pos": [
+          720,
+          80
+        ],
+        "size": {
+          "0": 170,
+          "1": 70
+        },
+        "flags": {},
+        "order": 5,
+        "mode": 0,
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 1
+          }
+        ],
+        "outputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "links": [
+              2
+            ]
+          }
+        ],
+        "title": "PS long 700ms",
+        "properties": {
+          "button": "ps",
+          "duration_ms": 700
+        },
+        "color": "#3a204a",
+        "bgcolor": "#1b2030",
+        "boxcolor": "#7c9cff"
+      },
+      {
+        "id": 5,
+        "type": "ds/delay",
+        "pos": [
+          960,
+          80
+        ],
+        "size": {
+          "0": 160,
+          "1": 70
+        },
+        "flags": {},
+        "order": 6,
+        "mode": 0,
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 2
+          }
+        ],
+        "outputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "links": [
+              3
+            ]
+          }
+        ],
+        "title": "settle 500ms",
+        "properties": {
+          "ms": 500
+        },
+        "color": "#203a4a",
+        "bgcolor": "#1b2030",
+        "boxcolor": "#7c9cff"
+      },
+      {
+        "id": 6,
+        "type": "ui/note",
+        "pos": [
+          500,
+          170
+        ],
+        "size": {
+          "0": 340,
+          "1": 55
+        },
+        "flags": {},
+        "order": 3,
+        "mode": 0,
+        "inputs": [],
+        "outputs": [],
+        "title": "note.right",
+        "properties": {
+          "heading": "Seek RIGHT",
+          "text": "OCR miss \u2192 keep RIGHT. No screen change \u2192 LEFT."
+        },
+        "color": "#3a3420",
+        "bgcolor": "#141a24",
+        "boxcolor": "#ffc450"
+      },
+      {
+        "id": 7,
+        "type": "logic/merge",
+        "pos": [
+          500,
+          240
+        ],
+        "size": {
+          "0": 170,
+          "1": 80
+        },
+        "flags": {},
+        "order": 7,
+        "mode": 0,
+        "inputs": [
+          {
+            "name": "a",
+            "type": "EXEC",
+            "link": 3
+          },
+          {
+            "name": "b",
+            "type": "EXEC",
+            "link": 13
+          }
+        ],
+        "outputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "links": [
+              4
+            ]
+          }
+        ],
+        "title": "merge.right_loop",
+        "properties": {},
+        "color": "#3a3048",
+        "bgcolor": "#1b2030",
+        "boxcolor": "#7c9cff"
+      },
+      {
+        "id": 8,
+        "type": "vis/frame_snapshot",
+        "pos": [
+          740,
+          240
+        ],
+        "size": {
+          "0": 170,
+          "1": 80
+        },
+        "flags": {},
+        "order": 8,
+        "mode": 0,
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 4
+          }
+        ],
+        "outputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "links": [
+              5
+            ]
+          }
+        ],
+        "title": "snap before RIGHT",
+        "properties": {
+          "name": "nav"
+        },
+        "color": "#2a4048",
+        "bgcolor": "#1b2030",
+        "boxcolor": "#7c9cff"
+      },
+      {
+        "id": 9,
+        "type": "ds/press",
+        "pos": [
+          1000,
+          240
+        ],
+        "size": {
+          "0": 170,
+          "1": 70
+        },
+        "flags": {},
+        "order": 9,
+        "mode": 0,
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 5
+          }
+        ],
+        "outputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "links": [
+              6
+            ]
+          }
+        ],
+        "title": "RIGHT",
+        "properties": {
+          "button": "right",
+          "duration_ms": 120
+        },
+        "color": "#3a204a",
+        "bgcolor": "#1b2030",
+        "boxcolor": "#7c9cff"
+      },
+      {
+        "id": 10,
+        "type": "ds/delay",
+        "pos": [
+          1220,
+          240
+        ],
+        "size": {
+          "0": 160,
+          "1": 70
+        },
+        "flags": {},
+        "order": 10,
+        "mode": 0,
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 6
+          }
+        ],
+        "outputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "links": [
+              7
+            ]
+          }
+        ],
+        "title": "after RIGHT",
+        "properties": {
+          "ms": 350
+        },
+        "color": "#203a4a",
+        "bgcolor": "#1b2030",
+        "boxcolor": "#7c9cff"
+      },
+      {
+        "id": 11,
+        "type": "vis/frame_changed",
+        "pos": [
+          1460,
+          240
+        ],
+        "size": {
+          "0": 200,
+          "1": 90
+        },
+        "flags": {},
+        "order": 11,
+        "mode": 0,
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 7
+          }
+        ],
+        "outputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "links": [
+              8
+            ]
+          },
+          {
+            "name": "changed",
+            "type": "BOOL",
+            "links": [
+              9
+            ]
+          },
+          {
+            "name": "score",
+            "type": "FLOAT",
+            "links": null
+          }
+        ],
+        "title": "moved after RIGHT?",
+        "properties": {
+          "name": "nav",
+          "threshold": 0.02,
+          "update": true
+        },
+        "color": "#2a4840",
+        "bgcolor": "#1b2030",
+        "boxcolor": "#7c9cff"
+      },
+      {
+        "id": 12,
+        "type": "logic/branch",
+        "pos": [
+          1740,
+          240
+        ],
+        "size": {
+          "0": 170,
+          "1": 80
+        },
+        "flags": {},
+        "order": 12,
+        "mode": 0,
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 8
+          },
+          {
+            "name": "cond",
+            "type": "BOOL",
+            "link": 9
+          }
+        ],
+        "outputs": [
+          {
+            "name": "true",
+            "type": "EXEC",
+            "links": [
+              10
+            ]
+          },
+          {
+            "name": "false",
+            "type": "EXEC",
+            "links": [
+              14
+            ]
+          }
+        ],
+        "title": "branch.RIGHT moved?",
+        "properties": {},
+        "color": "#4a3a20",
+        "bgcolor": "#1b2030",
+        "boxcolor": "#7c9cff"
+      },
+      {
+        "id": 13,
+        "type": "vis/ocr_check",
+        "pos": [
+          2000,
+          210
+        ],
+        "size": {
+          "0": 260,
+          "1": 110
+        },
+        "flags": {},
+        "order": 13,
+        "mode": 0,
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 10
+          },
+          {
+            "name": "ocr_id",
+            "type": "STRING",
+            "link": null
+          },
+          {
+            "name": "expect",
+            "type": "STRING",
+            "link": null
+          },
+          {
+            "name": "roi",
+            "type": "VEC4",
+            "link": null
+          }
+        ],
+        "outputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "links": [
+              11
+            ]
+          },
+          {
+            "name": "matched",
+            "type": "BOOL",
+            "links": [
+              12
+            ]
+          },
+          {
+            "name": "text",
+            "type": "STRING",
+            "links": null
+          }
+        ],
+        "title": "ocr Fortnite?",
+        "properties": {
+          "ocr_id": "fortnite_text",
+          "expect": "Fortnite",
+          "mode": "contains",
+          "lang": "eng",
+          "invert": false,
+          "case_sensitive": false,
+          "psm": 6,
+          "roi": null,
+          "targets": [],
+          "edit_mode": "edit",
+          "capture_hint": "fortnite_text"
+        },
+        "color": "#2a3a48",
+        "bgcolor": "#1b2030",
+        "boxcolor": "#7c9cff"
+      },
+      {
+        "id": 14,
+        "type": "logic/branch",
+        "pos": [
+          2340,
+          210
+        ],
+        "size": {
+          "0": 170,
+          "1": 80
+        },
+        "flags": {},
+        "order": 14,
+        "mode": 0,
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 11
+          },
+          {
+            "name": "cond",
+            "type": "BOOL",
+            "link": 12
+          }
+        ],
+        "outputs": [
+          {
+            "name": "true",
+            "type": "EXEC",
+            "links": [
+              26
+            ]
+          },
+          {
+            "name": "false",
+            "type": "EXEC",
+            "links": [
+              13
+            ]
+          }
+        ],
+        "title": "branch.OCR R?",
+        "properties": {},
+        "color": "#4a3a20",
+        "bgcolor": "#1b2030",
+        "boxcolor": "#7c9cff"
+      },
+      {
+        "id": 15,
+        "type": "ui/note",
+        "pos": [
+          500,
+          390
+        ],
+        "size": {
+          "0": 340,
+          "1": 55
+        },
+        "flags": {},
+        "order": 4,
+        "mode": 0,
+        "inputs": [],
+        "outputs": [],
+        "title": "note.left",
+        "properties": {
+          "heading": "Seek LEFT",
+          "text": "RIGHT hit the end (no frame change). Travel LEFT."
+        },
+        "color": "#3a3420",
+        "bgcolor": "#141a24",
+        "boxcolor": "#ffc450"
+      },
+      {
+        "id": 16,
+        "type": "logic/merge",
+        "pos": [
+          500,
+          460
+        ],
+        "size": {
+          "0": 170,
+          "1": 80
+        },
+        "flags": {},
+        "order": 15,
+        "mode": 0,
+        "inputs": [
+          {
+            "name": "a",
+            "type": "EXEC",
+            "link": 14
+          },
+          {
+            "name": "b",
+            "type": "EXEC",
+            "link": 25
+          }
+        ],
+        "outputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "links": [
+              15
+            ]
+          }
+        ],
+        "title": "merge.left_loop",
+        "properties": {},
+        "color": "#3a3048",
+        "bgcolor": "#1b2030",
+        "boxcolor": "#7c9cff"
+      },
+      {
+        "id": 17,
+        "type": "vis/frame_snapshot",
+        "pos": [
+          740,
+          460
+        ],
+        "size": {
+          "0": 170,
+          "1": 80
+        },
+        "flags": {},
+        "order": 16,
+        "mode": 0,
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 15
+          }
+        ],
+        "outputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "links": [
+              16
+            ]
+          }
+        ],
+        "title": "snap before LEFT",
+        "properties": {
+          "name": "nav"
+        },
+        "color": "#2a4048",
+        "bgcolor": "#1b2030",
+        "boxcolor": "#7c9cff"
+      },
+      {
+        "id": 18,
+        "type": "ds/press",
+        "pos": [
+          1000,
+          460
+        ],
+        "size": {
+          "0": 170,
+          "1": 70
+        },
+        "flags": {},
+        "order": 17,
+        "mode": 0,
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 16
+          }
+        ],
+        "outputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "links": [
+              17
+            ]
+          }
+        ],
+        "title": "LEFT",
+        "properties": {
+          "button": "left",
+          "duration_ms": 120
+        },
+        "color": "#3a204a",
+        "bgcolor": "#1b2030",
+        "boxcolor": "#7c9cff"
+      },
+      {
+        "id": 19,
+        "type": "ds/delay",
+        "pos": [
+          1220,
+          460
+        ],
+        "size": {
+          "0": 160,
+          "1": 70
+        },
+        "flags": {},
+        "order": 18,
+        "mode": 0,
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 17
+          }
+        ],
+        "outputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "links": [
+              18
+            ]
+          }
+        ],
+        "title": "after LEFT",
+        "properties": {
+          "ms": 350
+        },
+        "color": "#203a4a",
+        "bgcolor": "#1b2030",
+        "boxcolor": "#7c9cff"
+      },
+      {
+        "id": 20,
+        "type": "vis/frame_changed",
+        "pos": [
+          1460,
+          460
+        ],
+        "size": {
+          "0": 200,
+          "1": 90
+        },
+        "flags": {},
+        "order": 19,
+        "mode": 0,
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 18
+          }
+        ],
+        "outputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "links": [
+              19
+            ]
+          },
+          {
+            "name": "changed",
+            "type": "BOOL",
+            "links": [
+              20
+            ]
+          },
+          {
+            "name": "score",
+            "type": "FLOAT",
+            "links": null
+          }
+        ],
+        "title": "moved after LEFT?",
+        "properties": {
+          "name": "nav",
+          "threshold": 0.02,
+          "update": true
+        },
+        "color": "#2a4840",
+        "bgcolor": "#1b2030",
+        "boxcolor": "#7c9cff"
+      },
+      {
+        "id": 21,
+        "type": "logic/branch",
+        "pos": [
+          1740,
+          460
+        ],
+        "size": {
+          "0": 170,
+          "1": 80
+        },
+        "flags": {},
+        "order": 20,
+        "mode": 0,
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 19
+          },
+          {
+            "name": "cond",
+            "type": "BOOL",
+            "link": 20
+          }
+        ],
+        "outputs": [
+          {
+            "name": "true",
+            "type": "EXEC",
+            "links": [
+              22
+            ]
+          },
+          {
+            "name": "false",
+            "type": "EXEC",
+            "links": [
+              21
+            ]
+          }
+        ],
+        "title": "branch.LEFT moved?",
+        "properties": {},
+        "color": "#4a3a20",
+        "bgcolor": "#1b2030",
+        "boxcolor": "#7c9cff"
+      },
+      {
+        "id": 22,
+        "type": "sys/log",
+        "pos": [
+          2000,
+          590
+        ],
+        "size": {
+          "0": 320,
+          "1": 90
+        },
+        "flags": {},
+        "order": 21,
+        "mode": 0,
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 21
+          }
+        ],
+        "outputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "links": null
+          }
+        ],
+        "title": "FAIL: not found",
+        "properties": {
+          "message": "OPEN FORTNITE: both ends reached without Fortnite OCR"
+        },
+        "color": "#2a2a3a",
+        "bgcolor": "#1b2030",
+        "boxcolor": "#7c9cff"
+      },
+      {
+        "id": 23,
+        "type": "vis/ocr_check",
+        "pos": [
+          2000,
+          430
+        ],
+        "size": {
+          "0": 260,
+          "1": 110
+        },
+        "flags": {},
+        "order": 22,
+        "mode": 0,
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 22
+          },
+          {
+            "name": "ocr_id",
+            "type": "STRING",
+            "link": null
+          },
+          {
+            "name": "expect",
+            "type": "STRING",
+            "link": null
+          },
+          {
+            "name": "roi",
+            "type": "VEC4",
+            "link": null
+          }
+        ],
+        "outputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "links": [
+              23
+            ]
+          },
+          {
+            "name": "matched",
+            "type": "BOOL",
+            "links": [
+              24
+            ]
+          },
+          {
+            "name": "text",
+            "type": "STRING",
+            "links": null
+          }
+        ],
+        "title": "ocr Fortnite? L",
+        "properties": {
+          "ocr_id": "fortnite_text",
+          "expect": "Fortnite",
+          "mode": "contains",
+          "lang": "eng",
+          "invert": false,
+          "case_sensitive": false,
+          "psm": 6,
+          "roi": null,
+          "targets": [],
+          "edit_mode": "edit",
+          "capture_hint": "fortnite_text"
+        },
+        "color": "#2a3a48",
+        "bgcolor": "#1b2030",
+        "boxcolor": "#7c9cff"
+      },
+      {
+        "id": 24,
+        "type": "logic/branch",
+        "pos": [
+          2340,
+          430
+        ],
+        "size": {
+          "0": 170,
+          "1": 80
+        },
+        "flags": {},
+        "order": 23,
+        "mode": 0,
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 23
+          },
+          {
+            "name": "cond",
+            "type": "BOOL",
+            "link": 24
+          }
+        ],
+        "outputs": [
+          {
+            "name": "true",
+            "type": "EXEC",
+            "links": [
+              27
+            ]
+          },
+          {
+            "name": "false",
+            "type": "EXEC",
+            "links": [
+              25
+            ]
+          }
+        ],
+        "title": "branch.OCR L?",
+        "properties": {},
+        "color": "#4a3a20",
+        "bgcolor": "#1b2030",
+        "boxcolor": "#7c9cff"
+      },
+      {
+        "id": 25,
+        "type": "logic/merge",
+        "pos": [
+          2600,
+          320
+        ],
+        "size": {
+          "0": 170,
+          "1": 80
+        },
+        "flags": {},
+        "order": 24,
+        "mode": 0,
+        "inputs": [
+          {
+            "name": "a",
+            "type": "EXEC",
+            "link": 26
+          },
+          {
+            "name": "b",
+            "type": "EXEC",
+            "link": 27
+          }
+        ],
+        "outputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "links": [
+              28
+            ]
+          }
+        ],
+        "title": "merge.launch",
+        "properties": {},
+        "color": "#3a3048",
+        "bgcolor": "#1b2030",
+        "boxcolor": "#7c9cff"
+      },
+      {
+        "id": 26,
+        "type": "ds/press",
+        "pos": [
+          2840,
+          320
+        ],
+        "size": {
+          "0": 170,
+          "1": 70
+        },
+        "flags": {},
+        "order": 25,
+        "mode": 0,
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 28
+          }
+        ],
+        "outputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "links": [
+              29
+            ]
+          }
+        ],
+        "title": "CROSS open",
+        "properties": {
+          "button": "cross",
+          "duration_ms": 120
+        },
+        "color": "#3a204a",
+        "bgcolor": "#1b2030",
+        "boxcolor": "#7c9cff"
+      },
+      {
+        "id": 27,
+        "type": "ds/delay",
+        "pos": [
+          3080,
+          320
+        ],
+        "size": {
+          "0": 160,
+          "1": 70
+        },
+        "flags": {},
+        "order": 26,
+        "mode": 0,
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 29
+          }
+        ],
+        "outputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "links": [
+              30
+            ]
+          }
+        ],
+        "title": "after CROSS",
+        "properties": {
+          "ms": 400
+        },
+        "color": "#203a4a",
+        "bgcolor": "#1b2030",
+        "boxcolor": "#7c9cff"
+      },
+      {
+        "id": 28,
+        "type": "sys/log",
+        "pos": [
+          3320,
+          320
+        ],
+        "size": {
+          "0": 240,
+          "1": 80
+        },
+        "flags": {},
+        "order": 27,
+        "mode": 0,
+        "inputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "link": 30
+          }
+        ],
+        "outputs": [
+          {
+            "name": "EXEC",
+            "type": "EXEC",
+            "links": null
+          }
+        ],
+        "title": "OK: opened Fortnite",
+        "properties": {
+          "message": "OPEN FORTNITE: CROSS on Fortnite"
+        },
+        "color": "#2a2a3a",
+        "bgcolor": "#1b2030",
+        "boxcolor": "#7c9cff"
+      }
+    ],
+    "links": [
+      [
+        1,
+        3,
+        0,
+        4,
+        0,
+        "EXEC"
+      ],
+      [
+        2,
+        4,
+        0,
+        5,
+        0,
+        "EXEC"
+      ],
+      [
+        3,
+        5,
+        0,
+        7,
+        0,
+        "EXEC"
+      ],
+      [
+        4,
+        7,
+        0,
+        8,
+        0,
+        "EXEC"
+      ],
+      [
+        5,
+        8,
+        0,
+        9,
+        0,
+        "EXEC"
+      ],
+      [
+        6,
+        9,
+        0,
+        10,
+        0,
+        "EXEC"
+      ],
+      [
+        7,
+        10,
+        0,
+        11,
+        0,
+        "EXEC"
+      ],
+      [
+        8,
+        11,
+        0,
+        12,
+        0,
+        "EXEC"
+      ],
+      [
+        9,
+        11,
+        1,
+        12,
+        1,
+        "BOOL"
+      ],
+      [
+        10,
+        12,
+        0,
+        13,
+        0,
+        "EXEC"
+      ],
+      [
+        11,
+        13,
+        0,
+        14,
+        0,
+        "EXEC"
+      ],
+      [
+        12,
+        13,
+        1,
+        14,
+        1,
+        "BOOL"
+      ],
+      [
+        13,
+        14,
+        1,
+        7,
+        1,
+        "EXEC"
+      ],
+      [
+        14,
+        12,
+        1,
+        16,
+        0,
+        "EXEC"
+      ],
+      [
+        15,
+        16,
+        0,
+        17,
+        0,
+        "EXEC"
+      ],
+      [
+        16,
+        17,
+        0,
+        18,
+        0,
+        "EXEC"
+      ],
+      [
+        17,
+        18,
+        0,
+        19,
+        0,
+        "EXEC"
+      ],
+      [
+        18,
+        19,
+        0,
+        20,
+        0,
+        "EXEC"
+      ],
+      [
+        19,
+        20,
+        0,
+        21,
+        0,
+        "EXEC"
+      ],
+      [
+        20,
+        20,
+        1,
+        21,
+        1,
+        "BOOL"
+      ],
+      [
+        21,
+        21,
+        1,
+        22,
+        0,
+        "EXEC"
+      ],
+      [
+        22,
+        21,
+        0,
+        23,
+        0,
+        "EXEC"
+      ],
+      [
+        23,
+        23,
+        0,
+        24,
+        0,
+        "EXEC"
+      ],
+      [
+        24,
+        23,
+        1,
+        24,
+        1,
+        "BOOL"
+      ],
+      [
+        25,
+        24,
+        1,
+        16,
+        1,
+        "EXEC"
+      ],
+      [
+        26,
+        14,
+        0,
+        25,
+        0,
+        "EXEC"
+      ],
+      [
+        27,
+        24,
+        0,
+        25,
+        1,
+        "EXEC"
+      ],
+      [
+        28,
+        25,
+        0,
+        26,
+        0,
+        "EXEC"
+      ],
+      [
+        29,
+        26,
+        0,
+        27,
+        0,
+        "EXEC"
+      ],
+      [
+        30,
+        27,
+        0,
+        28,
+        0,
+        "EXEC"
+      ]
+    ],
+    "groups": [],
+    "config": {},
+    "extra": {
+      "source": "open_fortnite"
+    },
+    "version": 0.4
+  }
+}

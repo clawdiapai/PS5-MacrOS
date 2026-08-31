@@ -1,0 +1,43 @@
+{
+  "id": "15_STW_FINAL_LAUNCH",
+  "threshold": 0.85,
+  "legacy": true,
+  "has_full": false,
+  "full": null,
+  "crop": {
+    "x": 950,
+    "y": 620,
+    "w": 300,
+    "h": 95
+  },
+  "crops": [
+    {
+      "x": 950,
+      "y": 620,
+      "w": 300,
+      "h": 95
+    }
+  ],
+  "target_count": 1,
+  "match_mode": "all",
+  "match_count": 1,
+  "search_roi": [
+    950,
+    620,
+    300,
+    95
+  ],
+  "frame_size": {
+    "width": 1280,
+    "height": 720
+  },
+  "source": "pi2ps5",
+  "pi2ps5_state": "15_STW_FINAL_LAUNCH",
+  "pi2ps5_name": "STW Final Launch Screen",
+  "pi2ps5_priority": 18,
+  "pi2ps5_action_type": "BUTTON_CLICK",
+  "pi2ps5_templates": [
+    "anchor_yellow_launch.png"
+  ],
+  "note": "LEGACY \u2014 no reference screenshot (imported from pi2ps5)"
+}

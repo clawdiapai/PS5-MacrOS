@@ -1,0 +1,43 @@
+{
+  "id": "00_START_FORTNITE",
+  "threshold": 0.85,
+  "legacy": true,
+  "has_full": false,
+  "full": null,
+  "crop": {
+    "x": 480,
+    "y": 530,
+    "w": 320,
+    "h": 150
+  },
+  "crops": [
+    {
+      "x": 480,
+      "y": 530,
+      "w": 320,
+      "h": 150
+    }
+  ],
+  "target_count": 1,
+  "match_mode": "all",
+  "match_count": 1,
+  "search_roi": [
+    480,
+    530,
+    320,
+    150
+  ],
+  "frame_size": {
+    "width": 1280,
+    "height": 720
+  },
+  "source": "pi2ps5",
+  "pi2ps5_state": "00_START_FORTNITE",
+  "pi2ps5_name": "Fortnite Startup Screen",
+  "pi2ps5_priority": 1,
+  "pi2ps5_action_type": "BUTTON_CLICK",
+  "pi2ps5_templates": [
+    "anchor_press_start_x.png"
+  ],
+  "note": "LEGACY \u2014 no reference screenshot (imported from pi2ps5)"
+}

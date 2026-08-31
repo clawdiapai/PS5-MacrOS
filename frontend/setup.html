@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Web2PS5 — Setup</title>
+    <link rel="stylesheet" href="/css/setup.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <header>
+        <h1>Web2PS5 Setup</h1>
+        <p class="sub">
+          Pair Remote Play accounts and your console before opening the studio.
+        </p>
+      </header>
+
+      <ol class="steps" id="step-rail">
+        <li data-step="deps">1. Dependencies</li>
+        <li data-step="psn">2. PSN accounts</li>
+        <li data-step="device">3. PS5 / Remote Play</li>
+        <li data-step="save">4. Save &amp; connect</li>
+      </ol>
+
+      <section class="card" id="panel-deps">
+        <h2>Remote Play libraries</h2>
+        <p id="deps-msg" class="muted">Checking…</p>
+        <button id="btn-install" type="button">Install Remote Play deps</button>
+        <pre id="deps-log" class="log"></pre>
+      </section>
+
+      <section class="card hidden" id="panel-psn">
+        <h2>PSN accounts (1 or 2)</h2>
+        <p class="muted">
+          <strong>Control</strong> runs macros / DualSense injection.<br />
+          <strong>Spectator</strong> is optional — a second account linked on the console
+          (not used for input).
+        </p>
+        <ol class="help">
+          <li>Open the Sony login URL</li>
+          <li>Sign in — land on a page that says <strong>redirect</strong></li>
+          <li>Paste that full URL below (needs a redirect URL each time you add an account)</li>
+        </ol>
+        <div class="row">
+          <button id="btn-oauth-url" type="button">Open PSN login</button>
+          <a id="oauth-link" href="#" target="_blank" rel="noopener">Login link</a>
+        </div>
+        <label>Redirect URL</label>
+        <textarea id="redirect-url" rows="3" placeholder="https://...redirect..."></textarea>
+        <button id="btn-oauth-save" type="button">Add PSN profile</button>
+        <p id="psn-status" class="muted"></p>
+
+        <label>Saved profiles</label>
+        <ul id="profile-list"></ul>
+
+        <label>Control account (macros)</label>
+        <select id="role-control"></select>
+        <label>Spectator account (optional)</label>
+        <select id="role-spectator">
+          <option value="">— none —</option>
+        </select>
+        <p class="muted">
+          You can continue with only Control. Add a second profile above if you want a spectator.
+        </p>
+        <button id="btn-psn-next" type="button">Continue to console →</button>
+      </section>
+
+      <section class="card hidden" id="panel-device">
+        <h2>Find &amp; register your console</h2>
+        <div class="row">
+          <button id="btn-discover" type="button">Scan LAN</button>
+          <button id="btn-probe" type="button">Probe IP</button>
+        </div>
+        <label>Discovered consoles</label>
+        <select id="ps5-device-select">
+          <option value="">— scan or pick manual IP below —</option>
+        </select>
+        <label>PS5 IP (manual override)</label>
+        <input id="ps5-host" type="text" placeholder="e.g. 192.168.1.50" />
+        <pre id="probe-out" class="log"></pre>
+
+        <h3 class="subhead">Register Control account on console</h3>
+        <p class="muted">
+          On PS5: Settings → System → Remote Play → Link Device → note the PIN.
+          Each account needs its own link (new PIN each time).
+        </p>
+        <label>Control user</label>
+        <select id="ps5-user"></select>
+        <label>PIN for Control</label>
+        <input id="ps5-pin" type="text" maxlength="12" placeholder="PIN" />
+        <button id="btn-register" type="button">Register Control</button>
+        <p id="reg-status" class="muted"></p>
+
+        <h3 class="subhead">Register Spectator (optional)</h3>
+        <label>Spectator user</label>
+        <select id="ps5-spectator-user">
+          <option value="">— none —</option>
+        </select>
+        <label>PIN for Spectator</label>
+        <input id="ps5-spectator-pin" type="text" maxlength="12" placeholder="PIN" />
+        <button id="btn-register-spectator" type="button">Register Spectator</button>
+        <p id="reg-spec-status" class="muted"></p>
+
+        <button id="btn-device-next" type="button" class="primary">Continue to save →</button>
+      </section>
+
+      <section class="card hidden" id="panel-save">
+        <h2>Save &amp; enter studio</h2>
+        <p class="muted" id="save-summary"></p>
+        <button id="btn-save" type="button" class="primary">Save &amp; connect (Control)</button>
+        <p id="save-status" class="muted"></p>
+        <a id="enter-studio" class="hidden" href="/">Open studio →</a>
+      </section>
+
+      <footer class="footer">
+        <button id="btn-skip" type="button" class="ghost">Skip — use Fake console</button>
+      </footer>
+    </div>
+    <script src="/js/setup.js"></script>
+  </body>
+</html>

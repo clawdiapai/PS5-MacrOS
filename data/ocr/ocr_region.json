@@ -1,0 +1,36 @@
+{
+  "id": "ocr_region",
+  "expect": "Fortnite",
+  "mode": "contains",
+  "lang": "eng",
+  "invert": false,
+  "case_sensitive": false,
+  "psm": 6,
+  "roi": {
+    "x": 290,
+    "y": 161,
+    "w": 81,
+    "h": 33
+  },
+  "crop": {
+    "x": 290,
+    "y": 161,
+    "w": 81,
+    "h": 33
+  },
+  "crops": [
+    {
+      "x": 290,
+      "y": 161,
+      "w": 81,
+      "h": 33
+    }
+  ],
+  "frame_size": {
+    "width": 1280,
+    "height": 720
+  },
+  "full": "ocr_region_full.jpg",
+  "has_full": true,
+  "note": "from vis/wait_ocr"
+}

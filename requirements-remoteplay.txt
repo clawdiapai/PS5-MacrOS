@@ -1,0 +1,18 @@
+# Optional Phase 2 deps for real PS5 Remote Play (pyremoteplay).
+# On Windows, netifaces needs a compiler — use netifaces-plus instead.
+#
+#   pip install -r requirements.txt
+#   pip install -r requirements-remoteplay.txt
+
+netifaces-plus>=0.12.5
+pyremoteplay==0.7.6
+# PyAV 14+ renamed Flags.LOW_DELAY → Flags.low_delay; we patch in av_compat.py
+av>=12.0.0
+pyee>=11.0.0,<12
+cryptography>=42.0.0
+protobuf>=4.0.0
+pyps4-2ndscreen>=1.3.0
+pyyaml>=6.0
+requests>=2.31.0
+async_timeout>=4.0.0
+wheel>=0.40.0

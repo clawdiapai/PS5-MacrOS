@@ -1,0 +1,34 @@
+{
+  "name": "seq_11_TWINE_MAP",
+  "version": 2,
+  "created_at": 1788032067.1548507,
+  "meta": {
+    "source": "pi2ps5_import",
+    "normalized": false,
+    "pi2ps5_state": "11_TWINE_MAP",
+    "kind": "MACRO_SEQUENCE"
+  },
+  "keyframes": [],
+  "events": [
+    {
+      "t": 0.0,
+      "btn": "RIGHT",
+      "action": "press"
+    },
+    {
+      "t": 0.1,
+      "btn": "RIGHT",
+      "action": "release"
+    },
+    {
+      "t": 0.3,
+      "btn": "CROSS",
+      "action": "press"
+    },
+    {
+      "t": 0.42,
+      "btn": "CROSS",
+      "action": "release"
+    }
+  ]
+}

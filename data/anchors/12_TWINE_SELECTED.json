@@ -1,0 +1,43 @@
+{
+  "id": "12_TWINE_SELECTED",
+  "threshold": 0.85,
+  "legacy": true,
+  "has_full": false,
+  "full": null,
+  "crop": {
+    "x": 980,
+    "y": 600,
+    "w": 260,
+    "h": 115
+  },
+  "crops": [
+    {
+      "x": 980,
+      "y": 600,
+      "w": 260,
+      "h": 115
+    }
+  ],
+  "target_count": 1,
+  "match_mode": "all",
+  "match_count": 1,
+  "search_roi": [
+    980,
+    600,
+    260,
+    115
+  ],
+  "frame_size": {
+    "width": 1280,
+    "height": 720
+  },
+  "source": "pi2ps5",
+  "pi2ps5_state": "12_TWINE_SELECTED",
+  "pi2ps5_name": "Twine Storm Shield Selected",
+  "pi2ps5_priority": 16,
+  "pi2ps5_action_type": "BUTTON_CLICK",
+  "pi2ps5_templates": [
+    "anchor_twine_title.png"
+  ],
+  "note": "LEGACY \u2014 no reference screenshot (imported from pi2ps5)"
+}
